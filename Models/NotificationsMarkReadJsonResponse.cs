@@ -1,0 +1,10 @@
+using System.Text.Json.Serialization;
+
+namespace DiscourseApiDocumentation.Models;
+
+public record NotificationsMarkReadJsonResponse
+{
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("success")]
+    public string? Success { get; init; }
+}

@@ -1,0 +1,14 @@
+using System.Text.Json.Serialization;
+
+namespace DiscourseApiDocumentation.Models;
+
+public record Group6
+{
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("id")]
+    public int? Id { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("name")]
+    public string? Name { get; init; }
+}
