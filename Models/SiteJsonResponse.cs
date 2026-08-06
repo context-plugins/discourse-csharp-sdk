@@ -103,10 +103,10 @@ public record SiteJsonResponse
     public required object CustomEmojiTranslation { get; init; }
 
     [JsonPropertyName("watched_words_replace")]
-    public required string? WatchedWordsReplace { get; init; }
+    public required object? WatchedWordsReplace { get; init; }
 
     [JsonPropertyName("watched_words_link")]
-    public required string? WatchedWordsLink { get; init; }
+    public required object? WatchedWordsLink { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("markdown_additional_options")]

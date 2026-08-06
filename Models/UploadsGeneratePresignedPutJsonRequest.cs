@@ -6,7 +6,7 @@ namespace DiscourseApiDocumentation.Models;
 public record UploadsGeneratePresignedPutJsonRequest
 {
     [JsonPropertyName("type")]
-    public required TypeModel Type { get; init; }
+    public required TypeEnum Type { get; init; }
 
     [JsonPropertyName("file_name")]
     public required string FileName { get; init; }

@@ -60,7 +60,7 @@ public record Category4
     public required bool ReadRestricted { get; init; }
 
     [JsonPropertyName("permission")]
-    public required int Permission { get; init; }
+    public required int? Permission { get; init; }
 
     [JsonPropertyName("notification_level")]
     public required int NotificationLevel { get; init; }
@@ -81,7 +81,7 @@ public record Category4
     public required string? SortOrder { get; init; }
 
     [JsonPropertyName("sort_ascending")]
-    public required string? SortAscending { get; init; }
+    public required bool? SortAscending { get; init; }
 
     [JsonPropertyName("show_subcategory_list")]
     public required bool ShowSubcategoryList { get; init; }
@@ -107,11 +107,13 @@ public record Category4
     [JsonPropertyName("navigate_to_first_post_after_read")]
     public required bool NavigateToFirstPostAfterRead { get; init; }
 
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("allowed_tags")]
-    public required IReadOnlyList<object> AllowedTags { get; init; }
+    public IReadOnlyList<object>? AllowedTags { get; init; }
 
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("allowed_tag_groups")]
-    public required IReadOnlyList<object> AllowedTagGroups { get; init; }
+    public IReadOnlyList<object>? AllowedTagGroups { get; init; }
 
     [JsonPropertyName("allow_global_tags")]
     public required bool AllowGlobalTags { get; init; }
