@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 
 namespace DiscourseApiDocumentation.Models;
 
@@ -168,4 +169,7 @@ public record PostsJsonResponse2
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("display_username")]
     public string? DisplayUsername { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

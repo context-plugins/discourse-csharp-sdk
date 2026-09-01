@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 
 namespace DiscourseApiDocumentation.Models;
 
@@ -19,4 +20,7 @@ public record Poster6
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("primary_group_id")]
     public int? PrimaryGroupId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

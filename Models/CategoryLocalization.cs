@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 
 namespace DiscourseApiDocumentation.Models;
 
@@ -32,4 +33,7 @@ public record CategoryLocalization
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("description")]
     public string? Description { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

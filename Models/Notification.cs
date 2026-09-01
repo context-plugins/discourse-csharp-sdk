@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 
 namespace DiscourseApiDocumentation.Models;
 
@@ -39,4 +40,7 @@ public record Notification
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("data")]
     public Data? Data { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

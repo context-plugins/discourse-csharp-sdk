@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 
 namespace DiscourseApiDocumentation.Models;
 
@@ -22,4 +23,7 @@ public record TagGroup1
 
     [JsonPropertyName("permissions")]
     public required object Permissions { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 
 namespace DiscourseApiDocumentation.Models;
 
@@ -12,4 +13,7 @@ public record AdminBackupsJsonResponse
 
     [JsonPropertyName("last_modified")]
     public required string LastModified { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

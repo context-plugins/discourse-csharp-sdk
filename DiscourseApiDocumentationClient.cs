@@ -94,7 +94,13 @@ public sealed class DiscourseApiDocumentationClient
         var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
         var httpLogger = new HttpLogger(options.Logging, "DiscourseApiDocumentationClient");
         var rawClient =
-            new RawClient(httpClient, urlFactory, httpStatusPolicy, headersFactory, resiliencePipelineFactory, httpLogger);
+            new RawClient(httpClient,
+                urlFactory,
+                httpStatusPolicy,
+                headersFactory,
+                resiliencePipelineFactory,
+                httpLogger,
+                options.Hooks);
         Admin = new Admin(rawClient, server);
         Backups = new Backups(rawClient, server);
         Badges = new Badges(rawClient, server);

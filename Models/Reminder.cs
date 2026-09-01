@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 using DiscourseApiDocumentation.Models.Enums;
 
 namespace DiscourseApiDocumentation.Models;
@@ -16,4 +17,7 @@ public record Reminder
 
     [JsonPropertyName("type")]
     public required string Type { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

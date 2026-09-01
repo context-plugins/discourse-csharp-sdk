@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using DiscourseApiDocumentation.Core.Models;
 using DiscourseApiDocumentation.Models.Enums;
 
 namespace DiscourseApiDocumentation.Models;
@@ -17,4 +18,7 @@ public record TStatusJsonRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("until")]
     public string? Until { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }
