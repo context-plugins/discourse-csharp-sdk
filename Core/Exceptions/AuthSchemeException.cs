@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace DiscourseApiDocumentation.Core.Exceptions;
+namespace Discourse.Core.Exceptions;
 
 public sealed class AuthSchemeException : Exception
 {

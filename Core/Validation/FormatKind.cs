@@ -1,4 +1,4 @@
-namespace DiscourseApiDocumentation.Core.Validation;
+namespace Discourse.Core.Validation;
 
 public enum FormatKind
 {

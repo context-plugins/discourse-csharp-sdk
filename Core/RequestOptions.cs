@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
-using DiscourseApiDocumentation.Core.Hooks;
+using Discourse.Core.Hooks;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 public sealed record RequestOptions
 {

@@ -1,6 +1,6 @@
-using DiscourseApiDocumentation.Core.Enum;
+using Discourse.Core.Enum;
 
-namespace DiscourseApiDocumentation.Core.Webhooks;
+namespace Discourse.Core.Webhooks;
 
 public abstract record WebhookEvent<TPayload>
 {

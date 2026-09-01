@@ -1,6 +1,6 @@
 # Reference
 
-> Source: [DiscourseApiDocumentationClient](DiscourseApiDocumentationClient.cs)
+> Source: [DiscourseClient](DiscourseClient.cs)
 
 ## Admin
 

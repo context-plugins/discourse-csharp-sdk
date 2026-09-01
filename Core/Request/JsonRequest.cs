@@ -2,9 +2,9 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Core.Extensions;
+using Discourse.Core.Extensions;
 
-namespace DiscourseApiDocumentation.Core.Request;
+namespace Discourse.Core.Request;
 
 internal sealed class JsonRequest<TData>(TData data, JsonSerializerOptions options) : IRequest
 {

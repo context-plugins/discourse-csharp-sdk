@@ -1,4 +1,4 @@
-namespace DiscourseApiDocumentation.Core.Models;
+namespace Discourse.Core.Models;
 
 internal readonly record struct Param(
     string? Key,

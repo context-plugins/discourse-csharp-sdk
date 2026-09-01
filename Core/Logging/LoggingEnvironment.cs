@@ -1,8 +1,8 @@
 using System;
 using Microsoft.Extensions.Logging;
-using DiscourseApiDocumentation.Core.Configuration;
+using Discourse.Core.Configuration;
 
-namespace DiscourseApiDocumentation.Core.Logging;
+namespace Discourse.Core.Logging;
 
 internal static class LoggingEnvironment
 {

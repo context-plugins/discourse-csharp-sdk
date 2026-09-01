@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 internal sealed class UriFactory
 {

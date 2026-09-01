@@ -1,8 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Core.Enum;
+using Discourse.Core.Enum;
 
-namespace DiscourseApiDocumentation.Servers;
+namespace Discourse.Servers;
 
 [JsonConverter(typeof(StringEnumConverter<ServerEnvironment>))]
 public record ServerEnvironment : StringEnum<ServerEnvironment>

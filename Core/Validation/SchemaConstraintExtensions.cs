@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
 
-namespace DiscourseApiDocumentation.Core.Validation;
+namespace Discourse.Core.Validation;
 
 internal static class SchemaConstraintExtensions
 {

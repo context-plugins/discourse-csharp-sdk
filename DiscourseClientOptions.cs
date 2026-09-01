@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using DiscourseApiDocumentation.Core.Configuration;
-using DiscourseApiDocumentation.Core.Hooks;
-using DiscourseApiDocumentation.Servers;
+using Discourse.Core.Configuration;
+using Discourse.Core.Hooks;
+using Discourse.Servers;
 
-namespace DiscourseApiDocumentation;
+namespace Discourse;
 
-public class DiscourseApiDocumentationClientOptions
+public class DiscourseClientOptions
 {
     public ServerEnvironment Environment { get; set; } = ServerEnvironment.Default();
     public RetryOptions Retry { get; set; } = RetryOptions.Default();

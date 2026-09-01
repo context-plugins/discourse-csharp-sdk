@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using DiscourseApiDocumentation.Core.Configuration;
+using Discourse.Core.Configuration;
 
-namespace DiscourseApiDocumentation.Core.Logging;
+namespace Discourse.Core.Logging;
 
 internal sealed class HttpLogger
 {

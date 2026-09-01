@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
 
-namespace DiscourseApiDocumentation.Core.Pagination.States;
+namespace Discourse.Core.Pagination.States;
 
 internal interface IPageState<in TResponse, out TState>
 {

@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DiscourseApiDocumentation.Core.Authentication.ApiKey;
+namespace Discourse.Core.Authentication.ApiKey;
 
 internal sealed class ApiKeyHeaderScheme : IAuthScheme
 {

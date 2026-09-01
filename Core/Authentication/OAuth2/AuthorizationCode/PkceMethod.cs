@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Core.Enum;
+using Discourse.Core.Enum;
 
-namespace DiscourseApiDocumentation.Core.Authentication.OAuth2.AuthorizationCode;
+namespace Discourse.Core.Authentication.OAuth2.AuthorizationCode;
 
 [JsonConverter(typeof(StringEnumConverter<PkceMethod>))]
 public sealed record PkceMethod : StringEnum<PkceMethod>

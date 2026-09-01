@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace DiscourseApiDocumentation.Core.Webhooks.Signing;
+namespace Discourse.Core.Webhooks.Signing;
 
 internal sealed class SignatureVerifier
 {

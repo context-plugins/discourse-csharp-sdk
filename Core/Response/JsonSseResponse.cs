@@ -7,10 +7,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using DiscourseApiDocumentation.Core.Exceptions;
-using DiscourseApiDocumentation.Core.Extensions;
+using Discourse.Core.Exceptions;
+using Discourse.Core.Extensions;
 
-namespace DiscourseApiDocumentation.Core.Response;
+namespace Discourse.Core.Response;
 
 internal sealed class JsonSseResponse<TResponse> : IResponse<IAsyncEnumerable<TResponse>>
 {

@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 internal sealed class AsyncLock
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
-namespace DiscourseApiDocumentation.Core.Configuration;
+namespace Discourse.Core.Configuration;
 
 public record RetryOptions
 {

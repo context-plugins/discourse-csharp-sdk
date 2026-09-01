@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Core.Request;
+namespace Discourse.Core.Request;
 
 internal sealed class FormUrlEncodedRequest : IRequest
 {

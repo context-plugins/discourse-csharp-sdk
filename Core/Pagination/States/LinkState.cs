@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Core.Pagination.States;
+namespace Discourse.Core.Pagination.States;
 
 internal sealed record LinkState<TResponse> : IPageState<TResponse, LinkState<TResponse>>
 {

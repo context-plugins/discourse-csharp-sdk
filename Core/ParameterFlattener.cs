@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 internal static class ParameterFlattener
 {

@@ -1,3 +1,3 @@
-namespace DiscourseApiDocumentation.Core.Models;
+namespace Discourse.Core.Models;
 
 internal readonly record struct UrlTemplate(string BaseUrl, string Path, TemplateParam[] Variables);

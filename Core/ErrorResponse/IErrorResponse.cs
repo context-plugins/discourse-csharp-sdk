@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DiscourseApiDocumentation.Core.ErrorResponse;
+namespace Discourse.Core.ErrorResponse;
 
 public interface IErrorResponse<TError>
 {

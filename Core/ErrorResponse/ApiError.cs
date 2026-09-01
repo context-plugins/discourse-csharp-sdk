@@ -2,10 +2,10 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using DiscourseApiDocumentation.Core.Models;
-using DiscourseApiDocumentation.Core.Response;
+using Discourse.Core.Models;
+using Discourse.Core.Response;
 
-namespace DiscourseApiDocumentation.Core.ErrorResponse;
+namespace Discourse.Core.ErrorResponse;
 
 public abstract class ApiError
 {

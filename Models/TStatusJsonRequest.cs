@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Core.Models;
-using DiscourseApiDocumentation.Models.Enums;
+using Discourse.Core.Models;
+using Discourse.Models.Enums;
 
-namespace DiscourseApiDocumentation.Models;
+namespace Discourse.Models;
 
 public record TStatusJsonRequest
 {

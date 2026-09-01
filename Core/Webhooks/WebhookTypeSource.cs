@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json;
 
-namespace DiscourseApiDocumentation.Core.Webhooks;
+namespace Discourse.Core.Webhooks;
 
 internal abstract record WebhookTypeSource
 {

@@ -2,9 +2,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Core.Response;
+namespace Discourse.Core.Response;
 
 internal sealed class BinaryResponse : IResponse<BinaryContent>
 {

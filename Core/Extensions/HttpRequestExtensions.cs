@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Core.Extensions;
+namespace Discourse.Core.Extensions;
 
 internal static class HttpRequestExtensions
 {

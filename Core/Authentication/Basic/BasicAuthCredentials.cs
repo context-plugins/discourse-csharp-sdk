@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace DiscourseApiDocumentation.Core.Authentication.Basic;
+namespace Discourse.Core.Authentication.Basic;
 
 public sealed class BasicAuthCredentials
 {

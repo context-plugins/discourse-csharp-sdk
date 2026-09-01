@@ -1,4 +1,4 @@
-namespace DiscourseApiDocumentation.Core.Authentication;
+namespace Discourse.Core.Authentication;
 
 /// <summary>
 /// Implemented by auth schemes that maintain cached credential state (e.g., an OAuth2 access token)

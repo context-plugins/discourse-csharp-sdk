@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace DiscourseApiDocumentation.Core.Webhooks.Signing;
+namespace Discourse.Core.Webhooks.Signing;
 
 internal abstract record SignatureAlgorithm
 {

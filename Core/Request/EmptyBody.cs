@@ -1,7 +1,7 @@
 using System.Net.Http;
-using DiscourseApiDocumentation.Core.Extensions;
+using Discourse.Core.Extensions;
 
-namespace DiscourseApiDocumentation.Core.Request;
+namespace Discourse.Core.Request;
 
 internal sealed class EmptyBody : IRequest
 {

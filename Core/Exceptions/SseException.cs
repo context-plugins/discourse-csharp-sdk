@@ -1,6 +1,6 @@
 using System;
 
-namespace DiscourseApiDocumentation.Core.Exceptions;
+namespace Discourse.Core.Exceptions;
 
 public abstract class SseException : Exception
 {

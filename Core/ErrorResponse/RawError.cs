@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DiscourseApiDocumentation.Core.ErrorResponse;
+namespace Discourse.Core.ErrorResponse;
 
 public sealed class RawError
 {

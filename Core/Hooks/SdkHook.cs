@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DiscourseApiDocumentation.Core.Hooks;
+namespace Discourse.Core.Hooks;
 
 public abstract class SdkHook
 {

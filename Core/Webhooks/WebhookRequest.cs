@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DiscourseApiDocumentation.Core.Webhooks;
+namespace Discourse.Core.Webhooks;
 
 public sealed class WebhookRequest
 {

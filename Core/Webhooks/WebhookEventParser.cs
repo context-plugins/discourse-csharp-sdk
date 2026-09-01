@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace DiscourseApiDocumentation.Core.Webhooks;
+namespace Discourse.Core.Webhooks;
 
 public abstract class WebhookEventParser<TEvent>
     where TEvent : class

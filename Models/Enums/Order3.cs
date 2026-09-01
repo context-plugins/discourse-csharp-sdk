@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Core.Enum;
+using Discourse.Core.Enum;
 
-namespace DiscourseApiDocumentation.Models.Enums;
+namespace Discourse.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Order3>))]
 public sealed record Order3 : StringEnum<Order3>

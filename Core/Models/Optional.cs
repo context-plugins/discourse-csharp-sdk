@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace DiscourseApiDocumentation.Core.Models;
+namespace Discourse.Core.Models;
 
 [DebuggerDisplay("{GetDebuggerDisplay(),nq}")]
 internal readonly record struct Optional<TValue>

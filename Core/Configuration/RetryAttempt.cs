@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 
-namespace DiscourseApiDocumentation.Core.Configuration;
+namespace Discourse.Core.Configuration;
 
 public sealed record RetryAttempt
 {

@@ -1,9 +1,9 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Core.Extensions;
+using Discourse.Core.Extensions;
 
-namespace DiscourseApiDocumentation.Core.Converters;
+namespace Discourse.Core.Converters;
 
 internal sealed class DateOnlyDateTimeOffsetConverter : JsonConverter<DateTimeOffset>
 {

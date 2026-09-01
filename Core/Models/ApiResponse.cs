@@ -1,7 +1,7 @@
-using DiscourseApiDocumentation.Core.ErrorResponse;
-using DiscourseApiDocumentation.Core.Response;
+using Discourse.Core.ErrorResponse;
+using Discourse.Core.Response;
 
-namespace DiscourseApiDocumentation.Core.Models;
+namespace Discourse.Core.Models;
 
 internal sealed class ApiResponse<TResponse, TError>
 {

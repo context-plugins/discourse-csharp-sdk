@@ -5,9 +5,9 @@ using System.Net.ServerSentEvents;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using DiscourseApiDocumentation.Core.Exceptions;
+using Discourse.Core.Exceptions;
 
-namespace DiscourseApiDocumentation.Core.Response;
+namespace Discourse.Core.Response;
 
 internal static class SseFrameReader
 {

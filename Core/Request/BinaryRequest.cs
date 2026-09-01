@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
-using DiscourseApiDocumentation.Core.Extensions;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Extensions;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Core.Request;
+namespace Discourse.Core.Request;
 
 internal sealed class BinaryRequest : IRequest
 {

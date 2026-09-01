@@ -1,4 +1,4 @@
-namespace DiscourseApiDocumentation.Core.Authentication.OAuth2.Password;
+namespace Discourse.Core.Authentication.OAuth2.Password;
 
 public sealed class OAuth2PasswordCredentials
 {

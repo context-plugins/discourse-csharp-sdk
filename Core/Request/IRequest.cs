@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace DiscourseApiDocumentation.Core.Request;
+namespace Discourse.Core.Request;
 
 internal interface IRequest
 {

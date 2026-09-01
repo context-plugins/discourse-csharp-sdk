@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace DiscourseApiDocumentation.Models;
+namespace Discourse.Models;
 
 public record GroupsJsonRequest
 {

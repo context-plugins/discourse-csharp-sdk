@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace DiscourseApiDocumentation.Core.Extensions;
+namespace Discourse.Core.Extensions;
 
 internal static class HttpContentExtension
 {

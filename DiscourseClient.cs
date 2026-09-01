@@ -1,10 +1,10 @@
 using System.Net.Http;
-using DiscourseApiDocumentation.Api;
-using DiscourseApiDocumentation.Core;
-using DiscourseApiDocumentation.Core.Logging;
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Api;
+using Discourse.Core;
+using Discourse.Core.Logging;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation;
+namespace Discourse;
 
 /// <summary>
 /// This page contains the documentation on how to use Discourse through API calls.
@@ -75,9 +75,9 @@ namespace DiscourseApiDocumentation;
 /// <c>true</c> or <c>false</c> value unless noted otherwise.
 /// </para>
 /// </summary>
-public sealed class DiscourseApiDocumentationClient
+public sealed class DiscourseClient
 {
-    public DiscourseApiDocumentationClient(HttpClient httpClient, DiscourseApiDocumentationClientOptions options)
+    public DiscourseClient(HttpClient httpClient, DiscourseClientOptions options)
     {
         var server = new Server(options.Environment, options.Server);
         var queryParameterFactory = new QueryParameterFactory([]);
@@ -85,14 +85,14 @@ public sealed class DiscourseApiDocumentationClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory =
-            new HeadersFactory([new HeaderParam("User-Agent", "DiscourseApiDocumentationClient/latest CSharp"),
+            new HeadersFactory([new HeaderParam("User-Agent", "DiscourseClient/latest CSharp"),
                     new HeaderParam("X-APIMatic-Lang", "CSharp"),
                     new HeaderParam("X-APIMatic-Package-Version", "latest"),
                     new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
                     new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
                     new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime)]);
         var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
-        var httpLogger = new HttpLogger(options.Logging, "DiscourseApiDocumentationClient");
+        var httpLogger = new HttpLogger(options.Logging, "DiscourseClient");
         var rawClient =
             new RawClient(httpClient,
                 urlFactory,

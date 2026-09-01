@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 internal static class RuntimeEnvironment
 {

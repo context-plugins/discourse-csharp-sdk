@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace DiscourseApiDocumentation.Core.Models;
+namespace Discourse.Core.Models;
 
 public sealed class ErrorByteContent
 {

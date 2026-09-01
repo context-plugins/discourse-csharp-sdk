@@ -1,4 +1,4 @@
-namespace DiscourseApiDocumentation.Core.Authentication.OAuth2.ClientCredentials;
+namespace Discourse.Core.Authentication.OAuth2.ClientCredentials;
 
 public sealed class OAuth2ClientCredentials
 {

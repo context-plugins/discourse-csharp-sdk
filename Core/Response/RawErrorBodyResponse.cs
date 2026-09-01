@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using DiscourseApiDocumentation.Core.ErrorResponse;
+using Discourse.Core.ErrorResponse;
 
-namespace DiscourseApiDocumentation.Core.Response;
+namespace Discourse.Core.Response;
 
 internal sealed class RawErrorBodyResponse : IResponse<RawError>
 {

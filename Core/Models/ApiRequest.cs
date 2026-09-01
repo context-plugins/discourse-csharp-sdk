@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
-using DiscourseApiDocumentation.Core.Authentication;
-using DiscourseApiDocumentation.Core.Request;
+using Discourse.Core.Authentication;
+using Discourse.Core.Request;
 
-namespace DiscourseApiDocumentation.Core.Models;
+namespace Discourse.Core.Models;
 
 internal sealed class ApiRequest
 {

@@ -1,14 +1,14 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using DiscourseApiDocumentation.Core;
-using DiscourseApiDocumentation.Core.ErrorResponse;
-using DiscourseApiDocumentation.Core.Exceptions;
-using DiscourseApiDocumentation.Core.Request;
-using DiscourseApiDocumentation.Core.Response;
-using DiscourseApiDocumentation.Models;
+using Discourse.Core;
+using Discourse.Core.ErrorResponse;
+using Discourse.Core.Exceptions;
+using Discourse.Core.Request;
+using Discourse.Core.Response;
+using Discourse.Models;
 
-namespace DiscourseApiDocumentation.Api;
+namespace Discourse.Api;
 
 public sealed class Site
 {

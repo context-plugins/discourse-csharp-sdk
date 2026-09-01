@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace DiscourseApiDocumentation.Core.Extensions;
+namespace Discourse.Core.Extensions;
 
 internal static class DateTimeOffsetExtensions
 {

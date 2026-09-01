@@ -5,12 +5,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using DiscourseApiDocumentation.Core.ErrorResponse;
-using DiscourseApiDocumentation.Core.Models;
-using DiscourseApiDocumentation.Core.Request;
-using DiscourseApiDocumentation.Core.Response;
+using Discourse.Core.ErrorResponse;
+using Discourse.Core.Models;
+using Discourse.Core.Request;
+using Discourse.Core.Response;
 
-namespace DiscourseApiDocumentation.Core.Authentication.OAuth2.AuthorizationCode;
+namespace Discourse.Core.Authentication.OAuth2.AuthorizationCode;
 
 internal sealed class OAuth2AuthorizationCodeStrategy
     : IOAuth2RefreshableTokenStrategy<OAuth2AuthorizationCodeCredentials>

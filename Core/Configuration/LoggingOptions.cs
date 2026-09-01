@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 
-namespace DiscourseApiDocumentation.Core.Configuration;
+namespace Discourse.Core.Configuration;
 
 public record LoggingOptions
 {

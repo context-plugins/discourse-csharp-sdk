@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Models.Enums;
+using Discourse.Models.Enums;
 
-namespace DiscourseApiDocumentation.Models;
+namespace Discourse.Models;
 
 public record UploadsCreateMultipartJsonRequest
 {

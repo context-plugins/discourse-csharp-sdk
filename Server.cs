@@ -1,7 +1,7 @@
-using DiscourseApiDocumentation.Core.Models;
-using DiscourseApiDocumentation.Servers;
+using Discourse.Core.Models;
+using Discourse.Servers;
 
-namespace DiscourseApiDocumentation;
+namespace Discourse;
 
 public class Server
 {

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Models.Enums;
+using Discourse.Models.Enums;
 
-namespace DiscourseApiDocumentation.Models;
+namespace Discourse.Models;
 
 public record Event
 {

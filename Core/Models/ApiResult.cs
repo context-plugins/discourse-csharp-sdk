@@ -2,9 +2,9 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http.Headers;
-using DiscourseApiDocumentation.Core.Exceptions;
+using Discourse.Core.Exceptions;
 
-namespace DiscourseApiDocumentation.Core.Models;
+namespace Discourse.Core.Models;
 
 /// <summary>
 ///     Represents either a successful response of type <typeparamref name="TResponse" />

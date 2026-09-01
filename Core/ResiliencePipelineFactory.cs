@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using Polly;
 using Polly.Retry;
 using Polly.Timeout;
-using DiscourseApiDocumentation.Core.Configuration;
-using DiscourseApiDocumentation.Core.Logging;
-using DiscourseApiDocumentation.Core.Request;
+using Discourse.Core.Configuration;
+using Discourse.Core.Logging;
+using Discourse.Core.Request;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 internal sealed class ResiliencePipelineFactory
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace DiscourseApiDocumentation.Core.Pagination.States;
+namespace Discourse.Core.Pagination.States;
 
 internal sealed record CursorState<TResponse> : IPageState<TResponse, CursorState<TResponse>>
 {

@@ -3,15 +3,15 @@ using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace DiscourseApiDocumentation;
+namespace Discourse;
 
 public static class ServiceCollectionExtensions
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddDiscourseApiDocumentationClient(Action<DiscourseApiDocumentationClientOptions>? configure = null)
+        public IServiceCollection AddDiscourseClient(Action<DiscourseClientOptions>? configure = null)
         {
-            var options = new DiscourseApiDocumentationClientOptions();
+            var options = new DiscourseClientOptions();
             configure?.Invoke(options);
             services.AddHttpClient();
             services.AddSingleton(sp =>
@@ -23,7 +23,7 @@ public static class ServiceCollectionExtensions
                         };
                     var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
                     var httpClient = httpClientFactory.CreateClient();
-                    return new DiscourseApiDocumentationClient(httpClient, options);
+                    return new DiscourseClient(httpClient, options);
                 });
             return services;
         }

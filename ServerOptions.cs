@@ -1,6 +1,6 @@
-using DiscourseApiDocumentation.Servers;
+using Discourse.Servers;
 
-namespace DiscourseApiDocumentation;
+namespace Discourse;
 
 public class ServerOptions
 {

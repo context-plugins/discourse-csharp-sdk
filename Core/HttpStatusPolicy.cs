@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 internal sealed class HttpStatusPolicy
 {

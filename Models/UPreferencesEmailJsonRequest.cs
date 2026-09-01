@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
-using DiscourseApiDocumentation.Core.Validation;
-using DiscourseApiDocumentation.Core.Validation.Attributes;
+using Discourse.Core.Validation;
+using Discourse.Core.Validation.Attributes;
 
-namespace DiscourseApiDocumentation.Models;
+namespace Discourse.Models;
 
 public record UPreferencesEmailJsonRequest
 {

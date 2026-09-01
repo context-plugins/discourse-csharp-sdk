@@ -1,6 +1,6 @@
-using DiscourseApiDocumentation.Core.Models;
+using Discourse.Core.Models;
 
-namespace DiscourseApiDocumentation.Servers;
+namespace Discourse.Servers;
 
 public class DefaultOptions
 {

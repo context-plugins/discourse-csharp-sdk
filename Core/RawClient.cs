@@ -6,18 +6,18 @@ using System.Threading;
 using System.Threading.Tasks;
 using Polly;
 using Polly.Timeout;
-using DiscourseApiDocumentation.Core.Authentication;
-using DiscourseApiDocumentation.Core.ErrorResponse;
-using DiscourseApiDocumentation.Core.Extensions;
-using DiscourseApiDocumentation.Core.Hooks;
-using DiscourseApiDocumentation.Core.Logging;
-using DiscourseApiDocumentation.Core.Models;
-using DiscourseApiDocumentation.Core.Pagination;
-using DiscourseApiDocumentation.Core.Pagination.States;
-using DiscourseApiDocumentation.Core.Request;
-using DiscourseApiDocumentation.Core.Response;
+using Discourse.Core.Authentication;
+using Discourse.Core.ErrorResponse;
+using Discourse.Core.Extensions;
+using Discourse.Core.Hooks;
+using Discourse.Core.Logging;
+using Discourse.Core.Models;
+using Discourse.Core.Pagination;
+using Discourse.Core.Pagination.States;
+using Discourse.Core.Request;
+using Discourse.Core.Response;
 
-namespace DiscourseApiDocumentation.Core;
+namespace Discourse.Core;
 
 internal sealed class RawClient
 {

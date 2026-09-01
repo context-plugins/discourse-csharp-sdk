@@ -1,8 +1,8 @@
-# Discourse API Documentation
+# Discourse
 
 [![Built with APIMatic][apimatic-badge]][apimatic-url] [![License: MIT][license-badge]][license-url]
 
-The Discourse API Documentation SDK for .NET provides access to the Discourse API Documentation REST APIs from .NET applications.
+The Discourse SDK for .NET provides access to the Discourse REST APIs from .NET applications.
 
 > [!TIP]
 > **Looking for a specific signature, model, enum, or error type?** This SDK ships a generated,
@@ -75,7 +75,7 @@ If an endpoint accepts a boolean be sure to specify it as a lowercase
 Add the .NET SDK as a project reference into your solution:
 
 ```bash
-dotnet add reference <path-to-sdk>/DiscourseApiDocumentation.csproj
+dotnet add reference <path-to-sdk>/Discourse.csproj
 ```
 
 ---
@@ -84,10 +84,10 @@ dotnet add reference <path-to-sdk>/DiscourseApiDocumentation.csproj
 
 ### Dependency Injection
 
-Register the client with `IServiceCollection` and resolve it from the container. The `HttpClient` is managed by `IHttpClientFactory`. Configure the client's behavior through [DiscourseApiDocumentationClientOptions](DiscourseApiDocumentationClientOptions.cs).
+Register the client with `IServiceCollection` and resolve it from the container. The `HttpClient` is managed by `IHttpClientFactory`. Configure the client's behavior through [DiscourseClientOptions](DiscourseClientOptions.cs).
 
 ```csharp
-services.AddDiscourseApiDocumentationClient(options =>
+services.AddDiscourseClient(options =>
     {
         options.Environment = ServerEnvironment.Production;
         // TODO: configure more client options here
@@ -96,17 +96,17 @@ services.AddDiscourseApiDocumentationClient(options =>
 
 ### Direct Instantiation
 
-Create the client by passing an `HttpClient` you manage yourself. Configure the client's behavior through [DiscourseApiDocumentationClientOptions](DiscourseApiDocumentationClientOptions.cs).
+Create the client by passing an `HttpClient` you manage yourself. Configure the client's behavior through [DiscourseClientOptions](DiscourseClientOptions.cs).
 
 ```csharp
 var httpClient = new HttpClient();
 // TODO: configure more client options here
 var options =
-    new DiscourseApiDocumentationClientOptions
+    new DiscourseClientOptions
     {
         Environment = ServerEnvironment.Production,
     };
-var client = new DiscourseApiDocumentationClient(httpClient, options);
+var client = new DiscourseClient(httpClient, options);
 ```
 
 ---
@@ -144,7 +144,7 @@ The map and the [API Reference](api-reference.md) answer different questions, an
 ## Best Practices
 
 > [!TIP]
-> Use a **single `DiscourseApiDocumentationClient` instance** for the lifetime of your application and
+> Use a **single `DiscourseClient` instance** for the lifetime of your application and
 > reuse it across all requests. Creating a new instance per request might exhaust the
 > connection pool.
 
