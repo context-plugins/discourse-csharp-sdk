@@ -8,33 +8,38 @@ Accessor: `client.PrivateMessages` · Source: `Api/PrivateMessages.cs` · 3 oper
 
 ### CreateTopicPostPm
 
-- **Signature**: `CreateTopicPostPm(string apiKey, string apiUsername, PostsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateTopicPostPm(CreateTopicPostPmRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ApiKey`, `ApiUsername`
 - **Returns**: `PostsJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateTopicPostPmRequest` | `Requests/Posts/CreateTopicPostPmRequest.cs` |
 | `PostsJsonRequest` | `Models/PostsJsonRequest.cs` |
 | `PostsJsonResponse1` | `Models/PostsJsonResponse1.cs` |
 
 ### GetUserSentPrivateMessages
 
-- **Signature**: `GetUserSentPrivateMessages(string username, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetUserSentPrivateMessages(GetUserSentPrivateMessagesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Username`
 - **Returns**: `TopicsPrivateMessagesSentJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetUserSentPrivateMessagesRequest` | `Requests/PrivateMessages/GetUserSentPrivateMessagesRequest.cs` |
 | `TopicsPrivateMessagesSentJsonResponse` | `Models/TopicsPrivateMessagesSentJsonResponse.cs` |
 
 ### ListUserPrivateMessages
 
-- **Signature**: `ListUserPrivateMessages(string username, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ListUserPrivateMessages(ListUserPrivateMessagesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Username`
 - **Returns**: `TopicsPrivateMessagesJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ListUserPrivateMessagesRequest` | `Requests/PrivateMessages/ListUserPrivateMessagesRequest.cs` |
 | `TopicsPrivateMessagesJsonResponse` | `Models/TopicsPrivateMessagesJsonResponse.cs` |
 

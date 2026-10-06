@@ -8,31 +8,33 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 ### CreateCategory
 
-- **Signature**: `CreateCategory(CategoriesJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateCategory(CreateCategoryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CategoriesJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateCategoryRequest` | `Requests/Categories/CreateCategoryRequest.cs` |
 | `CategoriesJsonRequest` | `Models/CategoriesJsonRequest.cs` |
 | `CategoriesJsonResponse` | `Models/CategoriesJsonResponse.cs` |
 
 ### GetCategory
 
-- **Signature**: `GetCategory(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetCategory(GetCategoryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `CShowJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetCategoryRequest` | `Requests/Categories/GetCategoryRequest.cs` |
 | `CShowJsonResponse` | `Models/CShowJsonResponse.cs` |
 
 ### GetSite
 
-- **Signature**: `GetSite(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetSite(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `SiteJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -40,35 +42,38 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 ### ListCategories
 
-- **Signature**: `ListCategories(bool? includeSubcategories, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `includeSubcategories` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `include_subcategories` ← `includeSubcategories`
+- **Signature**: `ListCategories(ListCategoriesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `include_subcategories` ← `IncludeSubcategories`
 - **Returns**: `CategoriesJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ListCategoriesRequest` | `Requests/Categories/ListCategoriesRequest.cs` |
 | `CategoriesJsonResponse1` | `Models/CategoriesJsonResponse1.cs` |
 
 ### ListCategoryTopics
 
-- **Signature**: `ListCategoryTopics(string slug, int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ListCategoryTopics(ListCategoryTopicsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Slug`, `Id`
 - **Returns**: `CJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ListCategoryTopicsRequest` | `Requests/Categories/ListCategoryTopicsRequest.cs` |
 | `CJsonResponse` | `Models/CJsonResponse.cs` |
 
 ### UpdateCategory
 
-- **Signature**: `UpdateCategory(int id, CategoriesJsonRequest1? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `UpdateCategory(UpdateCategoryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `CategoriesJsonResponse2`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `UpdateCategoryRequest` | `Requests/Categories/UpdateCategoryRequest.cs` |
 | `CategoriesJsonRequest1` | `Models/CategoriesJsonRequest1.cs` |
 | `CategoriesJsonResponse2` | `Models/CategoriesJsonResponse2.cs` |
 

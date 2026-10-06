@@ -8,9 +8,9 @@ Accessor: `client.Site` · Source: `Api/Site.cs` · 2 operations
 
 ### GetSite
 
-- **Signature**: `GetSite(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetSite(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `SiteJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -18,9 +18,9 @@ Accessor: `client.Site` · Source: `Api/Site.cs` · 2 operations
 
 ### GetSiteBasicInfo
 
-- **Signature**: `GetSiteBasicInfo(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetSiteBasicInfo(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `SiteBasicInfoJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |

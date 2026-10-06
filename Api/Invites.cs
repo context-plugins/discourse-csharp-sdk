@@ -9,6 +9,8 @@ using Discourse.Core.Models;
 using Discourse.Core.Request;
 using Discourse.Core.Response;
 using Discourse.Models;
+using Discourse.Requests.Invites;
+using Discourse.Requests.Topics;
 
 namespace Discourse.Api;
 
@@ -26,120 +28,112 @@ public sealed class Invites
     /// <summary>
     /// Create an invite
     /// </summary>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="InvitesJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<InvitesJsonResponse> CreateInvite(string apiKey,
-        string apiUsername,
-        InvitesJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<InvitesJsonResponse> CreateInvite(CreateInviteRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/invites.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/invites.json"),
             [],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<InvitesJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Create multiple invites
     /// </summary>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="InvitesCreateMultipleJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<InvitesCreateMultipleJsonResponse> CreateMultipleInvites(string apiKey,
-        string apiUsername,
-        InvitesCreateMultipleJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<InvitesCreateMultipleJsonResponse> CreateMultipleInvites(CreateMultipleInvitesRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/invites/create-multiple.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/invites/create-multiple.json"),
             [],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<InvitesCreateMultipleJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Invite group to topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TInviteGroupJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TInviteGroupJsonResponse> InviteGroupToTopic(string id,
-        string apiKey,
-        string apiUsername,
-        TInviteGroupJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TInviteGroupJsonResponse> InviteGroupToTopic(InviteGroupToTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/invite-group.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/invite-group.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TInviteGroupJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Invite to topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TInviteJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TInviteJsonResponse> InviteToTopic(string id,
-        string apiKey,
-        string apiUsername,
-        TInviteJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TInviteJsonResponse> InviteToTopic(InviteToTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/invite.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/invite.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TInviteJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 }

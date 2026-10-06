@@ -13,6 +13,7 @@ public record InvitesCreateMultipleJsonRequest
     [JsonPropertyName("email")]
     public string? Email { get; init; }
 
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("skip_email")]
     public bool? SkipEmail { get; init; } = false;
 
@@ -26,6 +27,7 @@ public record InvitesCreateMultipleJsonRequest
     /// <summary>
     /// optional, for link invites
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("max_redemptions_allowed")]
     public int? MaxRedemptionsAllowed { get; init; } = 1;
 

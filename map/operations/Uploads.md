@@ -8,87 +8,86 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 ### AbortMultipart
 
-- **Signature**: `AbortMultipart(UploadsAbortMultipartJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `AbortMultipart(AbortMultipartRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UploadsAbortMultipartJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `AbortMultipartRequest` | `Requests/Uploads/AbortMultipartRequest.cs` |
 | `UploadsAbortMultipartJsonRequest` | `Models/UploadsAbortMultipartJsonRequest.cs` |
 | `UploadsAbortMultipartJsonResponse` | `Models/UploadsAbortMultipartJsonResponse.cs` |
 
 ### BatchPresignMultipartParts
 
-- **Signature**: `BatchPresignMultipartParts(UploadsBatchPresignMultipartPartsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `BatchPresignMultipartParts(BatchPresignMultipartPartsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UploadsBatchPresignMultipartPartsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `BatchPresignMultipartPartsRequest` | `Requests/Uploads/BatchPresignMultipartPartsRequest.cs` |
 | `UploadsBatchPresignMultipartPartsJsonRequest` | `Models/UploadsBatchPresignMultipartPartsJsonRequest.cs` |
 | `UploadsBatchPresignMultipartPartsJsonResponse` | `Models/UploadsBatchPresignMultipartPartsJsonResponse.cs` |
 
 ### CompleteExternalUpload
 
-- **Signature**: `CompleteExternalUpload(UploadsCompleteExternalUploadJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CompleteExternalUpload(CompleteExternalUploadRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UploadsCompleteExternalUploadJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CompleteExternalUploadRequest` | `Requests/Uploads/CompleteExternalUploadRequest.cs` |
 | `UploadsCompleteExternalUploadJsonRequest` | `Models/UploadsCompleteExternalUploadJsonRequest.cs` |
 | `UploadsCompleteExternalUploadJsonResponse` | `Models/UploadsCompleteExternalUploadJsonResponse.cs` |
 
 ### CompleteMultipart
 
-- **Signature**: `CompleteMultipart(UploadsCompleteMultipartJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CompleteMultipart(CompleteMultipartRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UploadsCompleteMultipartJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CompleteMultipartRequest` | `Requests/Uploads/CompleteMultipartRequest.cs` |
 | `UploadsCompleteMultipartJsonRequest` | `Models/UploadsCompleteMultipartJsonRequest.cs` |
 | `UploadsCompleteMultipartJsonResponse` | `Models/UploadsCompleteMultipartJsonResponse.cs` |
 
 ### CreateMultipartUpload
 
-- **Signature**: `CreateMultipartUpload(UploadsCreateMultipartJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateMultipartUpload(CreateMultipartUploadRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UploadsCreateMultipartJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateMultipartUploadRequest` | `Requests/Uploads/CreateMultipartUploadRequest.cs` |
 | `UploadsCreateMultipartJsonRequest` | `Models/UploadsCreateMultipartJsonRequest.cs` |
 | `UploadsCreateMultipartJsonResponse` | `Models/UploadsCreateMultipartJsonResponse.cs` |
 
 ### CreateUpload
 
-- **Signature**: `CreateUpload(UploadType uploadType, int? userId, bool? synchronous, BinaryContent? file, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `userId` — nullable, no default → **must pass explicitly**
-  - `synchronous` — nullable, no default → **must pass explicitly**
-  - `file` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateUpload(CreateUploadRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `UploadType`
 - **Returns**: `UploadsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateUploadRequest` | `Requests/Uploads/CreateUploadRequest.cs` |
 | `UploadType` | `Models/Enums/UploadType.cs` |
 | `UploadsJsonResponse` | `Models/UploadsJsonResponse.cs` |
 
 ### GeneratePresignedPut
 
-- **Signature**: `GeneratePresignedPut(UploadsGeneratePresignedPutJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `GeneratePresignedPut(GeneratePresignedPutRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `UploadsGeneratePresignedPutJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GeneratePresignedPutRequest` | `Requests/Uploads/GeneratePresignedPutRequest.cs` |
 | `UploadsGeneratePresignedPutJsonRequest` | `Models/UploadsGeneratePresignedPutJsonRequest.cs` |
 | `UploadsGeneratePresignedPutJsonResponse` | `Models/UploadsGeneratePresignedPutJsonResponse.cs` |
 

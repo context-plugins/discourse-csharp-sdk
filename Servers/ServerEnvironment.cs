@@ -5,22 +5,20 @@ using Discourse.Core.Enum;
 namespace Discourse.Servers;
 
 [JsonConverter(typeof(StringEnumConverter<ServerEnvironment>))]
-public record ServerEnvironment : StringEnum<ServerEnvironment>
+public sealed record ServerEnvironment : ClosedStringEnum<ServerEnvironment>
 {
-    public static readonly ServerEnvironment Production = new("production");
-
     private ServerEnvironment(string value) : base(value)
     {
     }
 
-    internal T Match<T>(Func<T> onProduction) =>
+    public static readonly ServerEnvironment Production = new("production");
+
+    public static ServerEnvironment Default() => Production;
+
+    internal TResult Match<TResult>(Func<TResult> onProduction) =>
         this switch
         {
             _ when this == Production => onProduction(),
-            _ => throw new ArgumentOutOfRangeException(nameof(ServerEnvironment),
-                this,
-                $"Unknown {nameof(ServerEnvironment)} value.")
+            _ => throw new InvalidOperationException($"{nameof(ServerEnvironment)} holds no known value.")
         };
-
-    public static ServerEnvironment Default() => Production;
 }

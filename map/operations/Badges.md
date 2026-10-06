@@ -8,9 +8,9 @@ Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
 
 ### AdminListBadges
 
-- **Signature**: `AdminListBadges(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `AdminListBadges(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AdminBadgesJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -18,41 +18,49 @@ Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
 
 ### CreateBadge
 
-- **Signature**: `CreateBadge(AdminBadgesJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateBadge(CreateBadgeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AdminBadgesJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateBadgeRequest` | `Requests/Badges/CreateBadgeRequest.cs` |
 | `AdminBadgesJsonRequest` | `Models/AdminBadgesJsonRequest.cs` |
 | `AdminBadgesJsonResponse1` | `Models/AdminBadgesJsonResponse1.cs` |
 
 ### DeleteBadge
 
-- **Signature**: `DeleteBadge(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DeleteBadge(DeleteBadgeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
-
-### ListUserBadges
-
-- **Signature**: `ListUserBadges(string username, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Returns**: `UserBadgesJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `DeleteBadgeRequest` | `Requests/Badges/DeleteBadgeRequest.cs` |
+
+### ListUserBadges
+
+- **Signature**: `ListUserBadges(ListUserBadgesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Username`
+- **Returns**: `UserBadgesJsonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `ListUserBadgesRequest` | `Requests/Badges/ListUserBadgesRequest.cs` |
 | `UserBadgesJsonResponse` | `Models/UserBadgesJsonResponse.cs` |
 
 ### UpdateBadge
 
-- **Signature**: `UpdateBadge(int id, AdminBadgesJsonRequest1? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `UpdateBadge(UpdateBadgeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminBadgesJsonResponse2`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `UpdateBadgeRequest` | `Requests/Badges/UpdateBadgeRequest.cs` |
 | `AdminBadgesJsonRequest1` | `Models/AdminBadgesJsonRequest1.cs` |
 | `AdminBadgesJsonResponse2` | `Models/AdminBadgesJsonResponse2.cs` |
 

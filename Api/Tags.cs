@@ -9,6 +9,7 @@ using Discourse.Core.Models;
 using Discourse.Core.Request;
 using Discourse.Core.Response;
 using Discourse.Models;
+using Discourse.Requests.Tags;
 
 namespace Discourse.Api;
 
@@ -26,39 +27,41 @@ public sealed class Tags
     /// <summary>
     /// Creates a tag group
     /// </summary>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TagGroupsJsonResponse1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TagGroupsJsonResponse1> CreateTagGroup(TagGroupsJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TagGroupsJsonResponse1> CreateTagGroup(CreateTagGroupRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/tag_groups.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/tag_groups.json"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TagGroupsJsonResponse1>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a specific tag
     /// </summary>
-    /// <param name="name"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TagJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TagJsonResponse> GetTag(string name,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TagJsonResponse> GetTag(GetTagRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/tag/{name}.json"),
-            [new TemplateParam("name", name)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/tag/{name}.json"),
+            [new TemplateParam("name", request.Name)],
             [],
             [],
             HttpMethod.Get,
@@ -67,21 +70,22 @@ public sealed class Tags
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a single tag group
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TagGroupsJsonResponse2"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TagGroupsJsonResponse2> GetTagGroup(string id,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TagGroupsJsonResponse2> GetTagGroup(GetTagGroupRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/tag_groups/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/tag_groups/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [],
             HttpMethod.Get,
@@ -90,18 +94,19 @@ public sealed class Tags
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a list of tag groups
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TagGroupsJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     public Task<TagGroupsJsonResponse> ListTagGroups(RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/tag_groups.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/tag_groups.json"),
             [],
             [],
             [],
@@ -111,17 +116,19 @@ public sealed class Tags
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a list of tags
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TagsJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TagsJsonResponse> ListTags(RequestOptions? requestOptions = null, CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/tags.json"),
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TagsJsonResponse> ListTags(RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/tags.json"),
             [],
             [],
             [],
@@ -131,30 +138,29 @@ public sealed class Tags
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Update tag group
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TagGroupsJsonResponse3"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TagGroupsJsonResponse3> UpdateTagGroup(string id,
-        TagGroupsJsonRequest1? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TagGroupsJsonResponse3> UpdateTagGroup(UpdateTagGroupRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/tag_groups/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/tag_groups/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TagGroupsJsonResponse3>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 }

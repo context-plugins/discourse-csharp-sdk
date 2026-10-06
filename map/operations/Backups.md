@@ -8,28 +8,33 @@ Accessor: `client.Backups` · Source: `Api/Backups.cs` · 4 operations
 
 ### CreateBackup
 
-- **Signature**: `CreateBackup(AdminBackupsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateBackup(CreateBackupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AdminBackupsJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateBackupRequest` | `Requests/Backups/CreateBackupRequest.cs` |
 | `AdminBackupsJsonRequest` | `Models/AdminBackupsJsonRequest.cs` |
 | `AdminBackupsJsonResponse1` | `Models/AdminBackupsJsonResponse1.cs` |
 
 ### DownloadBackup
 
-- **Signature**: `DownloadBackup(string filename, string token, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `token` ← `token`
+- **Signature**: `DownloadBackup(DownloadBackupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Filename`, `Token`
+- **Query params (wire ← C#)**: `token` ← `Token`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `DownloadBackupRequest` | `Requests/Backups/DownloadBackupRequest.cs` |
 
 ### GetBackups
 
-- **Signature**: `GetBackups(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetBackups(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `IReadOnlyList<AdminBackupsJsonResponse>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -37,7 +42,12 @@ Accessor: `client.Backups` · Source: `Api/Backups.cs` · 4 operations
 
 ### SendDownloadBackupEmail
 
-- **Signature**: `SendDownloadBackupEmail(string filename, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `SendDownloadBackupEmail(SendDownloadBackupEmailRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Filename`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `SendDownloadBackupEmailRequest` | `Requests/Backups/SendDownloadBackupEmailRequest.cs` |
 

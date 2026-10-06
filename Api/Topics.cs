@@ -9,6 +9,8 @@ using Discourse.Core.Models;
 using Discourse.Core.Request;
 using Discourse.Core.Response;
 using Discourse.Models;
+using Discourse.Requests.Posts;
+using Discourse.Requests.Topics;
 
 namespace Discourse.Api;
 
@@ -26,159 +28,149 @@ public sealed class Topics
     /// <summary>
     /// Bookmark topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task BookmarkTopic(string id,
-        string apiKey,
-        string apiUsername,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task BookmarkTopic(BookmarkTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/bookmark.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/bookmark.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Put,
             EmptyBody.Instance,
             VoidResponse.Instance,
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Creates a new topic, a new post, or a private message
     /// </summary>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="PostsJsonResponse1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<PostsJsonResponse1> CreateTopicPostPm(string apiKey,
-        string apiUsername,
-        PostsJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<PostsJsonResponse1> CreateTopicPostPm(CreateTopicPostPmRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/posts.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/posts.json"),
             [],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<PostsJsonResponse1>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Create topic timer
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TTimerJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TTimerJsonResponse> CreateTopicTimer(string id,
-        string apiKey,
-        string apiUsername,
-        TTimerJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TTimerJsonResponse> CreateTopicTimer(CreateTopicTimerRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/timer.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/timer.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TTimerJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get specific posts from a topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TPostsJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TPostsJsonResponse> GetSpecificPostsFromTopic(string id,
-        string apiKey,
-        string apiUsername,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TPostsJsonResponse> GetSpecificPostsFromTopic(GetSpecificPostsFromTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/posts.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/posts.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey), new HeaderParam("Api-Username", apiUsername)],
+            [new HeaderParam("Api-Key", request.ApiKey), new HeaderParam("Api-Username", request.ApiUsername)],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<TPostsJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a single topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TJsonResponse> GetTopic(string id,
-        string apiKey,
-        string apiUsername,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TJsonResponse> GetTopic(GetTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey), new HeaderParam("Api-Username", apiUsername)],
+            [new HeaderParam("Api-Key", request.ApiKey), new HeaderParam("Api-Username", request.ApiUsername)],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<TJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get topic by external_id
     /// </summary>
-    /// <param name="externalId"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task GetTopicByExternalId(string externalId,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task GetTopicByExternalId(GetTopicByExternalIdRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/external_id/{external_id}.json"),
-            [new TemplateParam("external_id", externalId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/external_id/{external_id}.json"),
+            [new TemplateParam("external_id", request.ExternalId)],
             [],
             [],
             HttpMethod.Get,
@@ -187,280 +179,253 @@ public sealed class Topics
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Invite group to topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TInviteGroupJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TInviteGroupJsonResponse> InviteGroupToTopic(string id,
-        string apiKey,
-        string apiUsername,
-        TInviteGroupJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TInviteGroupJsonResponse> InviteGroupToTopic(InviteGroupToTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/invite-group.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/invite-group.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TInviteGroupJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Invite to topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TInviteJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TInviteJsonResponse> InviteToTopic(string id,
-        string apiKey,
-        string apiUsername,
-        TInviteJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TInviteJsonResponse> InviteToTopic(InviteToTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/invite.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/invite.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TInviteJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get the latest topics
     /// </summary>
-    /// <param name="order">Enum: <c>default</c>, <c>created</c>, <c>activity</c>, <c>views</c>, <c>posts</c>, <c>category</c>, <c>likes</c>, <c>op_likes</c>, <c>posters</c></param>
-    /// <param name="ascending">Defaults to <c>desc</c>, add <c>ascending=true</c> to sort asc</param>
-    /// <param name="perPage">Maximum number of topics returned, between 1-100</param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="LatestJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<LatestJsonResponse> ListLatestTopics(string? order,
-        string? ascending,
-        int? perPage,
-        string apiKey,
-        string apiUsername,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<LatestJsonResponse> ListLatestTopics(ListLatestTopicsRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/latest.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/latest.json"),
             [],
-            [new Param("order", order), new Param("ascending", ascending), new Param("per_page", perPage)],
-            [new HeaderParam("Api-Key", apiKey), new HeaderParam("Api-Username", apiUsername)],
+            [
+                new Param("order", request.Order),
+                new Param("ascending", request.Ascending),
+                new Param("per_page", request.PerPage),
+            ],
+            [new HeaderParam("Api-Key", request.ApiKey), new HeaderParam("Api-Username", request.ApiUsername)],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<LatestJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get the top topics filtered by period
     /// </summary>
-    /// <param name="period">Enum: <c>all</c>, <c>yearly</c>, <c>quarterly</c>, <c>monthly</c>, <c>weekly</c>, <c>daily</c></param>
-    /// <param name="perPage">Maximum number of topics returned, between 1-100</param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TopJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TopJsonResponse> ListTopTopics(string? period,
-        int? perPage,
-        string apiKey,
-        string apiUsername,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TopJsonResponse> ListTopTopics(ListTopTopicsRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/top.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/top.json"),
             [],
-            [new Param("period", period), new Param("per_page", perPage)],
-            [new HeaderParam("Api-Key", apiKey), new HeaderParam("Api-Username", apiUsername)],
+            [new Param("period", request.Period), new Param("per_page", request.PerPage)],
+            [new HeaderParam("Api-Key", request.ApiKey), new HeaderParam("Api-Username", request.ApiUsername)],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<TopJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Remove a topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task RemoveTopic(string id,
-        string apiKey,
-        string apiUsername,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task RemoveTopic(RemoveTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Delete,
             EmptyBody.Instance,
             VoidResponse.Instance,
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Set notification level
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TNotificationsJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TNotificationsJsonResponse> SetNotificationLevel(string id,
-        string apiKey,
-        string apiUsername,
-        TNotificationsJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TNotificationsJsonResponse> SetNotificationLevel(SetNotificationLevelRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/notifications.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/notifications.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TNotificationsJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Update a topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TJsonResponse1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TJsonResponse1> UpdateTopic(string id,
-        string apiKey,
-        string apiUsername,
-        TJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TJsonResponse1> UpdateTopic(UpdateTopicRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/-/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/-/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TJsonResponse1>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Update the status of a topic
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TStatusJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TStatusJsonResponse> UpdateTopicStatus(string id,
-        string apiKey,
-        string apiUsername,
-        TStatusJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TStatusJsonResponse> UpdateTopicStatus(UpdateTopicStatusRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/status.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/status.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TStatusJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Update topic timestamp
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TChangeTimestampJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TChangeTimestampJsonResponse> UpdateTopicTimestamp(string id,
-        string apiKey,
-        string apiUsername,
-        TChangeTimestampJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TChangeTimestampJsonResponse> UpdateTopicTimestamp(UpdateTopicTimestampRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/t/{id}/change-timestamp.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/t/{id}/change-timestamp.json"),
+            [new TemplateParam("id", request.Id)],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<TChangeTimestampJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 }

@@ -9,6 +9,7 @@ using Discourse.Core.Models;
 using Discourse.Core.Request;
 using Discourse.Core.Response;
 using Discourse.Models;
+using Discourse.Requests.Badges;
 
 namespace Discourse.Api;
 
@@ -27,12 +28,13 @@ public sealed class Badges
     /// List badges
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminBadgesJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     public Task<AdminBadgesJsonResponse> AdminListBadges(RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/badges.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/badges.json"),
             [],
             [],
             [],
@@ -42,42 +44,46 @@ public sealed class Badges
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Create badge
     /// </summary>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminBadgesJsonResponse1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminBadgesJsonResponse1> CreateBadge(AdminBadgesJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminBadgesJsonResponse1> CreateBadge(CreateBadgeRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/badges.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/badges.json"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<AdminBadgesJsonResponse1>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Delete badge
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task DeleteBadge(int id, RequestOptions? requestOptions = null, CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/badges/{id}.json"),
-            [new TemplateParam("id", id)],
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task DeleteBadge(DeleteBadgeRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/badges/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
@@ -86,21 +92,22 @@ public sealed class Badges
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List badges for a user
     /// </summary>
-    /// <param name="username"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UserBadgesJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<UserBadgesJsonResponse> ListUserBadges(string username,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<UserBadgesJsonResponse> ListUserBadges(ListUserBadgesRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/user-badges/{username}.json"),
-            [new TemplateParam("username", username)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/user-badges/{username}.json"),
+            [new TemplateParam("username", request.Username)],
             [],
             [],
             HttpMethod.Get,
@@ -109,30 +116,29 @@ public sealed class Badges
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Update badge
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminBadgesJsonResponse2"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminBadgesJsonResponse2> UpdateBadge(int id,
-        AdminBadgesJsonRequest1? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminBadgesJsonResponse2> UpdateBadge(UpdateBadgeRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/badges/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/badges/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<AdminBadgesJsonResponse2>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 }

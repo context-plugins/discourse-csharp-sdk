@@ -8,162 +8,188 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 ### BookmarkTopic
 
-- **Signature**: `BookmarkTopic(string id, string apiKey, string apiUsername, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `BookmarkTopic(BookmarkTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
-
-### CreateTopicPostPm
-
-- **Signature**: `CreateTopicPostPm(string apiKey, string apiUsername, PostsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
-- **Returns**: `PostsJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `BookmarkTopicRequest` | `Requests/Topics/BookmarkTopicRequest.cs` |
+
+### CreateTopicPostPm
+
+- **Signature**: `CreateTopicPostPm(CreateTopicPostPmRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ApiKey`, `ApiUsername`
+- **Returns**: `PostsJsonResponse1`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateTopicPostPmRequest` | `Requests/Posts/CreateTopicPostPmRequest.cs` |
 | `PostsJsonRequest` | `Models/PostsJsonRequest.cs` |
 | `PostsJsonResponse1` | `Models/PostsJsonResponse1.cs` |
 
 ### CreateTopicTimer
 
-- **Signature**: `CreateTopicTimer(string id, string apiKey, string apiUsername, TTimerJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateTopicTimer(CreateTopicTimerRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `TTimerJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateTopicTimerRequest` | `Requests/Topics/CreateTopicTimerRequest.cs` |
 | `TTimerJsonRequest` | `Models/TTimerJsonRequest.cs` |
 | `TTimerJsonResponse` | `Models/TTimerJsonResponse.cs` |
 
 ### GetSpecificPostsFromTopic
 
-- **Signature**: `GetSpecificPostsFromTopic(string id, string apiKey, string apiUsername, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetSpecificPostsFromTopic(GetSpecificPostsFromTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `TPostsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetSpecificPostsFromTopicRequest` | `Requests/Topics/GetSpecificPostsFromTopicRequest.cs` |
 | `TPostsJsonResponse` | `Models/TPostsJsonResponse.cs` |
 
 ### GetTopic
 
-- **Signature**: `GetTopic(string id, string apiKey, string apiUsername, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetTopic(GetTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `TJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetTopicRequest` | `Requests/Topics/GetTopicRequest.cs` |
 | `TJsonResponse` | `Models/TJsonResponse.cs` |
 
 ### GetTopicByExternalId
 
-- **Signature**: `GetTopicByExternalId(string externalId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetTopicByExternalId(GetTopicByExternalIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ExternalId`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
-
-### InviteGroupToTopic
-
-- **Signature**: `InviteGroupToTopic(string id, string apiKey, string apiUsername, TInviteGroupJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
-- **Returns**: `TInviteGroupJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetTopicByExternalIdRequest` | `Requests/Topics/GetTopicByExternalIdRequest.cs` |
+
+### InviteGroupToTopic
+
+- **Signature**: `InviteGroupToTopic(InviteGroupToTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
+- **Returns**: `TInviteGroupJsonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `InviteGroupToTopicRequest` | `Requests/Topics/InviteGroupToTopicRequest.cs` |
 | `TInviteGroupJsonRequest` | `Models/TInviteGroupJsonRequest.cs` |
 | `TInviteGroupJsonResponse` | `Models/TInviteGroupJsonResponse.cs` |
 
 ### InviteToTopic
 
-- **Signature**: `InviteToTopic(string id, string apiKey, string apiUsername, TInviteJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `InviteToTopic(InviteToTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `TInviteJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `InviteToTopicRequest` | `Requests/Topics/InviteToTopicRequest.cs` |
 | `TInviteJsonRequest` | `Models/TInviteJsonRequest.cs` |
 | `TInviteJsonResponse` | `Models/TInviteJsonResponse.cs` |
 
 ### ListLatestTopics
 
-- **Signature**: `ListLatestTopics(string? order, string? ascending, int? perPage, string apiKey, string apiUsername, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `order` — nullable, no default → **must pass explicitly**
-  - `ascending` — nullable, no default → **must pass explicitly**
-  - `perPage` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `order` ← `order`, `ascending` ← `ascending`, `per_page` ← `perPage`
+- **Signature**: `ListLatestTopics(ListLatestTopicsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ApiKey`, `ApiUsername`
+- **Query params (wire ← C#)**: `order` ← `Order`, `ascending` ← `Ascending`, `per_page` ← `PerPage`
 - **Returns**: `LatestJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ListLatestTopicsRequest` | `Requests/Topics/ListLatestTopicsRequest.cs` |
 | `LatestJsonResponse` | `Models/LatestJsonResponse.cs` |
 
 ### ListTopTopics
 
-- **Signature**: `ListTopTopics(string? period, int? perPage, string apiKey, string apiUsername, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `period` — nullable, no default → **must pass explicitly**
-  - `perPage` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `period` ← `period`, `per_page` ← `perPage`
+- **Signature**: `ListTopTopics(ListTopTopicsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ApiKey`, `ApiUsername`
+- **Query params (wire ← C#)**: `period` ← `Period`, `per_page` ← `PerPage`
 - **Returns**: `TopJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ListTopTopicsRequest` | `Requests/Topics/ListTopTopicsRequest.cs` |
 | `TopJsonResponse` | `Models/TopJsonResponse.cs` |
 
 ### RemoveTopic
 
-- **Signature**: `RemoveTopic(string id, string apiKey, string apiUsername, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `RemoveTopic(RemoveTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
-
-### SetNotificationLevel
-
-- **Signature**: `SetNotificationLevel(string id, string apiKey, string apiUsername, TNotificationsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
-- **Returns**: `TNotificationsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `RemoveTopicRequest` | `Requests/Topics/RemoveTopicRequest.cs` |
+
+### SetNotificationLevel
+
+- **Signature**: `SetNotificationLevel(SetNotificationLevelRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
+- **Returns**: `TNotificationsJsonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `SetNotificationLevelRequest` | `Requests/Topics/SetNotificationLevelRequest.cs` |
 | `TNotificationsJsonRequest` | `Models/TNotificationsJsonRequest.cs` |
 | `TNotificationsJsonResponse` | `Models/TNotificationsJsonResponse.cs` |
 
 ### UpdateTopic
 
-- **Signature**: `UpdateTopic(string id, string apiKey, string apiUsername, TJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `UpdateTopic(UpdateTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `TJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `UpdateTopicRequest` | `Requests/Topics/UpdateTopicRequest.cs` |
 | `TJsonRequest` | `Models/TJsonRequest.cs` |
 | `TJsonResponse1` | `Models/TJsonResponse1.cs` |
 
 ### UpdateTopicStatus
 
-- **Signature**: `UpdateTopicStatus(string id, string apiKey, string apiUsername, TStatusJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `UpdateTopicStatus(UpdateTopicStatusRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `TStatusJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `UpdateTopicStatusRequest` | `Requests/Topics/UpdateTopicStatusRequest.cs` |
 | `TStatusJsonRequest` | `Models/TStatusJsonRequest.cs` |
 | `TStatusJsonResponse` | `Models/TStatusJsonResponse.cs` |
 
 ### UpdateTopicTimestamp
 
-- **Signature**: `UpdateTopicTimestamp(string id, string apiKey, string apiUsername, TChangeTimestampJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `UpdateTopicTimestamp(UpdateTopicTimestampRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`, `ApiKey`, `ApiUsername`
 - **Returns**: `TChangeTimestampJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `UpdateTopicTimestampRequest` | `Requests/Topics/UpdateTopicTimestampRequest.cs` |
 | `TChangeTimestampJsonRequest` | `Models/TChangeTimestampJsonRequest.cs` |
 | `TChangeTimestampJsonResponse` | `Models/TChangeTimestampJsonResponse.cs` |
 

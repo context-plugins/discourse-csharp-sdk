@@ -9,6 +9,8 @@ using Discourse.Core.Models;
 using Discourse.Core.Request;
 using Discourse.Core.Response;
 using Discourse.Models;
+using Discourse.Requests.Posts;
+using Discourse.Requests.PrivateMessages;
 
 namespace Discourse.Api;
 
@@ -26,45 +28,45 @@ public sealed class PrivateMessages
     /// <summary>
     /// Creates a new topic, a new post, or a private message
     /// </summary>
-    /// <param name="apiKey"></param>
-    /// <param name="apiUsername"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="PostsJsonResponse1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<PostsJsonResponse1> CreateTopicPostPm(string apiKey,
-        string apiUsername,
-        PostsJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<PostsJsonResponse1> CreateTopicPostPm(CreateTopicPostPmRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/posts.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/posts.json"),
             [],
             [],
-            [new HeaderParam("Api-Key", apiKey),
-                new HeaderParam("Api-Username", apiUsername),
-                new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [
+                new HeaderParam("Api-Key", request.ApiKey),
+                new HeaderParam("Api-Username", request.ApiUsername),
+                new HeaderParam("Idempotency-Key", Guid.NewGuid()),
+            ],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<PostsJsonResponse1>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a list of private messages sent for a user
     /// </summary>
-    /// <param name="username"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TopicsPrivateMessagesSentJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TopicsPrivateMessagesSentJsonResponse> GetUserSentPrivateMessages(string username,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TopicsPrivateMessagesSentJsonResponse> GetUserSentPrivateMessages(GetUserSentPrivateMessagesRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/topics/private-messages-sent/{username}.json"),
-            [new TemplateParam("username", username)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/topics/private-messages-sent/{username}.json"),
+            [new TemplateParam("username", request.Username)],
             [],
             [],
             HttpMethod.Get,
@@ -73,21 +75,22 @@ public sealed class PrivateMessages
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a list of private messages for a user
     /// </summary>
-    /// <param name="username"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TopicsPrivateMessagesJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<TopicsPrivateMessagesJsonResponse> ListUserPrivateMessages(string username,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<TopicsPrivateMessagesJsonResponse> ListUserPrivateMessages(ListUserPrivateMessagesRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/topics/private-messages/{username}.json"),
-            [new TemplateParam("username", username)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/topics/private-messages/{username}.json"),
+            [new TemplateParam("username", request.Username)],
             [],
             [],
             HttpMethod.Get,
@@ -96,5 +99,5 @@ public sealed class PrivateMessages
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 }

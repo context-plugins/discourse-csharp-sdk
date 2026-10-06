@@ -8,73 +8,82 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 ### AddGroupMembers
 
-- **Signature**: `AddGroupMembers(int id, GroupsMembersJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `AddGroupMembers(AddGroupMembersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `GroupsMembersJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `AddGroupMembersRequest` | `Requests/Groups/AddGroupMembersRequest.cs` |
 | `GroupsMembersJsonRequest` | `Models/GroupsMembersJsonRequest.cs` |
 | `GroupsMembersJsonResponse1` | `Models/GroupsMembersJsonResponse1.cs` |
 
 ### CreateGroup
 
-- **Signature**: `CreateGroup(AdminGroupsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateGroup(CreateGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AdminGroupsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateGroupRequest` | `Requests/Groups/CreateGroupRequest.cs` |
 | `AdminGroupsJsonRequest` | `Models/AdminGroupsJsonRequest.cs` |
 | `AdminGroupsJsonResponse` | `Models/AdminGroupsJsonResponse.cs` |
 
 ### DeleteGroup
 
-- **Signature**: `DeleteGroup(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DeleteGroup(DeleteGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminGroupsJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `DeleteGroupRequest` | `Requests/Groups/DeleteGroupRequest.cs` |
 | `AdminGroupsJsonResponse1` | `Models/AdminGroupsJsonResponse1.cs` |
 
 ### GetGroup
 
-- **Signature**: `GetGroup(string name, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetGroup(GetGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Name`
 - **Returns**: `GroupsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetGroupRequest` | `Requests/Groups/GetGroupRequest.cs` |
 | `GroupsJsonResponse` | `Models/GroupsJsonResponse.cs` |
 
 ### GetGroupById
 
-- **Signature**: `GetGroupById(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetGroupById(GetGroupByIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `GroupsByIdJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetGroupByIdRequest` | `Requests/Groups/GetGroupByIdRequest.cs` |
 | `GroupsByIdJsonResponse` | `Models/GroupsByIdJsonResponse.cs` |
 
 ### ListGroupMembers
 
-- **Signature**: `ListGroupMembers(string name, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ListGroupMembers(ListGroupMembersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Name`
 - **Returns**: `GroupsMembersJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ListGroupMembersRequest` | `Requests/Groups/ListGroupMembersRequest.cs` |
 | `GroupsMembersJsonResponse` | `Models/GroupsMembersJsonResponse.cs` |
 
 ### ListGroups
 
-- **Signature**: `ListGroups(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ListGroups(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GroupsJsonResponse2`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -82,25 +91,27 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 ### RemoveGroupMembers
 
-- **Signature**: `RemoveGroupMembers(int id, GroupsMembersJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `RemoveGroupMembers(RemoveGroupMembersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `GroupsMembersJsonResponse2`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `RemoveGroupMembersRequest` | `Requests/Groups/RemoveGroupMembersRequest.cs` |
 | `GroupsMembersJsonRequest` | `Models/GroupsMembersJsonRequest.cs` |
 | `GroupsMembersJsonResponse2` | `Models/GroupsMembersJsonResponse2.cs` |
 
 ### UpdateGroup
 
-- **Signature**: `UpdateGroup(int id, GroupsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `UpdateGroup(UpdateGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `GroupsJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `UpdateGroupRequest` | `Requests/Groups/UpdateGroupRequest.cs` |
 | `GroupsJsonRequest` | `Models/GroupsJsonRequest.cs` |
 | `GroupsJsonResponse1` | `Models/GroupsJsonResponse1.cs` |
 

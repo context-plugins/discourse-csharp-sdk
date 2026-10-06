@@ -8,27 +8,27 @@ Accessor: `client.DiscourseCalendarEvents` · Source: `Api/DiscourseCalendarEven
 
 ### ExportEventsIcs
 
-- **Signature**: `ExportEventsIcs(int? categoryId, IncludeSubcategories? includeSubcategories, string? attendingUser, DateTimeOffset? before, DateTimeOffset? after, Order? order, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 7 params (`categoryId` … `limit`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `category_id` ← `categoryId`, `include_subcategories` ← `includeSubcategories`, `attending_user` ← `attendingUser`, `before` ← `before`, `after` ← `after`, `order` ← `order`, `limit` ← `limit`
+- **Signature**: `ExportEventsIcs(ExportEventsIcsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `category_id` ← `CategoryId`, `include_subcategories` ← `IncludeSubcategories`, `attending_user` ← `AttendingUser`, `before` ← `Before`, `after` ← `After`, `order` ← `Order`, `limit` ← `Limit`
 - **Returns**: `void` (Task)
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ExportEventsIcsRequest` | `Requests/DiscourseCalendarEvents/ExportEventsIcsRequest.cs` |
 | `IncludeSubcategories` | `Models/Enums/IncludeSubcategories.cs` |
 | `Order` | `Models/Enums/Order.cs` |
 
 ### ListEvents
 
-- **Signature**: `ListEvents(IncludeDetails? includeDetails, int? categoryId, IncludeSubcategories? includeSubcategories, int? postId, string? attendingUser, DateTimeOffset? before, DateTimeOffset? after, Order? order, int? limit, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 9 params (`includeDetails` … `limit`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `include_details` ← `includeDetails`, `category_id` ← `categoryId`, `include_subcategories` ← `includeSubcategories`, `post_id` ← `postId`, `attending_user` ← `attendingUser`, `before` ← `before`, `after` ← `after`, `order` ← `order`, `limit` ← `limit`
+- **Signature**: `ListEvents(ListEventsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `include_details` ← `IncludeDetails`, `category_id` ← `CategoryId`, `include_subcategories` ← `IncludeSubcategories`, `post_id` ← `PostId`, `attending_user` ← `AttendingUser`, `before` ← `Before`, `after` ← `After`, `order` ← `Order`, `limit` ← `Limit`
 - **Returns**: `DiscoursePostEventEventsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ListEventsRequest` | `Requests/DiscourseCalendarEvents/ListEventsRequest.cs` |
 | `IncludeDetails` | `Models/Enums/IncludeDetails.cs` |
 | `IncludeSubcategories` | `Models/Enums/IncludeSubcategories.cs` |
 | `Order` | `Models/Enums/Order.cs` |

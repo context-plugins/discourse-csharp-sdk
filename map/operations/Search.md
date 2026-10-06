@@ -8,14 +8,13 @@ Accessor: `client.Search` · Source: `Api/Search.cs` · 1 operation
 
 ### SearchInvoke
 
-- **Signature**: `SearchInvoke(string? q, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `q` — nullable, no default → **must pass explicitly**
-  - `page` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `q` ← `q`, `page` ← `page`
+- **Signature**: `SearchInvoke(SearchRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `q` ← `Q`, `page` ← `Page`
 - **Returns**: `SearchJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `SearchRequest` | `Requests/Search/SearchRequest.cs` |
 | `SearchJsonResponse` | `Models/SearchJsonResponse.cs` |
 

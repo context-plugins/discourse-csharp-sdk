@@ -95,7 +95,7 @@ public record Event
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("raw_invitees")]
-    public IReadOnlyList<string?>? RawInvitees { get; init; }
+    public IReadOnlyList<string>? RawInvitees { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reminders")]

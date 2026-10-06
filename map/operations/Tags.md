@@ -8,41 +8,45 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 ### CreateTagGroup
 
-- **Signature**: `CreateTagGroup(TagGroupsJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `CreateTagGroup(CreateTagGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `TagGroupsJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CreateTagGroupRequest` | `Requests/Tags/CreateTagGroupRequest.cs` |
 | `TagGroupsJsonRequest` | `Models/TagGroupsJsonRequest.cs` |
 | `TagGroupsJsonResponse1` | `Models/TagGroupsJsonResponse1.cs` |
 
 ### GetTag
 
-- **Signature**: `GetTag(string name, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetTag(GetTagRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Name`
 - **Returns**: `TagJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetTagRequest` | `Requests/Tags/GetTagRequest.cs` |
 | `TagJsonResponse` | `Models/TagJsonResponse.cs` |
 
 ### GetTagGroup
 
-- **Signature**: `GetTagGroup(string id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetTagGroup(GetTagGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `TagGroupsJsonResponse2`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `GetTagGroupRequest` | `Requests/Tags/GetTagGroupRequest.cs` |
 | `TagGroupsJsonResponse2` | `Models/TagGroupsJsonResponse2.cs` |
 
 ### ListTagGroups
 
-- **Signature**: `ListTagGroups(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ListTagGroups(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `TagGroupsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -50,9 +54,9 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 ### ListTags
 
-- **Signature**: `ListTags(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ListTags(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `TagsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -60,13 +64,14 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 ### UpdateTagGroup
 
-- **Signature**: `UpdateTagGroup(string id, TagGroupsJsonRequest1? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `UpdateTagGroup(UpdateTagGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `TagGroupsJsonResponse3`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `UpdateTagGroupRequest` | `Requests/Tags/UpdateTagGroupRequest.cs` |
 | `TagGroupsJsonRequest1` | `Models/TagGroupsJsonRequest1.cs` |
 | `TagGroupsJsonResponse3` | `Models/TagGroupsJsonResponse3.cs` |
 

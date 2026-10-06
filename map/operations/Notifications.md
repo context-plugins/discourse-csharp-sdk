@@ -8,9 +8,9 @@ Accessor: `client.Notifications` · Source: `Api/Notifications.cs` · 2 operatio
 
 ### GetNotifications
 
-- **Signature**: `GetNotifications(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `GetNotifications(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `NotificationsJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -18,13 +18,13 @@ Accessor: `client.Notifications` · Source: `Api/Notifications.cs` · 2 operatio
 
 ### MarkNotificationsAsRead
 
-- **Signature**: `MarkNotificationsAsRead(NotificationsMarkReadJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `MarkNotificationsAsRead(MarkNotificationsAsReadRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `NotificationsMarkReadJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `MarkNotificationsAsReadRequest` | `Requests/Notifications/MarkNotificationsAsReadRequest.cs` |
 | `NotificationsMarkReadJsonRequest` | `Models/NotificationsMarkReadJsonRequest.cs` |
 | `NotificationsMarkReadJsonResponse` | `Models/NotificationsMarkReadJsonResponse.cs` |
 

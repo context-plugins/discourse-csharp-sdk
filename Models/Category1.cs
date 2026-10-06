@@ -128,7 +128,7 @@ public record Category1
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subcategory_list")]
-    public IReadOnlyList<object?>? SubcategoryList { get; init; }
+    public IReadOnlyList<object>? SubcategoryList { get; init; }
 
     [JsonPropertyName("uploaded_logo")]
     public required string? UploadedLogo { get; init; }

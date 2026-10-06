@@ -8,48 +8,53 @@ Accessor: `client.Admin` · Source: `Api/Admin.cs` · 11 operations
 
 ### ActivateUser
 
-- **Signature**: `ActivateUser(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ActivateUser(ActivateUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersActivateJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ActivateUserRequest` | `Requests/Users/ActivateUserRequest.cs` |
 | `AdminUsersActivateJsonResponse` | `Models/AdminUsersActivateJsonResponse.cs` |
 
 ### AdminGetUser
 
-- **Signature**: `AdminGetUser(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `AdminGetUser(AdminGetUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `AdminGetUserRequest` | `Requests/Users/AdminGetUserRequest.cs` |
 | `AdminUsersJsonResponse` | `Models/AdminUsersJsonResponse.cs` |
 
 ### AdminListUsers
 
-- **Signature**: `AdminListUsers(Order3? order, Asc? asc, int? page, bool? showEmails, bool? stats, string? email, string? ip, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 7 params (`order` … `ip`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `order` ← `order`, `asc` ← `asc`, `page` ← `page`, `show_emails` ← `showEmails`, `stats` ← `stats`, `email` ← `email`, `ip` ← `ip`
+- **Signature**: `AdminListUsers(AdminListUsersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `order` ← `Order`, `asc` ← `Asc`, `page` ← `Page`, `show_emails` ← `ShowEmails`, `stats` ← `Stats`, `email` ← `Email`, `ip` ← `Ip`
 - **Returns**: `IReadOnlyList<AdminUsersJsonResponse2>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `AdminListUsersRequest` | `Requests/Users/AdminListUsersRequest.cs` |
 | `Order3` | `Models/Enums/Order3.cs` |
 | `Asc` | `Models/Enums/Asc.cs` |
 | `AdminUsersJsonResponse2` | `Models/AdminUsersJsonResponse2.cs` |
 
 ### AdminListUsersFlag
 
-- **Signature**: `AdminListUsersFlag(Flag flag, Order3? order, Asc? asc, int? page, bool? showEmails, bool? stats, string? email, string? ip, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 7 params (`order` … `ip`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-- **Query params (wire ← C#)**: `order` ← `order`, `asc` ← `asc`, `page` ← `page`, `show_emails` ← `showEmails`, `stats` ← `stats`, `email` ← `email`, `ip` ← `ip`
+- **Signature**: `AdminListUsersFlag(AdminListUsersFlagRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Flag`
+- **Query params (wire ← C#)**: `order` ← `Order`, `asc` ← `Asc`, `page` ← `Page`, `show_emails` ← `ShowEmails`, `stats` ← `Stats`, `email` ← `Email`, `ip` ← `Ip`
 - **Returns**: `IReadOnlyList<AdminUsersListJsonResponse>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `AdminListUsersFlagRequest` | `Requests/Users/AdminListUsersFlagRequest.cs` |
 | `Flag` | `Models/Enums/Flag.cs` |
 | `Order3` | `Models/Enums/Order3.cs` |
 | `Asc` | `Models/Enums/Asc.cs` |
@@ -57,77 +62,88 @@ Accessor: `client.Admin` · Source: `Api/Admin.cs` · 11 operations
 
 ### AnonymizeUser
 
-- **Signature**: `AnonymizeUser(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `AnonymizeUser(AnonymizeUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersAnonymizeJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `AnonymizeUserRequest` | `Requests/Users/AnonymizeUserRequest.cs` |
 | `AdminUsersAnonymizeJsonResponse` | `Models/AdminUsersAnonymizeJsonResponse.cs` |
 
 ### DeactivateUser
 
-- **Signature**: `DeactivateUser(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DeactivateUser(DeactivateUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersDeactivateJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `DeactivateUserRequest` | `Requests/Users/DeactivateUserRequest.cs` |
 | `AdminUsersDeactivateJsonResponse` | `Models/AdminUsersDeactivateJsonResponse.cs` |
 
 ### DeleteUser
 
-- **Signature**: `DeleteUser(int id, AdminUsersJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `DeleteUser(DeleteUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersJsonResponse1`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `DeleteUserRequest` | `Requests/Users/DeleteUserRequest.cs` |
 | `AdminUsersJsonRequest` | `Models/AdminUsersJsonRequest.cs` |
 | `AdminUsersJsonResponse1` | `Models/AdminUsersJsonResponse1.cs` |
 
 ### LogOutUser
 
-- **Signature**: `LogOutUser(int id, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `LogOutUser(LogOutUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersLogOutJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `LogOutUserRequest` | `Requests/Users/LogOutUserRequest.cs` |
 | `AdminUsersLogOutJsonResponse` | `Models/AdminUsersLogOutJsonResponse.cs` |
 
 ### RefreshGravatar
 
-- **Signature**: `RefreshGravatar(string username, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `RefreshGravatar(RefreshGravatarRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Username`
 - **Returns**: `UserAvatarRefreshGravatarJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `RefreshGravatarRequest` | `Requests/Users/RefreshGravatarRequest.cs` |
 | `UserAvatarRefreshGravatarJsonResponse` | `Models/UserAvatarRefreshGravatarJsonResponse.cs` |
 
 ### SilenceUser
 
-- **Signature**: `SilenceUser(int id, AdminUsersSilenceJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `SilenceUser(SilenceUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersSilenceJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `SilenceUserRequest` | `Requests/Users/SilenceUserRequest.cs` |
 | `AdminUsersSilenceJsonRequest` | `Models/AdminUsersSilenceJsonRequest.cs` |
 | `AdminUsersSilenceJsonResponse` | `Models/AdminUsersSilenceJsonResponse.cs` |
 
 ### SuspendUser
 
-- **Signature**: `SuspendUser(int id, AdminUsersSuspendJsonRequest? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Signature**: `SuspendUser(SuspendUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Id`
 - **Returns**: `AdminUsersSuspendJsonResponse`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `SuspendUserRequest` | `Requests/Users/SuspendUserRequest.cs` |
 | `AdminUsersSuspendJsonRequest` | `Models/AdminUsersSuspendJsonRequest.cs` |
 | `AdminUsersSuspendJsonResponse` | `Models/AdminUsersSuspendJsonResponse.cs` |
 

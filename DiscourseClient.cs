@@ -77,77 +77,69 @@ namespace Discourse;
 /// </summary>
 public sealed class DiscourseClient
 {
+    private readonly RawClient _rawClient;
+    private readonly Server _server;
+
     public DiscourseClient(HttpClient httpClient, DiscourseClientOptions options)
     {
-        var server = new Server(options.Environment, options.Server);
+        _server = new Server(options.Environment, options.Server);
         var queryParameterFactory = new QueryParameterFactory([]);
         var templateParamsFactory = new TemplateParamsFactory([]);
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
-        var headersFactory =
-            new HeadersFactory([new HeaderParam("User-Agent", "DiscourseClient/latest CSharp"),
-                    new HeaderParam("X-APIMatic-Lang", "CSharp"),
-                    new HeaderParam("X-APIMatic-Package-Version", "latest"),
-                    new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
-                    new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
-                    new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime)]);
-        var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
-        var httpLogger = new HttpLogger(options.Logging, "DiscourseClient");
-        var rawClient =
-            new RawClient(httpClient,
+        var headersFactory = new HeadersFactory([
+            new HeaderParam("User-Agent", "DiscourseClient/latest CSharp"),
+            new HeaderParam("X-APIMatic-Lang", "CSharp"),
+            new HeaderParam("X-APIMatic-Package-Version", "latest"),
+            new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
+            new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
+            new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime),
+        ]);
+        var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry, options.TimeProvider);
+        var httpLogger = new HttpLogger(options.Logging, "DiscourseClient", options.TimeProvider);
+        var responseContexts = new ResponseContextFactory(options.TimeProvider, options.StreamReadTimeout);
+        _rawClient =
+            new RawClient(
+                httpClient,
                 urlFactory,
                 httpStatusPolicy,
                 headersFactory,
                 resiliencePipelineFactory,
                 httpLogger,
-                options.Hooks);
-        Admin = new Admin(rawClient, server);
-        Backups = new Backups(rawClient, server);
-        Badges = new Badges(rawClient, server);
-        Categories = new Categories(rawClient, server);
-        DiscourseCalendarEvents = new DiscourseCalendarEvents(rawClient, server);
-        Groups = new Groups(rawClient, server);
-        Invites = new Invites(rawClient, server);
-        Notifications = new Notifications(rawClient, server);
-        Posts = new Posts(rawClient, server);
-        PrivateMessages = new PrivateMessages(rawClient, server);
-        Search = new Search(rawClient, server);
-        Site = new Site(rawClient, server);
-        Tags = new Tags(rawClient, server);
-        Topics = new Topics(rawClient, server);
-        Uploads = new Uploads(rawClient, server);
-        Users = new Users(rawClient, server);
+                options.Hooks,
+                responseContexts);
     }
 
-    public Admin Admin { get; }
+    public Admin Admin => field ??= new Admin(_rawClient, _server);
 
-    public Backups Backups { get; }
+    public Backups Backups => field ??= new Backups(_rawClient, _server);
 
-    public Badges Badges { get; }
+    public Badges Badges => field ??= new Badges(_rawClient, _server);
 
-    public Categories Categories { get; }
+    public Categories Categories => field ??= new Categories(_rawClient, _server);
 
-    public DiscourseCalendarEvents DiscourseCalendarEvents { get; }
+    public DiscourseCalendarEvents DiscourseCalendarEvents =>
+        field ??= new DiscourseCalendarEvents(_rawClient, _server);
 
-    public Groups Groups { get; }
+    public Groups Groups => field ??= new Groups(_rawClient, _server);
 
-    public Invites Invites { get; }
+    public Invites Invites => field ??= new Invites(_rawClient, _server);
 
-    public Notifications Notifications { get; }
+    public Notifications Notifications => field ??= new Notifications(_rawClient, _server);
 
-    public Posts Posts { get; }
+    public Posts Posts => field ??= new Posts(_rawClient, _server);
 
-    public PrivateMessages PrivateMessages { get; }
+    public PrivateMessages PrivateMessages => field ??= new PrivateMessages(_rawClient, _server);
 
-    public Search Search { get; }
+    public Search Search => field ??= new Search(_rawClient, _server);
 
-    public Site Site { get; }
+    public Site Site => field ??= new Site(_rawClient, _server);
 
-    public Tags Tags { get; }
+    public Tags Tags => field ??= new Tags(_rawClient, _server);
 
-    public Topics Topics { get; }
+    public Topics Topics => field ??= new Topics(_rawClient, _server);
 
-    public Uploads Uploads { get; }
+    public Uploads Uploads => field ??= new Uploads(_rawClient, _server);
 
-    public Users Users { get; }
+    public Users Users => field ??= new Users(_rawClient, _server);
 }

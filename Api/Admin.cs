@@ -10,7 +10,7 @@ using Discourse.Core.Models;
 using Discourse.Core.Request;
 using Discourse.Core.Response;
 using Discourse.Models;
-using Discourse.Models.Enums;
+using Discourse.Requests.Users;
 
 namespace Discourse.Api;
 
@@ -28,16 +28,17 @@ public sealed class Admin
     /// <summary>
     /// Activate a user
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersActivateJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersActivateJsonResponse> ActivateUser(int id,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersActivateJsonResponse> ActivateUser(ActivateUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}/activate.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}/activate.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
@@ -46,21 +47,22 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a user by id
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersJsonResponse> AdminGetUser(int id,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersJsonResponse> AdminGetUser(AdminGetUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [],
             HttpMethod.Get,
@@ -69,40 +71,31 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List users
     /// </summary>
-    /// <param name="order"></param>
-    /// <param name="asc"></param>
-    /// <param name="page"></param>
-    /// <param name="showEmails">Include user email addresses in response. These requests will be logged in the staff action logs.</param>
-    /// <param name="stats">Include user stats information</param>
-    /// <param name="email">Filter to the user with this email address</param>
-    /// <param name="ip">Filter to users with this IP address</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="AdminUsersJsonResponse2"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<IReadOnlyList<AdminUsersJsonResponse2>> AdminListUsers(Order3? order,
-        Asc? asc,
-        int? page,
-        bool? showEmails,
-        bool? stats,
-        string? email,
-        string? ip,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<IReadOnlyList<AdminUsersJsonResponse2>> AdminListUsers(AdminListUsersRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users.json"),
             [],
-            [new Param("order", order),
-                new Param("asc", asc),
-                new Param("page", page),
-                new Param("show_emails", showEmails),
-                new Param("stats", stats),
-                new Param("email", email),
-                new Param("ip", ip)],
+            [
+                new Param("order", request.Order),
+                new Param("asc", request.Asc),
+                new Param("page", request.Page),
+                new Param("show_emails", request.ShowEmails),
+                new Param("stats", request.Stats),
+                new Param("email", request.Email),
+                new Param("ip", request.Ip),
+            ],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -110,42 +103,31 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List users by flag
     /// </summary>
-    /// <param name="flag"></param>
-    /// <param name="order"></param>
-    /// <param name="asc"></param>
-    /// <param name="page"></param>
-    /// <param name="showEmails">Include user email addresses in response. These requests will be logged in the staff action logs.</param>
-    /// <param name="stats">Include user stats information</param>
-    /// <param name="email">Filter to the user with this email address</param>
-    /// <param name="ip">Filter to users with this IP address</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="AdminUsersListJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<IReadOnlyList<AdminUsersListJsonResponse>> AdminListUsersFlag(Flag flag,
-        Order3? order,
-        Asc? asc,
-        int? page,
-        bool? showEmails,
-        bool? stats,
-        string? email,
-        string? ip,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<IReadOnlyList<AdminUsersListJsonResponse>> AdminListUsersFlag(AdminListUsersFlagRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/list/{flag}.json"),
-            [new TemplateParam("flag", flag)],
-            [new Param("order", order),
-                new Param("asc", asc),
-                new Param("page", page),
-                new Param("show_emails", showEmails),
-                new Param("stats", stats),
-                new Param("email", email),
-                new Param("ip", ip)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/list/{flag}.json"),
+            [new TemplateParam("flag", request.Flag)],
+            [
+                new Param("order", request.Order),
+                new Param("asc", request.Asc),
+                new Param("page", request.Page),
+                new Param("show_emails", request.ShowEmails),
+                new Param("stats", request.Stats),
+                new Param("email", request.Email),
+                new Param("ip", request.Ip),
+            ],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -153,21 +135,22 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Anonymize a user
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersAnonymizeJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersAnonymizeJsonResponse> AnonymizeUser(int id,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersAnonymizeJsonResponse> AnonymizeUser(AnonymizeUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}/anonymize.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}/anonymize.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
@@ -176,21 +159,22 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Deactivate a user
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersDeactivateJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersDeactivateJsonResponse> DeactivateUser(int id,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersDeactivateJsonResponse> DeactivateUser(DeactivateUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}/deactivate.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}/deactivate.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
@@ -199,46 +183,46 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Delete a user
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersJsonResponse1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersJsonResponse1> DeleteUser(int id,
-        AdminUsersJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersJsonResponse1> DeleteUser(DeleteUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<AdminUsersJsonResponse1>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Log a user out
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersLogOutJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersLogOutJsonResponse> LogOutUser(int id,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersLogOutJsonResponse> LogOutUser(LogOutUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}/log_out.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}/log_out.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
@@ -247,21 +231,22 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Refresh gravatar
     /// </summary>
-    /// <param name="username"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UserAvatarRefreshGravatarJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<UserAvatarRefreshGravatarJsonResponse> RefreshGravatar(string username,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<UserAvatarRefreshGravatarJsonResponse> RefreshGravatar(RefreshGravatarRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/user_avatar/{username}/refresh_gravatar.json"),
-            [new TemplateParam("username", username)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/user_avatar/{username}/refresh_gravatar.json"),
+            [new TemplateParam("username", request.Username)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
@@ -270,55 +255,53 @@ public sealed class Admin
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Silence a user
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersSilenceJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersSilenceJsonResponse> SilenceUser(int id,
-        AdminUsersSilenceJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersSilenceJsonResponse> SilenceUser(SilenceUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}/silence.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}/silence.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<AdminUsersSilenceJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Suspend a user
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AdminUsersSuspendJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<AdminUsersSuspendJsonResponse> SuspendUser(int id,
-        AdminUsersSuspendJsonRequest? body,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<AdminUsersSuspendJsonResponse> SuspendUser(SuspendUserRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/admin/users/{id}/suspend.json"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/admin/users/{id}/suspend.json"),
+            [new TemplateParam("id", request.Id)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<AdminUsersSuspendJsonResponse>(),
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 }

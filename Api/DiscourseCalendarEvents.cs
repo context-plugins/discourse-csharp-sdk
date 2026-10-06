@@ -1,4 +1,3 @@
-using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using Discourse.Core.Models;
 using Discourse.Core.Request;
 using Discourse.Core.Response;
 using Discourse.Models;
-using Discourse.Models.Enums;
+using Discourse.Requests.DiscourseCalendarEvents;
 
 namespace Discourse.Api;
 
@@ -28,35 +27,26 @@ public sealed class DiscourseCalendarEvents
     /// <summary>
     /// Export calendar events in iCalendar format
     /// </summary>
-    /// <param name="categoryId">Filter events by category ID</param>
-    /// <param name="includeSubcategories">Include events from subcategories when filtering by category</param>
-    /// <param name="attendingUser">Filter to events where the specified user (username) has RSVP'd as going</param>
-    /// <param name="before">Return events starting before this date/time (ISO 8601 format)</param>
-    /// <param name="after">Return events starting after this date/time (ISO 8601 format)</param>
-    /// <param name="order">Sort order for events by start date (default: asc)</param>
-    /// <param name="limit">Maximum number of events to return (default: 200)</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task ExportEventsIcs(int? categoryId,
-        IncludeSubcategories? includeSubcategories,
-        string? attendingUser,
-        DateTimeOffset? before,
-        DateTimeOffset? after,
-        Order? order,
-        int? limit,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task ExportEventsIcs(ExportEventsIcsRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/discourse-post-event/events.ics"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/discourse-post-event/events.ics"),
             [],
-            [new Param("category_id", categoryId),
-                new Param("include_subcategories", includeSubcategories),
-                new Param("attending_user", attendingUser),
-                new Param("before", before?.ToIso8601()),
-                new Param("after", after?.ToIso8601()),
-                new Param("order", order),
-                new Param("limit", limit)],
+            [
+                new Param("category_id", request.CategoryId),
+                new Param("include_subcategories", request.IncludeSubcategories),
+                new Param("attending_user", request.AttendingUser),
+                new Param("before", request.Before?.ToIso8601()),
+                new Param("after", request.After?.ToIso8601()),
+                new Param("order", request.Order),
+                new Param("limit", request.Limit),
+            ],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -64,46 +54,33 @@ public sealed class DiscourseCalendarEvents
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List calendar events
     /// </summary>
-    /// <param name="includeDetails">Include detailed event information (creator, invitees, stats, etc.)</param>
-    /// <param name="categoryId">Filter events by category ID</param>
-    /// <param name="includeSubcategories">Include events from subcategories when filtering by category</param>
-    /// <param name="postId">Filter to events associated with a specific post ID</param>
-    /// <param name="attendingUser">Filter to events where the specified user (username) has RSVP'd as going</param>
-    /// <param name="before">Return events starting before this date/time (ISO 8601 format)</param>
-    /// <param name="after">Return events starting after this date/time (ISO 8601 format)</param>
-    /// <param name="order">Sort order for events by start date (default: asc)</param>
-    /// <param name="limit">Maximum number of events to return (default: 200)</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DiscoursePostEventEventsJsonResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<DiscoursePostEventEventsJsonResponse> ListEvents(IncludeDetails? includeDetails,
-        int? categoryId,
-        IncludeSubcategories? includeSubcategories,
-        int? postId,
-        string? attendingUser,
-        DateTimeOffset? before,
-        DateTimeOffset? after,
-        Order? order,
-        int? limit,
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    public Task<DiscoursePostEventEventsJsonResponse> ListEvents(ListEventsRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/discourse-post-event/events.json"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/discourse-post-event/events.json"),
             [],
-            [new Param("include_details", includeDetails),
-                new Param("category_id", categoryId),
-                new Param("include_subcategories", includeSubcategories),
-                new Param("post_id", postId),
-                new Param("attending_user", attendingUser),
-                new Param("before", before?.ToIso8601()),
-                new Param("after", after?.ToIso8601()),
-                new Param("order", order),
-                new Param("limit", limit)],
+            [
+                new Param("include_details", request.IncludeDetails),
+                new Param("category_id", request.CategoryId),
+                new Param("include_subcategories", request.IncludeSubcategories),
+                new Param("post_id", request.PostId),
+                new Param("attending_user", request.AttendingUser),
+                new Param("before", request.Before?.ToIso8601()),
+                new Param("after", request.After?.ToIso8601()),
+                new Param("order", request.Order),
+                new Param("limit", request.Limit),
+            ],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -111,5 +88,5 @@ public sealed class DiscourseCalendarEvents
             RawErrorResponse.Instance,
             [],
             requestOptions,
-            ct);
+            cancellationToken);
 }
