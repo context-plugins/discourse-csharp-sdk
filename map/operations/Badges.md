@@ -2,7 +2,7 @@
 
 # Badges — operations
 
-Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
+Accessor: `client.Badges` · Source: `src/Discourse/Api/Badges.cs` · 5 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -14,7 +14,7 @@ Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
 
 | Type | Source |
 | --- | --- |
-| `AdminBadgesJsonResponse` | `Models/AdminBadgesJsonResponse.cs` |
+| `AdminBadgesJsonResponse` | `src/Discourse/Models/AdminBadgesJsonResponse.cs` |
 
 ### CreateBadge
 
@@ -24,9 +24,9 @@ Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateBadgeRequest` | `Requests/Badges/CreateBadgeRequest.cs` |
-| `AdminBadgesJsonRequest` | `Models/AdminBadgesJsonRequest.cs` |
-| `AdminBadgesJsonResponse1` | `Models/AdminBadgesJsonResponse1.cs` |
+| `CreateBadgeRequest` | `src/Discourse/Requests/Badges/CreateBadgeRequest.cs` |
+| `AdminBadgesJsonRequest` | `src/Discourse/Models/AdminBadgesJsonRequest.cs` |
+| `AdminBadgesJsonResponse1` | `src/Discourse/Models/AdminBadgesJsonResponse1.cs` |
 
 ### DeleteBadge
 
@@ -37,7 +37,7 @@ Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
 
 | Type | Source |
 | --- | --- |
-| `DeleteBadgeRequest` | `Requests/Badges/DeleteBadgeRequest.cs` |
+| `DeleteBadgeRequest` | `src/Discourse/Requests/Badges/DeleteBadgeRequest.cs` |
 
 ### ListUserBadges
 
@@ -48,8 +48,8 @@ Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
 
 | Type | Source |
 | --- | --- |
-| `ListUserBadgesRequest` | `Requests/Badges/ListUserBadgesRequest.cs` |
-| `UserBadgesJsonResponse` | `Models/UserBadgesJsonResponse.cs` |
+| `ListUserBadgesRequest` | `src/Discourse/Requests/Badges/ListUserBadgesRequest.cs` |
+| `UserBadgesJsonResponse` | `src/Discourse/Models/UserBadgesJsonResponse.cs` |
 
 ### UpdateBadge
 
@@ -60,7 +60,7 @@ Accessor: `client.Badges` · Source: `Api/Badges.cs` · 5 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateBadgeRequest` | `Requests/Badges/UpdateBadgeRequest.cs` |
-| `AdminBadgesJsonRequest1` | `Models/AdminBadgesJsonRequest1.cs` |
-| `AdminBadgesJsonResponse2` | `Models/AdminBadgesJsonResponse2.cs` |
+| `UpdateBadgeRequest` | `src/Discourse/Requests/Badges/UpdateBadgeRequest.cs` |
+| `AdminBadgesJsonRequest1` | `src/Discourse/Models/AdminBadgesJsonRequest1.cs` |
+| `AdminBadgesJsonResponse2` | `src/Discourse/Models/AdminBadgesJsonResponse2.cs` |
 

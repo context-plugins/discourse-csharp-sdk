@@ -2,7 +2,7 @@
 
 # Categories — operations
 
-Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
+Accessor: `client.Categories` · Source: `src/Discourse/Api/Categories.cs` · 6 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -14,9 +14,9 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateCategoryRequest` | `Requests/Categories/CreateCategoryRequest.cs` |
-| `CategoriesJsonRequest` | `Models/CategoriesJsonRequest.cs` |
-| `CategoriesJsonResponse` | `Models/CategoriesJsonResponse.cs` |
+| `CreateCategoryRequest` | `src/Discourse/Requests/Categories/CreateCategoryRequest.cs` |
+| `CategoriesJsonRequest` | `src/Discourse/Models/CategoriesJsonRequest.cs` |
+| `CategoriesJsonResponse` | `src/Discourse/Models/CategoriesJsonResponse.cs` |
 
 ### GetCategory
 
@@ -27,8 +27,8 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `GetCategoryRequest` | `Requests/Categories/GetCategoryRequest.cs` |
-| `CShowJsonResponse` | `Models/CShowJsonResponse.cs` |
+| `GetCategoryRequest` | `src/Discourse/Requests/Categories/GetCategoryRequest.cs` |
+| `CShowJsonResponse` | `src/Discourse/Models/CShowJsonResponse.cs` |
 
 ### GetSite
 
@@ -38,7 +38,7 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `SiteJsonResponse` | `Models/SiteJsonResponse.cs` |
+| `SiteJsonResponse` | `src/Discourse/Models/SiteJsonResponse.cs` |
 
 ### ListCategories
 
@@ -49,8 +49,8 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ListCategoriesRequest` | `Requests/Categories/ListCategoriesRequest.cs` |
-| `CategoriesJsonResponse1` | `Models/CategoriesJsonResponse1.cs` |
+| `ListCategoriesRequest` | `src/Discourse/Requests/Categories/ListCategoriesRequest.cs` |
+| `CategoriesJsonResponse1` | `src/Discourse/Models/CategoriesJsonResponse1.cs` |
 
 ### ListCategoryTopics
 
@@ -61,8 +61,8 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ListCategoryTopicsRequest` | `Requests/Categories/ListCategoryTopicsRequest.cs` |
-| `CJsonResponse` | `Models/CJsonResponse.cs` |
+| `ListCategoryTopicsRequest` | `src/Discourse/Requests/Categories/ListCategoryTopicsRequest.cs` |
+| `CJsonResponse` | `src/Discourse/Models/CJsonResponse.cs` |
 
 ### UpdateCategory
 
@@ -73,7 +73,7 @@ Accessor: `client.Categories` · Source: `Api/Categories.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateCategoryRequest` | `Requests/Categories/UpdateCategoryRequest.cs` |
-| `CategoriesJsonRequest1` | `Models/CategoriesJsonRequest1.cs` |
-| `CategoriesJsonResponse2` | `Models/CategoriesJsonResponse2.cs` |
+| `UpdateCategoryRequest` | `src/Discourse/Requests/Categories/UpdateCategoryRequest.cs` |
+| `CategoriesJsonRequest1` | `src/Discourse/Models/CategoriesJsonRequest1.cs` |
+| `CategoriesJsonResponse2` | `src/Discourse/Models/CategoriesJsonResponse2.cs` |
 

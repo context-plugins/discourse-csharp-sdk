@@ -2,7 +2,7 @@
 
 # Posts — operations
 
-Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
+Accessor: `client.Posts` · Source: `src/Discourse/Api/Posts.cs` · 8 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,9 +15,9 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateTopicPostPmRequest` | `Requests/Posts/CreateTopicPostPmRequest.cs` |
-| `PostsJsonRequest` | `Models/PostsJsonRequest.cs` |
-| `PostsJsonResponse1` | `Models/PostsJsonResponse1.cs` |
+| `CreateTopicPostPmRequest` | `src/Discourse/Requests/Posts/CreateTopicPostPmRequest.cs` |
+| `PostsJsonRequest` | `src/Discourse/Models/PostsJsonRequest.cs` |
+| `PostsJsonResponse1` | `src/Discourse/Models/PostsJsonResponse1.cs` |
 
 ### DeletePost
 
@@ -28,8 +28,8 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `DeletePostRequest` | `Requests/Posts/DeletePostRequest.cs` |
-| `PostsJsonRequest2` | `Models/PostsJsonRequest2.cs` |
+| `DeletePostRequest` | `src/Discourse/Requests/Posts/DeletePostRequest.cs` |
+| `PostsJsonRequest2` | `src/Discourse/Models/PostsJsonRequest2.cs` |
 
 ### GetPost
 
@@ -40,8 +40,8 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `GetPostRequest` | `Requests/Posts/GetPostRequest.cs` |
-| `PostsJsonResponse2` | `Models/PostsJsonResponse2.cs` |
+| `GetPostRequest` | `src/Discourse/Requests/Posts/GetPostRequest.cs` |
+| `PostsJsonResponse2` | `src/Discourse/Models/PostsJsonResponse2.cs` |
 
 ### ListPosts
 
@@ -52,8 +52,8 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `ListPostsRequest` | `Requests/Posts/ListPostsRequest.cs` |
-| `PostsJsonResponse` | `Models/PostsJsonResponse.cs` |
+| `ListPostsRequest` | `src/Discourse/Requests/Posts/ListPostsRequest.cs` |
+| `PostsJsonResponse` | `src/Discourse/Models/PostsJsonResponse.cs` |
 
 ### LockPost
 
@@ -64,9 +64,9 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `LockPostRequest` | `Requests/Posts/LockPostRequest.cs` |
-| `PostsLockedJsonRequest` | `Models/PostsLockedJsonRequest.cs` |
-| `PostsLockedJsonResponse` | `Models/PostsLockedJsonResponse.cs` |
+| `LockPostRequest` | `src/Discourse/Requests/Posts/LockPostRequest.cs` |
+| `PostsLockedJsonRequest` | `src/Discourse/Models/PostsLockedJsonRequest.cs` |
+| `PostsLockedJsonResponse` | `src/Discourse/Models/PostsLockedJsonResponse.cs` |
 
 ### PerformPostAction
 
@@ -77,9 +77,9 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `PerformPostActionRequest` | `Requests/Posts/PerformPostActionRequest.cs` |
-| `PostActionsJsonRequest` | `Models/PostActionsJsonRequest.cs` |
-| `PostActionsJsonResponse` | `Models/PostActionsJsonResponse.cs` |
+| `PerformPostActionRequest` | `src/Discourse/Requests/Posts/PerformPostActionRequest.cs` |
+| `PostActionsJsonRequest` | `src/Discourse/Models/PostActionsJsonRequest.cs` |
+| `PostActionsJsonResponse` | `src/Discourse/Models/PostActionsJsonResponse.cs` |
 
 ### PostReplies
 
@@ -90,8 +90,8 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `PostRepliesRequest` | `Requests/Posts/PostRepliesRequest.cs` |
-| `PostsRepliesJsonResponse` | `Models/PostsRepliesJsonResponse.cs` |
+| `PostRepliesRequest` | `src/Discourse/Requests/Posts/PostRepliesRequest.cs` |
+| `PostsRepliesJsonResponse` | `src/Discourse/Models/PostsRepliesJsonResponse.cs` |
 
 ### UpdatePost
 
@@ -102,7 +102,7 @@ Accessor: `client.Posts` · Source: `Api/Posts.cs` · 8 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdatePostRequest` | `Requests/Posts/UpdatePostRequest.cs` |
-| `PostsJsonRequest1` | `Models/PostsJsonRequest1.cs` |
-| `PostsJsonResponse3` | `Models/PostsJsonResponse3.cs` |
+| `UpdatePostRequest` | `src/Discourse/Requests/Posts/UpdatePostRequest.cs` |
+| `PostsJsonRequest1` | `src/Discourse/Models/PostsJsonRequest1.cs` |
+| `PostsJsonResponse3` | `src/Discourse/Models/PostsJsonResponse3.cs` |
 

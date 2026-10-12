@@ -2,7 +2,7 @@
 
 # DiscourseCalendarEvents — operations
 
-Accessor: `client.DiscourseCalendarEvents` · Source: `Api/DiscourseCalendarEvents.cs` · 2 operations
+Accessor: `client.DiscourseCalendarEvents` · Source: `src/Discourse/Api/DiscourseCalendarEvents.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,9 +15,9 @@ Accessor: `client.DiscourseCalendarEvents` · Source: `Api/DiscourseCalendarEven
 
 | Type | Source |
 | --- | --- |
-| `ExportEventsIcsRequest` | `Requests/DiscourseCalendarEvents/ExportEventsIcsRequest.cs` |
-| `IncludeSubcategories` | `Models/Enums/IncludeSubcategories.cs` |
-| `Order` | `Models/Enums/Order.cs` |
+| `ExportEventsIcsRequest` | `src/Discourse/Requests/DiscourseCalendarEvents/ExportEventsIcsRequest.cs` |
+| `IncludeSubcategories` | `src/Discourse/Models/Enums/IncludeSubcategories.cs` |
+| `Order` | `src/Discourse/Models/Enums/Order.cs` |
 
 ### ListEvents
 
@@ -28,9 +28,9 @@ Accessor: `client.DiscourseCalendarEvents` · Source: `Api/DiscourseCalendarEven
 
 | Type | Source |
 | --- | --- |
-| `ListEventsRequest` | `Requests/DiscourseCalendarEvents/ListEventsRequest.cs` |
-| `IncludeDetails` | `Models/Enums/IncludeDetails.cs` |
-| `IncludeSubcategories` | `Models/Enums/IncludeSubcategories.cs` |
-| `Order` | `Models/Enums/Order.cs` |
-| `DiscoursePostEventEventsJsonResponse` | `Models/DiscoursePostEventEventsJsonResponse.cs` |
+| `ListEventsRequest` | `src/Discourse/Requests/DiscourseCalendarEvents/ListEventsRequest.cs` |
+| `IncludeDetails` | `src/Discourse/Models/Enums/IncludeDetails.cs` |
+| `IncludeSubcategories` | `src/Discourse/Models/Enums/IncludeSubcategories.cs` |
+| `Order` | `src/Discourse/Models/Enums/Order.cs` |
+| `DiscoursePostEventEventsJsonResponse` | `src/Discourse/Models/DiscoursePostEventEventsJsonResponse.cs` |
 

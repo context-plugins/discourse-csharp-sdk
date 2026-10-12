@@ -2,7 +2,7 @@
 
 # Tags — operations
 
-Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
+Accessor: `client.Tags` · Source: `src/Discourse/Api/Tags.cs` · 6 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -14,9 +14,9 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateTagGroupRequest` | `Requests/Tags/CreateTagGroupRequest.cs` |
-| `TagGroupsJsonRequest` | `Models/TagGroupsJsonRequest.cs` |
-| `TagGroupsJsonResponse1` | `Models/TagGroupsJsonResponse1.cs` |
+| `CreateTagGroupRequest` | `src/Discourse/Requests/Tags/CreateTagGroupRequest.cs` |
+| `TagGroupsJsonRequest` | `src/Discourse/Models/TagGroupsJsonRequest.cs` |
+| `TagGroupsJsonResponse1` | `src/Discourse/Models/TagGroupsJsonResponse1.cs` |
 
 ### GetTag
 
@@ -27,8 +27,8 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `GetTagRequest` | `Requests/Tags/GetTagRequest.cs` |
-| `TagJsonResponse` | `Models/TagJsonResponse.cs` |
+| `GetTagRequest` | `src/Discourse/Requests/Tags/GetTagRequest.cs` |
+| `TagJsonResponse` | `src/Discourse/Models/TagJsonResponse.cs` |
 
 ### GetTagGroup
 
@@ -39,8 +39,8 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `GetTagGroupRequest` | `Requests/Tags/GetTagGroupRequest.cs` |
-| `TagGroupsJsonResponse2` | `Models/TagGroupsJsonResponse2.cs` |
+| `GetTagGroupRequest` | `src/Discourse/Requests/Tags/GetTagGroupRequest.cs` |
+| `TagGroupsJsonResponse2` | `src/Discourse/Models/TagGroupsJsonResponse2.cs` |
 
 ### ListTagGroups
 
@@ -50,7 +50,7 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `TagGroupsJsonResponse` | `Models/TagGroupsJsonResponse.cs` |
+| `TagGroupsJsonResponse` | `src/Discourse/Models/TagGroupsJsonResponse.cs` |
 
 ### ListTags
 
@@ -60,7 +60,7 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `TagsJsonResponse` | `Models/TagsJsonResponse.cs` |
+| `TagsJsonResponse` | `src/Discourse/Models/TagsJsonResponse.cs` |
 
 ### UpdateTagGroup
 
@@ -71,7 +71,7 @@ Accessor: `client.Tags` · Source: `Api/Tags.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateTagGroupRequest` | `Requests/Tags/UpdateTagGroupRequest.cs` |
-| `TagGroupsJsonRequest1` | `Models/TagGroupsJsonRequest1.cs` |
-| `TagGroupsJsonResponse3` | `Models/TagGroupsJsonResponse3.cs` |
+| `UpdateTagGroupRequest` | `src/Discourse/Requests/Tags/UpdateTagGroupRequest.cs` |
+| `TagGroupsJsonRequest1` | `src/Discourse/Models/TagGroupsJsonRequest1.cs` |
+| `TagGroupsJsonResponse3` | `src/Discourse/Models/TagGroupsJsonResponse3.cs` |
 

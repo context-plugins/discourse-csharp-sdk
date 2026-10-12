@@ -2,7 +2,7 @@
 
 # Site — operations
 
-Accessor: `client.Site` · Source: `Api/Site.cs` · 2 operations
+Accessor: `client.Site` · Source: `src/Discourse/Api/Site.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -14,7 +14,7 @@ Accessor: `client.Site` · Source: `Api/Site.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `SiteJsonResponse` | `Models/SiteJsonResponse.cs` |
+| `SiteJsonResponse` | `src/Discourse/Models/SiteJsonResponse.cs` |
 
 ### GetSiteBasicInfo
 
@@ -24,5 +24,5 @@ Accessor: `client.Site` · Source: `Api/Site.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `SiteBasicInfoJsonResponse` | `Models/SiteBasicInfoJsonResponse.cs` |
+| `SiteBasicInfoJsonResponse` | `src/Discourse/Models/SiteBasicInfoJsonResponse.cs` |
 

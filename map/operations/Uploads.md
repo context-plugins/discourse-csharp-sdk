@@ -2,7 +2,7 @@
 
 # Uploads — operations
 
-Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
+Accessor: `client.Uploads` · Source: `src/Discourse/Api/Uploads.cs` · 7 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -14,9 +14,9 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 | Type | Source |
 | --- | --- |
-| `AbortMultipartRequest` | `Requests/Uploads/AbortMultipartRequest.cs` |
-| `UploadsAbortMultipartJsonRequest` | `Models/UploadsAbortMultipartJsonRequest.cs` |
-| `UploadsAbortMultipartJsonResponse` | `Models/UploadsAbortMultipartJsonResponse.cs` |
+| `AbortMultipartRequest` | `src/Discourse/Requests/Uploads/AbortMultipartRequest.cs` |
+| `UploadsAbortMultipartJsonRequest` | `src/Discourse/Models/UploadsAbortMultipartJsonRequest.cs` |
+| `UploadsAbortMultipartJsonResponse` | `src/Discourse/Models/UploadsAbortMultipartJsonResponse.cs` |
 
 ### BatchPresignMultipartParts
 
@@ -26,9 +26,9 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 | Type | Source |
 | --- | --- |
-| `BatchPresignMultipartPartsRequest` | `Requests/Uploads/BatchPresignMultipartPartsRequest.cs` |
-| `UploadsBatchPresignMultipartPartsJsonRequest` | `Models/UploadsBatchPresignMultipartPartsJsonRequest.cs` |
-| `UploadsBatchPresignMultipartPartsJsonResponse` | `Models/UploadsBatchPresignMultipartPartsJsonResponse.cs` |
+| `BatchPresignMultipartPartsRequest` | `src/Discourse/Requests/Uploads/BatchPresignMultipartPartsRequest.cs` |
+| `UploadsBatchPresignMultipartPartsJsonRequest` | `src/Discourse/Models/UploadsBatchPresignMultipartPartsJsonRequest.cs` |
+| `UploadsBatchPresignMultipartPartsJsonResponse` | `src/Discourse/Models/UploadsBatchPresignMultipartPartsJsonResponse.cs` |
 
 ### CompleteExternalUpload
 
@@ -38,9 +38,9 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 | Type | Source |
 | --- | --- |
-| `CompleteExternalUploadRequest` | `Requests/Uploads/CompleteExternalUploadRequest.cs` |
-| `UploadsCompleteExternalUploadJsonRequest` | `Models/UploadsCompleteExternalUploadJsonRequest.cs` |
-| `UploadsCompleteExternalUploadJsonResponse` | `Models/UploadsCompleteExternalUploadJsonResponse.cs` |
+| `CompleteExternalUploadRequest` | `src/Discourse/Requests/Uploads/CompleteExternalUploadRequest.cs` |
+| `UploadsCompleteExternalUploadJsonRequest` | `src/Discourse/Models/UploadsCompleteExternalUploadJsonRequest.cs` |
+| `UploadsCompleteExternalUploadJsonResponse` | `src/Discourse/Models/UploadsCompleteExternalUploadJsonResponse.cs` |
 
 ### CompleteMultipart
 
@@ -50,9 +50,9 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 | Type | Source |
 | --- | --- |
-| `CompleteMultipartRequest` | `Requests/Uploads/CompleteMultipartRequest.cs` |
-| `UploadsCompleteMultipartJsonRequest` | `Models/UploadsCompleteMultipartJsonRequest.cs` |
-| `UploadsCompleteMultipartJsonResponse` | `Models/UploadsCompleteMultipartJsonResponse.cs` |
+| `CompleteMultipartRequest` | `src/Discourse/Requests/Uploads/CompleteMultipartRequest.cs` |
+| `UploadsCompleteMultipartJsonRequest` | `src/Discourse/Models/UploadsCompleteMultipartJsonRequest.cs` |
+| `UploadsCompleteMultipartJsonResponse` | `src/Discourse/Models/UploadsCompleteMultipartJsonResponse.cs` |
 
 ### CreateMultipartUpload
 
@@ -62,9 +62,9 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateMultipartUploadRequest` | `Requests/Uploads/CreateMultipartUploadRequest.cs` |
-| `UploadsCreateMultipartJsonRequest` | `Models/UploadsCreateMultipartJsonRequest.cs` |
-| `UploadsCreateMultipartJsonResponse` | `Models/UploadsCreateMultipartJsonResponse.cs` |
+| `CreateMultipartUploadRequest` | `src/Discourse/Requests/Uploads/CreateMultipartUploadRequest.cs` |
+| `UploadsCreateMultipartJsonRequest` | `src/Discourse/Models/UploadsCreateMultipartJsonRequest.cs` |
+| `UploadsCreateMultipartJsonResponse` | `src/Discourse/Models/UploadsCreateMultipartJsonResponse.cs` |
 
 ### CreateUpload
 
@@ -75,9 +75,9 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateUploadRequest` | `Requests/Uploads/CreateUploadRequest.cs` |
-| `UploadType` | `Models/Enums/UploadType.cs` |
-| `UploadsJsonResponse` | `Models/UploadsJsonResponse.cs` |
+| `CreateUploadRequest` | `src/Discourse/Requests/Uploads/CreateUploadRequest.cs` |
+| `UploadType` | `src/Discourse/Models/Enums/UploadType.cs` |
+| `UploadsJsonResponse` | `src/Discourse/Models/UploadsJsonResponse.cs` |
 
 ### GeneratePresignedPut
 
@@ -87,7 +87,7 @@ Accessor: `client.Uploads` · Source: `Api/Uploads.cs` · 7 operations
 
 | Type | Source |
 | --- | --- |
-| `GeneratePresignedPutRequest` | `Requests/Uploads/GeneratePresignedPutRequest.cs` |
-| `UploadsGeneratePresignedPutJsonRequest` | `Models/UploadsGeneratePresignedPutJsonRequest.cs` |
-| `UploadsGeneratePresignedPutJsonResponse` | `Models/UploadsGeneratePresignedPutJsonResponse.cs` |
+| `GeneratePresignedPutRequest` | `src/Discourse/Requests/Uploads/GeneratePresignedPutRequest.cs` |
+| `UploadsGeneratePresignedPutJsonRequest` | `src/Discourse/Models/UploadsGeneratePresignedPutJsonRequest.cs` |
+| `UploadsGeneratePresignedPutJsonResponse` | `src/Discourse/Models/UploadsGeneratePresignedPutJsonResponse.cs` |
 

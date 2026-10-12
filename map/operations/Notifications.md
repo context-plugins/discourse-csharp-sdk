@@ -2,7 +2,7 @@
 
 # Notifications — operations
 
-Accessor: `client.Notifications` · Source: `Api/Notifications.cs` · 2 operations
+Accessor: `client.Notifications` · Source: `src/Discourse/Api/Notifications.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -14,7 +14,7 @@ Accessor: `client.Notifications` · Source: `Api/Notifications.cs` · 2 operatio
 
 | Type | Source |
 | --- | --- |
-| `NotificationsJsonResponse` | `Models/NotificationsJsonResponse.cs` |
+| `NotificationsJsonResponse` | `src/Discourse/Models/NotificationsJsonResponse.cs` |
 
 ### MarkNotificationsAsRead
 
@@ -24,7 +24,7 @@ Accessor: `client.Notifications` · Source: `Api/Notifications.cs` · 2 operatio
 
 | Type | Source |
 | --- | --- |
-| `MarkNotificationsAsReadRequest` | `Requests/Notifications/MarkNotificationsAsReadRequest.cs` |
-| `NotificationsMarkReadJsonRequest` | `Models/NotificationsMarkReadJsonRequest.cs` |
-| `NotificationsMarkReadJsonResponse` | `Models/NotificationsMarkReadJsonResponse.cs` |
+| `MarkNotificationsAsReadRequest` | `src/Discourse/Requests/Notifications/MarkNotificationsAsReadRequest.cs` |
+| `NotificationsMarkReadJsonRequest` | `src/Discourse/Models/NotificationsMarkReadJsonRequest.cs` |
+| `NotificationsMarkReadJsonResponse` | `src/Discourse/Models/NotificationsMarkReadJsonResponse.cs` |
 

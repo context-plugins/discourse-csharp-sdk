@@ -2,7 +2,7 @@
 
 # Search — operations
 
-Accessor: `client.Search` · Source: `Api/Search.cs` · 1 operation
+Accessor: `client.Search` · Source: `src/Discourse/Api/Search.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,6 +15,6 @@ Accessor: `client.Search` · Source: `Api/Search.cs` · 1 operation
 
 | Type | Source |
 | --- | --- |
-| `SearchRequest` | `Requests/Search/SearchRequest.cs` |
-| `SearchJsonResponse` | `Models/SearchJsonResponse.cs` |
+| `SearchRequest` | `src/Discourse/Requests/Search/SearchRequest.cs` |
+| `SearchJsonResponse` | `src/Discourse/Models/SearchJsonResponse.cs` |
 

@@ -2,7 +2,7 @@
 
 # PrivateMessages — operations
 
-Accessor: `client.PrivateMessages` · Source: `Api/PrivateMessages.cs` · 3 operations
+Accessor: `client.PrivateMessages` · Source: `src/Discourse/Api/PrivateMessages.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,9 +15,9 @@ Accessor: `client.PrivateMessages` · Source: `Api/PrivateMessages.cs` · 3 oper
 
 | Type | Source |
 | --- | --- |
-| `CreateTopicPostPmRequest` | `Requests/Posts/CreateTopicPostPmRequest.cs` |
-| `PostsJsonRequest` | `Models/PostsJsonRequest.cs` |
-| `PostsJsonResponse1` | `Models/PostsJsonResponse1.cs` |
+| `CreateTopicPostPmRequest` | `src/Discourse/Requests/Posts/CreateTopicPostPmRequest.cs` |
+| `PostsJsonRequest` | `src/Discourse/Models/PostsJsonRequest.cs` |
+| `PostsJsonResponse1` | `src/Discourse/Models/PostsJsonResponse1.cs` |
 
 ### GetUserSentPrivateMessages
 
@@ -28,8 +28,8 @@ Accessor: `client.PrivateMessages` · Source: `Api/PrivateMessages.cs` · 3 oper
 
 | Type | Source |
 | --- | --- |
-| `GetUserSentPrivateMessagesRequest` | `Requests/PrivateMessages/GetUserSentPrivateMessagesRequest.cs` |
-| `TopicsPrivateMessagesSentJsonResponse` | `Models/TopicsPrivateMessagesSentJsonResponse.cs` |
+| `GetUserSentPrivateMessagesRequest` | `src/Discourse/Requests/PrivateMessages/GetUserSentPrivateMessagesRequest.cs` |
+| `TopicsPrivateMessagesSentJsonResponse` | `src/Discourse/Models/TopicsPrivateMessagesSentJsonResponse.cs` |
 
 ### ListUserPrivateMessages
 
@@ -40,6 +40,6 @@ Accessor: `client.PrivateMessages` · Source: `Api/PrivateMessages.cs` · 3 oper
 
 | Type | Source |
 | --- | --- |
-| `ListUserPrivateMessagesRequest` | `Requests/PrivateMessages/ListUserPrivateMessagesRequest.cs` |
-| `TopicsPrivateMessagesJsonResponse` | `Models/TopicsPrivateMessagesJsonResponse.cs` |
+| `ListUserPrivateMessagesRequest` | `src/Discourse/Requests/PrivateMessages/ListUserPrivateMessagesRequest.cs` |
+| `TopicsPrivateMessagesJsonResponse` | `src/Discourse/Models/TopicsPrivateMessagesJsonResponse.cs` |
 

@@ -14,7 +14,7 @@
 
 Staleness check: the API spec version above changes when the SDK is regenerated from a new spec. If a lookup here fails to compile, trust the compiler and re-read the source file named in the row.
 
-All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file and `Discourse.csproj` — never to the page that carries them. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
+All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file — never to the page that carries them; the project file is `src/Discourse/Discourse.csproj`. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
 
 ---
 
@@ -37,9 +37,9 @@ services.AddDiscourseClient(options =>
 });
 ```
 
-Every API group is a property on the client (e.g. `client.Admin`). Source: `DiscourseClient.cs`. The only constructor is `DiscourseClient(HttpClient httpClient, DiscourseClientOptions options)`.
+Every API group is a property on the client (e.g. `client.Admin`). Source: `src/Discourse/DiscourseClient.cs`. The only constructor is `DiscourseClient(HttpClient httpClient, DiscourseClientOptions options)`.
 
-All `DiscourseClientOptions` properties (source: `DiscourseClientOptions.cs`):
+All `DiscourseClientOptions` properties (source: `src/Discourse/DiscourseClientOptions.cs`):
 
 | Property | Type |
 | --- | --- |
@@ -51,9 +51,9 @@ All `DiscourseClientOptions` properties (source: `DiscourseClientOptions.cs`):
 | `StreamReadTimeout` | `TimeSpan?` |
 | `Hooks` | `IReadOnlyList<SdkHook>` |
 
-`ServerEnvironment` (source: `Servers/ServerEnvironment.cs`, namespace `Discourse.Servers`)
+`ServerEnvironment` (source: `src/Discourse/Servers/ServerEnvironment.cs`, namespace `Discourse.Servers`)
 
-`RetryOptions` members (namespace `Discourse.Core.Configuration` — add `using Discourse.Core.Configuration;`; source: `Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
+`RetryOptions` members (namespace `Discourse.Core.Configuration` — add `using Discourse.Core.Configuration;`; source: `src/Discourse/Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
 
 | Member | Type |
 | --- | --- |
@@ -71,21 +71,21 @@ All `DiscourseClientOptions` properties (source: `DiscourseClientOptions.cs`):
 
 ## Error-handling model (read once — applies to every operation)
 
-Operations are **throw-based**. On an error status the SDK throws `ApiException<TError>` (`Core/Exceptions/ApiException.cs`, namespace `Discourse.Core.Exceptions`) exposing `.Error` of type `TError` beside the `StatusCode`, `Headers` and `ContentType` of the response. There are two cases:
+Operations are **throw-based**. On an error status the SDK throws `ApiException<TError>` (`src/Discourse/Core/Exceptions/ApiException.cs`, namespace `Discourse.Core.Exceptions`) exposing `.Error` of type `TError` beside the `StatusCode`, `Headers` and `ContentType` of the response. There are two cases:
 
 - **Case A — typed error.** `TError` is a generated `…Error : ApiError` class (namespace `Discourse.Errors`) with status-specific `TryGet…(out …)` accessors (each returns `true` when that shape is present) plus the inherited `TryGetRawError(out RawError)` fallback. The operation blocks name the exact `TryGet…` methods and the HTTP status each maps to.
-- **Case B — raw error.** `TError` is `RawError` (`Core/ErrorResponse/RawError.cs`, namespace `Discourse.Core.ErrorResponse`): `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?`.
+- **Case B — raw error.** `TError` is `RawError` (`src/Discourse/Core/ErrorResponse/RawError.cs`, namespace `Discourse.Core.ErrorResponse`): `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?`.
 
-⚠ Each of the three lives in its own namespace. `Core/` holds several namespaces, so a catch block naming `ApiException<T>`, a typed `{Operation}Error` and `RawError` together needs a `using` for each.
+⚠ Each of the three lives in its own namespace. `src/Discourse/Core/` holds several namespaces, so a catch block naming `ApiException<T>`, a typed `{Operation}Error` and `RawError` together needs a `using` for each.
 
-`ApiException<TError>` is one leaf of the `SdkException` family (`Core/Exceptions/SdkException.cs`): a request that produced no usable response surfaces as `SdkConnectionException` or `SdkTimeoutException`, a body that does not match its declared type as `ResponseDeserializationException`, and a credential that could not be applied as `AuthSchemeException`. Every one of them names the failed call. The full table is in [README → Error Handling](README.md#error-handling).
+`ApiException<TError>` is one leaf of the `SdkException` family (`src/Discourse/Core/Exceptions/SdkException.cs`): a request that produced no usable response surfaces as `SdkConnectionException` or `SdkTimeoutException`, a body that does not match its declared type as `ResponseDeserializationException`, and a credential that could not be applied as `AuthSchemeException`. Every one of them names the failed call. The full table is in [README → Error Handling](README.md#error-handling).
 
-Core error types (`Core/ErrorResponse/`) — public members with their **declared types**, verbatim from source:
+Core error types (`src/Discourse/Core/ErrorResponse/`) — public members with their **declared types**, verbatim from source:
 
 | Type | Public members | Source |
 | --- | --- | --- |
-| `ApiError` — abstract base of typed error classes (none in this SDK) | `TryGetRawError(out RawError error): bool` | `Core/ErrorResponse/ApiError.cs` |
-| `RawError` | `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?` | `Core/ErrorResponse/RawError.cs` |
+| `ApiError` — abstract base of typed error classes (none in this SDK) | `TryGetRawError(out RawError error): bool` | `src/Discourse/Core/ErrorResponse/ApiError.cs` |
+| `RawError` | `StatusCode: HttpStatusCode` · `ReadAsBytes(): ReadOnlyMemory<byte>` · `ReadAsString(): string` · `ReadAsJson<T>(): T?` | `src/Discourse/Core/ErrorResponse/RawError.cs` |
 
 Typed-error payload shapes (the `out` types in each operation page's error-accessor cells) are ordinary records/unions — no special handling. The operation's **Type sources** table gives the file that declares each one; read field names, declared types, and JSON wire names there, as for any other model.
 
@@ -146,13 +146,13 @@ Each links to a sub-page with one row per operation: signature, the request reco
 
 ## Models — where they live, how to build them
 
-**Shapes live only in the source.** Every file under `Models/`, `Errors/` and `Requests/` declares exactly one public type, named after the file, and no two share a name — so a type name *is* its path. Take it from the operation's **Type sources** table, or build it from the kind's directory below. Never grep for a type.
+**Shapes live only in the source.** Every file under `src/Discourse/Models/`, `src/Discourse/Errors/` and `src/Discourse/Requests/` declares exactly one public type, named after the file, and no two share a name — so a type name *is* its path. Take it from the operation's **Type sources** table, or build it from the kind's directory below. Never grep for a type.
 
 | Group | Count | Directory (file = `<TypeName>.cs`) |
 | --- | --- | --- |
-| Records (plain `record` data models) | 250 | `Models/` |
-| Enums (`OpenStringEnum<T>` / `OpenIntEnum<T>`) — C# member names + wire values | 18 | `Models/Enums/` |
-| Request records (one per operation that takes input; never serialized) | 85 | `Requests/` — a controller's records sit in a folder named after it (an operation with several tags is filed under the first tag it declares) |
+| Records (plain `record` data models) | 250 | `src/Discourse/Models/` |
+| Enums (`OpenStringEnum<T>` / `OpenIntEnum<T>`) — C# member names + wire values | 18 | `src/Discourse/Models/Enums/` |
+| Request records (one per operation that takes input; never serialized) | 85 | `src/Discourse/Requests/` — a controller's records sit in a folder named after it (an operation with several tags is filed under the first tag it declares) |
 
 Conventions: records are immutable, `init`-only; `required` properties must be set in the object initializer; `T?` is optional. A field's wire name is its `[JsonPropertyName]` and often differs from the C# name (`AmountInCents` ↔ `amount_in_cents`) — read it off the property, don't derive it. `OneOf`/`AnyOf` unions wrap `Optional<T>` variants — build via static factory or implicit conversion, read via `TryGet…(out …)`; `AllOf` compositions are not unions — every constituent is a `required` property, so set them all, and those constituent properties carry no `[JsonPropertyName]` and have no wire name of their own, because the generated converter flattens each constituent's own fields directly into the one parent JSON object. Enums are **not** C# enums — use the static members, whose names are PascalCase even when the wire value isn't (`CollectionMethod.Invoice`, not `.invoice`); there is no public factory, so resolve a raw value with `TryGetKnownValue` and branch with the generated `Match`, whose `otherwise` arm receives any value the SDK does not declare.
 
@@ -161,10 +161,10 @@ Namespaces by content type (add `using` accordingly):
 | Contents | Namespace |
 | --- | --- |
 | Client & options (root) | `Discourse` |
-| Operation controllers (`Api/`) | `Discourse.Api` |
-| Records (`Models/`) | `Discourse.Models` |
-| Enums (`Models/Enums/`) | `Discourse.Models.Enums` |
-| Request records (`Requests/`) | `Discourse.Requests` — plus `.<Controller>` for a controller's records (an operation with several tags is filed under the first tag it declares) |
+| Operation controllers (`src/Discourse/Api/`) | `Discourse.Api` |
+| Records (`src/Discourse/Models/`) | `Discourse.Models` |
+| Enums (`src/Discourse/Models/Enums/`) | `Discourse.Models.Enums` |
+| Request records (`src/Discourse/Requests/`) | `Discourse.Requests` — plus `.<Controller>` for a controller's records (an operation with several tags is filed under the first tag it declares) |
 
 ---
 
@@ -172,7 +172,7 @@ Namespaces by content type (add `using` accordingly):
 
 **Auth — none.** The spec declares no security schemes; the client sends no credentials.
 
-**Environments.** `options.Environment` selects the target environment (`Servers/ServerEnvironment.cs`):
+**Environments.** `options.Environment` selects the target environment (`src/Discourse/Servers/ServerEnvironment.cs`):
 
 | Environment | Value | Hosting |
 | --- | --- | --- |

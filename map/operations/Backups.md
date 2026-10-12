@@ -2,7 +2,7 @@
 
 # Backups — operations
 
-Accessor: `client.Backups` · Source: `Api/Backups.cs` · 4 operations
+Accessor: `client.Backups` · Source: `src/Discourse/Api/Backups.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -14,9 +14,9 @@ Accessor: `client.Backups` · Source: `Api/Backups.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateBackupRequest` | `Requests/Backups/CreateBackupRequest.cs` |
-| `AdminBackupsJsonRequest` | `Models/AdminBackupsJsonRequest.cs` |
-| `AdminBackupsJsonResponse1` | `Models/AdminBackupsJsonResponse1.cs` |
+| `CreateBackupRequest` | `src/Discourse/Requests/Backups/CreateBackupRequest.cs` |
+| `AdminBackupsJsonRequest` | `src/Discourse/Models/AdminBackupsJsonRequest.cs` |
+| `AdminBackupsJsonResponse1` | `src/Discourse/Models/AdminBackupsJsonResponse1.cs` |
 
 ### DownloadBackup
 
@@ -28,7 +28,7 @@ Accessor: `client.Backups` · Source: `Api/Backups.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `DownloadBackupRequest` | `Requests/Backups/DownloadBackupRequest.cs` |
+| `DownloadBackupRequest` | `src/Discourse/Requests/Backups/DownloadBackupRequest.cs` |
 
 ### GetBackups
 
@@ -38,7 +38,7 @@ Accessor: `client.Backups` · Source: `Api/Backups.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `AdminBackupsJsonResponse` | `Models/AdminBackupsJsonResponse.cs` |
+| `AdminBackupsJsonResponse` | `src/Discourse/Models/AdminBackupsJsonResponse.cs` |
 
 ### SendDownloadBackupEmail
 
@@ -49,5 +49,5 @@ Accessor: `client.Backups` · Source: `Api/Backups.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `SendDownloadBackupEmailRequest` | `Requests/Backups/SendDownloadBackupEmailRequest.cs` |
+| `SendDownloadBackupEmailRequest` | `src/Discourse/Requests/Backups/SendDownloadBackupEmailRequest.cs` |
 

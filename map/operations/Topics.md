@@ -2,7 +2,7 @@
 
 # Topics — operations
 
-Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
+Accessor: `client.Topics` · Source: `src/Discourse/Api/Topics.cs` · 15 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,7 +15,7 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `BookmarkTopicRequest` | `Requests/Topics/BookmarkTopicRequest.cs` |
+| `BookmarkTopicRequest` | `src/Discourse/Requests/Topics/BookmarkTopicRequest.cs` |
 
 ### CreateTopicPostPm
 
@@ -26,9 +26,9 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateTopicPostPmRequest` | `Requests/Posts/CreateTopicPostPmRequest.cs` |
-| `PostsJsonRequest` | `Models/PostsJsonRequest.cs` |
-| `PostsJsonResponse1` | `Models/PostsJsonResponse1.cs` |
+| `CreateTopicPostPmRequest` | `src/Discourse/Requests/Posts/CreateTopicPostPmRequest.cs` |
+| `PostsJsonRequest` | `src/Discourse/Models/PostsJsonRequest.cs` |
+| `PostsJsonResponse1` | `src/Discourse/Models/PostsJsonResponse1.cs` |
 
 ### CreateTopicTimer
 
@@ -39,9 +39,9 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateTopicTimerRequest` | `Requests/Topics/CreateTopicTimerRequest.cs` |
-| `TTimerJsonRequest` | `Models/TTimerJsonRequest.cs` |
-| `TTimerJsonResponse` | `Models/TTimerJsonResponse.cs` |
+| `CreateTopicTimerRequest` | `src/Discourse/Requests/Topics/CreateTopicTimerRequest.cs` |
+| `TTimerJsonRequest` | `src/Discourse/Models/TTimerJsonRequest.cs` |
+| `TTimerJsonResponse` | `src/Discourse/Models/TTimerJsonResponse.cs` |
 
 ### GetSpecificPostsFromTopic
 
@@ -52,8 +52,8 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `GetSpecificPostsFromTopicRequest` | `Requests/Topics/GetSpecificPostsFromTopicRequest.cs` |
-| `TPostsJsonResponse` | `Models/TPostsJsonResponse.cs` |
+| `GetSpecificPostsFromTopicRequest` | `src/Discourse/Requests/Topics/GetSpecificPostsFromTopicRequest.cs` |
+| `TPostsJsonResponse` | `src/Discourse/Models/TPostsJsonResponse.cs` |
 
 ### GetTopic
 
@@ -64,8 +64,8 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `GetTopicRequest` | `Requests/Topics/GetTopicRequest.cs` |
-| `TJsonResponse` | `Models/TJsonResponse.cs` |
+| `GetTopicRequest` | `src/Discourse/Requests/Topics/GetTopicRequest.cs` |
+| `TJsonResponse` | `src/Discourse/Models/TJsonResponse.cs` |
 
 ### GetTopicByExternalId
 
@@ -76,7 +76,7 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `GetTopicByExternalIdRequest` | `Requests/Topics/GetTopicByExternalIdRequest.cs` |
+| `GetTopicByExternalIdRequest` | `src/Discourse/Requests/Topics/GetTopicByExternalIdRequest.cs` |
 
 ### InviteGroupToTopic
 
@@ -87,9 +87,9 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `InviteGroupToTopicRequest` | `Requests/Topics/InviteGroupToTopicRequest.cs` |
-| `TInviteGroupJsonRequest` | `Models/TInviteGroupJsonRequest.cs` |
-| `TInviteGroupJsonResponse` | `Models/TInviteGroupJsonResponse.cs` |
+| `InviteGroupToTopicRequest` | `src/Discourse/Requests/Topics/InviteGroupToTopicRequest.cs` |
+| `TInviteGroupJsonRequest` | `src/Discourse/Models/TInviteGroupJsonRequest.cs` |
+| `TInviteGroupJsonResponse` | `src/Discourse/Models/TInviteGroupJsonResponse.cs` |
 
 ### InviteToTopic
 
@@ -100,9 +100,9 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `InviteToTopicRequest` | `Requests/Topics/InviteToTopicRequest.cs` |
-| `TInviteJsonRequest` | `Models/TInviteJsonRequest.cs` |
-| `TInviteJsonResponse` | `Models/TInviteJsonResponse.cs` |
+| `InviteToTopicRequest` | `src/Discourse/Requests/Topics/InviteToTopicRequest.cs` |
+| `TInviteJsonRequest` | `src/Discourse/Models/TInviteJsonRequest.cs` |
+| `TInviteJsonResponse` | `src/Discourse/Models/TInviteJsonResponse.cs` |
 
 ### ListLatestTopics
 
@@ -114,8 +114,8 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `ListLatestTopicsRequest` | `Requests/Topics/ListLatestTopicsRequest.cs` |
-| `LatestJsonResponse` | `Models/LatestJsonResponse.cs` |
+| `ListLatestTopicsRequest` | `src/Discourse/Requests/Topics/ListLatestTopicsRequest.cs` |
+| `LatestJsonResponse` | `src/Discourse/Models/LatestJsonResponse.cs` |
 
 ### ListTopTopics
 
@@ -127,8 +127,8 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `ListTopTopicsRequest` | `Requests/Topics/ListTopTopicsRequest.cs` |
-| `TopJsonResponse` | `Models/TopJsonResponse.cs` |
+| `ListTopTopicsRequest` | `src/Discourse/Requests/Topics/ListTopTopicsRequest.cs` |
+| `TopJsonResponse` | `src/Discourse/Models/TopJsonResponse.cs` |
 
 ### RemoveTopic
 
@@ -139,7 +139,7 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `RemoveTopicRequest` | `Requests/Topics/RemoveTopicRequest.cs` |
+| `RemoveTopicRequest` | `src/Discourse/Requests/Topics/RemoveTopicRequest.cs` |
 
 ### SetNotificationLevel
 
@@ -150,9 +150,9 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `SetNotificationLevelRequest` | `Requests/Topics/SetNotificationLevelRequest.cs` |
-| `TNotificationsJsonRequest` | `Models/TNotificationsJsonRequest.cs` |
-| `TNotificationsJsonResponse` | `Models/TNotificationsJsonResponse.cs` |
+| `SetNotificationLevelRequest` | `src/Discourse/Requests/Topics/SetNotificationLevelRequest.cs` |
+| `TNotificationsJsonRequest` | `src/Discourse/Models/TNotificationsJsonRequest.cs` |
+| `TNotificationsJsonResponse` | `src/Discourse/Models/TNotificationsJsonResponse.cs` |
 
 ### UpdateTopic
 
@@ -163,9 +163,9 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateTopicRequest` | `Requests/Topics/UpdateTopicRequest.cs` |
-| `TJsonRequest` | `Models/TJsonRequest.cs` |
-| `TJsonResponse1` | `Models/TJsonResponse1.cs` |
+| `UpdateTopicRequest` | `src/Discourse/Requests/Topics/UpdateTopicRequest.cs` |
+| `TJsonRequest` | `src/Discourse/Models/TJsonRequest.cs` |
+| `TJsonResponse1` | `src/Discourse/Models/TJsonResponse1.cs` |
 
 ### UpdateTopicStatus
 
@@ -176,9 +176,9 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateTopicStatusRequest` | `Requests/Topics/UpdateTopicStatusRequest.cs` |
-| `TStatusJsonRequest` | `Models/TStatusJsonRequest.cs` |
-| `TStatusJsonResponse` | `Models/TStatusJsonResponse.cs` |
+| `UpdateTopicStatusRequest` | `src/Discourse/Requests/Topics/UpdateTopicStatusRequest.cs` |
+| `TStatusJsonRequest` | `src/Discourse/Models/TStatusJsonRequest.cs` |
+| `TStatusJsonResponse` | `src/Discourse/Models/TStatusJsonResponse.cs` |
 
 ### UpdateTopicTimestamp
 
@@ -189,7 +189,7 @@ Accessor: `client.Topics` · Source: `Api/Topics.cs` · 15 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateTopicTimestampRequest` | `Requests/Topics/UpdateTopicTimestampRequest.cs` |
-| `TChangeTimestampJsonRequest` | `Models/TChangeTimestampJsonRequest.cs` |
-| `TChangeTimestampJsonResponse` | `Models/TChangeTimestampJsonResponse.cs` |
+| `UpdateTopicTimestampRequest` | `src/Discourse/Requests/Topics/UpdateTopicTimestampRequest.cs` |
+| `TChangeTimestampJsonRequest` | `src/Discourse/Models/TChangeTimestampJsonRequest.cs` |
+| `TChangeTimestampJsonResponse` | `src/Discourse/Models/TChangeTimestampJsonResponse.cs` |
 

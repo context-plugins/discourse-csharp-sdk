@@ -2,7 +2,7 @@
 
 # Users — operations
 
-Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
+Accessor: `client.Users` · Source: `src/Discourse/Api/Users.cs` · 25 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,8 +15,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `ActivateUserRequest` | `Requests/Users/ActivateUserRequest.cs` |
-| `AdminUsersActivateJsonResponse` | `Models/AdminUsersActivateJsonResponse.cs` |
+| `ActivateUserRequest` | `src/Discourse/Requests/Users/ActivateUserRequest.cs` |
+| `AdminUsersActivateJsonResponse` | `src/Discourse/Models/AdminUsersActivateJsonResponse.cs` |
 
 ### AdminGetUser
 
@@ -27,8 +27,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `AdminGetUserRequest` | `Requests/Users/AdminGetUserRequest.cs` |
-| `AdminUsersJsonResponse` | `Models/AdminUsersJsonResponse.cs` |
+| `AdminGetUserRequest` | `src/Discourse/Requests/Users/AdminGetUserRequest.cs` |
+| `AdminUsersJsonResponse` | `src/Discourse/Models/AdminUsersJsonResponse.cs` |
 
 ### AdminListUsers
 
@@ -39,10 +39,10 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `AdminListUsersRequest` | `Requests/Users/AdminListUsersRequest.cs` |
-| `Order3` | `Models/Enums/Order3.cs` |
-| `Asc` | `Models/Enums/Asc.cs` |
-| `AdminUsersJsonResponse2` | `Models/AdminUsersJsonResponse2.cs` |
+| `AdminListUsersRequest` | `src/Discourse/Requests/Users/AdminListUsersRequest.cs` |
+| `Order3` | `src/Discourse/Models/Enums/Order3.cs` |
+| `Asc` | `src/Discourse/Models/Enums/Asc.cs` |
+| `AdminUsersJsonResponse2` | `src/Discourse/Models/AdminUsersJsonResponse2.cs` |
 
 ### AdminListUsersFlag
 
@@ -54,11 +54,11 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `AdminListUsersFlagRequest` | `Requests/Users/AdminListUsersFlagRequest.cs` |
-| `Flag` | `Models/Enums/Flag.cs` |
-| `Order3` | `Models/Enums/Order3.cs` |
-| `Asc` | `Models/Enums/Asc.cs` |
-| `AdminUsersListJsonResponse` | `Models/AdminUsersListJsonResponse.cs` |
+| `AdminListUsersFlagRequest` | `src/Discourse/Requests/Users/AdminListUsersFlagRequest.cs` |
+| `Flag` | `src/Discourse/Models/Enums/Flag.cs` |
+| `Order3` | `src/Discourse/Models/Enums/Order3.cs` |
+| `Asc` | `src/Discourse/Models/Enums/Asc.cs` |
+| `AdminUsersListJsonResponse` | `src/Discourse/Models/AdminUsersListJsonResponse.cs` |
 
 ### AnonymizeUser
 
@@ -69,8 +69,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `AnonymizeUserRequest` | `Requests/Users/AnonymizeUserRequest.cs` |
-| `AdminUsersAnonymizeJsonResponse` | `Models/AdminUsersAnonymizeJsonResponse.cs` |
+| `AnonymizeUserRequest` | `src/Discourse/Requests/Users/AnonymizeUserRequest.cs` |
+| `AdminUsersAnonymizeJsonResponse` | `src/Discourse/Models/AdminUsersAnonymizeJsonResponse.cs` |
 
 ### ChangePassword
 
@@ -81,8 +81,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `ChangePasswordRequest` | `Requests/Users/ChangePasswordRequest.cs` |
-| `UsersPasswordResetJsonRequest` | `Models/UsersPasswordResetJsonRequest.cs` |
+| `ChangePasswordRequest` | `src/Discourse/Requests/Users/ChangePasswordRequest.cs` |
+| `UsersPasswordResetJsonRequest` | `src/Discourse/Models/UsersPasswordResetJsonRequest.cs` |
 
 ### CreateUser
 
@@ -93,9 +93,9 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateUserRequest` | `Requests/Users/CreateUserRequest.cs` |
-| `UsersJsonRequest` | `Models/UsersJsonRequest.cs` |
-| `UsersJsonResponse` | `Models/UsersJsonResponse.cs` |
+| `CreateUserRequest` | `src/Discourse/Requests/Users/CreateUserRequest.cs` |
+| `UsersJsonRequest` | `src/Discourse/Models/UsersJsonRequest.cs` |
+| `UsersJsonResponse` | `src/Discourse/Models/UsersJsonResponse.cs` |
 
 ### DeactivateUser
 
@@ -106,8 +106,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `DeactivateUserRequest` | `Requests/Users/DeactivateUserRequest.cs` |
-| `AdminUsersDeactivateJsonResponse` | `Models/AdminUsersDeactivateJsonResponse.cs` |
+| `DeactivateUserRequest` | `src/Discourse/Requests/Users/DeactivateUserRequest.cs` |
+| `AdminUsersDeactivateJsonResponse` | `src/Discourse/Models/AdminUsersDeactivateJsonResponse.cs` |
 
 ### DeleteUser
 
@@ -118,9 +118,9 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `DeleteUserRequest` | `Requests/Users/DeleteUserRequest.cs` |
-| `AdminUsersJsonRequest` | `Models/AdminUsersJsonRequest.cs` |
-| `AdminUsersJsonResponse1` | `Models/AdminUsersJsonResponse1.cs` |
+| `DeleteUserRequest` | `src/Discourse/Requests/Users/DeleteUserRequest.cs` |
+| `AdminUsersJsonRequest` | `src/Discourse/Models/AdminUsersJsonRequest.cs` |
+| `AdminUsersJsonResponse1` | `src/Discourse/Models/AdminUsersJsonResponse1.cs` |
 
 ### GetUser
 
@@ -131,8 +131,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `GetUserRequest` | `Requests/Users/GetUserRequest.cs` |
-| `UJsonResponse` | `Models/UJsonResponse.cs` |
+| `GetUserRequest` | `src/Discourse/Requests/Users/GetUserRequest.cs` |
+| `UJsonResponse` | `src/Discourse/Models/UJsonResponse.cs` |
 
 ### GetUserEmails
 
@@ -143,8 +143,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `GetUserEmailsRequest` | `Requests/Users/GetUserEmailsRequest.cs` |
-| `UEmailsJsonResponse` | `Models/UEmailsJsonResponse.cs` |
+| `GetUserEmailsRequest` | `src/Discourse/Requests/Users/GetUserEmailsRequest.cs` |
+| `UEmailsJsonResponse` | `src/Discourse/Models/UEmailsJsonResponse.cs` |
 
 ### GetUserExternalId
 
@@ -155,8 +155,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `GetUserExternalIdRequest` | `Requests/Users/GetUserExternalIdRequest.cs` |
-| `UByExternalJsonResponse` | `Models/UByExternalJsonResponse.cs` |
+| `GetUserExternalIdRequest` | `src/Discourse/Requests/Users/GetUserExternalIdRequest.cs` |
+| `UByExternalJsonResponse` | `src/Discourse/Models/UByExternalJsonResponse.cs` |
 
 ### GetUserIdentiyProviderExternalId
 
@@ -167,8 +167,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `GetUserIdentiyProviderExternalIdRequest` | `Requests/Users/GetUserIdentiyProviderExternalIdRequest.cs` |
-| `UByExternalJsonResponse` | `Models/UByExternalJsonResponse.cs` |
+| `GetUserIdentiyProviderExternalIdRequest` | `src/Discourse/Requests/Users/GetUserIdentiyProviderExternalIdRequest.cs` |
+| `UByExternalJsonResponse` | `src/Discourse/Models/UByExternalJsonResponse.cs` |
 
 ### ListUserActions
 
@@ -180,8 +180,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `ListUserActionsRequest` | `Requests/Users/ListUserActionsRequest.cs` |
-| `UserActionsJsonResponse` | `Models/UserActionsJsonResponse.cs` |
+| `ListUserActionsRequest` | `src/Discourse/Requests/Users/ListUserActionsRequest.cs` |
+| `UserActionsJsonResponse` | `src/Discourse/Models/UserActionsJsonResponse.cs` |
 
 ### ListUserBadges
 
@@ -192,8 +192,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `ListUserBadgesRequest` | `Requests/Badges/ListUserBadgesRequest.cs` |
-| `UserBadgesJsonResponse` | `Models/UserBadgesJsonResponse.cs` |
+| `ListUserBadgesRequest` | `src/Discourse/Requests/Badges/ListUserBadgesRequest.cs` |
+| `UserBadgesJsonResponse` | `src/Discourse/Models/UserBadgesJsonResponse.cs` |
 
 ### ListUsersPublic
 
@@ -205,11 +205,11 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `ListUsersPublicRequest` | `Requests/Users/ListUsersPublicRequest.cs` |
-| `Period1` | `Models/Enums/Period1.cs` |
-| `Order2` | `Models/Enums/Order2.cs` |
-| `Asc` | `Models/Enums/Asc.cs` |
-| `DirectoryItemsJsonResponse` | `Models/DirectoryItemsJsonResponse.cs` |
+| `ListUsersPublicRequest` | `src/Discourse/Requests/Users/ListUsersPublicRequest.cs` |
+| `Period1` | `src/Discourse/Models/Enums/Period1.cs` |
+| `Order2` | `src/Discourse/Models/Enums/Order2.cs` |
+| `Asc` | `src/Discourse/Models/Enums/Asc.cs` |
+| `DirectoryItemsJsonResponse` | `src/Discourse/Models/DirectoryItemsJsonResponse.cs` |
 
 ### LogOutUser
 
@@ -220,8 +220,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `LogOutUserRequest` | `Requests/Users/LogOutUserRequest.cs` |
-| `AdminUsersLogOutJsonResponse` | `Models/AdminUsersLogOutJsonResponse.cs` |
+| `LogOutUserRequest` | `src/Discourse/Requests/Users/LogOutUserRequest.cs` |
+| `AdminUsersLogOutJsonResponse` | `src/Discourse/Models/AdminUsersLogOutJsonResponse.cs` |
 
 ### RefreshGravatar
 
@@ -232,8 +232,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `RefreshGravatarRequest` | `Requests/Users/RefreshGravatarRequest.cs` |
-| `UserAvatarRefreshGravatarJsonResponse` | `Models/UserAvatarRefreshGravatarJsonResponse.cs` |
+| `RefreshGravatarRequest` | `src/Discourse/Requests/Users/RefreshGravatarRequest.cs` |
+| `UserAvatarRefreshGravatarJsonResponse` | `src/Discourse/Models/UserAvatarRefreshGravatarJsonResponse.cs` |
 
 ### SendPasswordResetEmail
 
@@ -243,9 +243,9 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `SendPasswordResetEmailRequest` | `Requests/Users/SendPasswordResetEmailRequest.cs` |
-| `SessionForgotPasswordJsonRequest` | `Models/SessionForgotPasswordJsonRequest.cs` |
-| `SessionForgotPasswordJsonResponse` | `Models/SessionForgotPasswordJsonResponse.cs` |
+| `SendPasswordResetEmailRequest` | `src/Discourse/Requests/Users/SendPasswordResetEmailRequest.cs` |
+| `SessionForgotPasswordJsonRequest` | `src/Discourse/Models/SessionForgotPasswordJsonRequest.cs` |
+| `SessionForgotPasswordJsonResponse` | `src/Discourse/Models/SessionForgotPasswordJsonResponse.cs` |
 
 ### SilenceUser
 
@@ -256,9 +256,9 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `SilenceUserRequest` | `Requests/Users/SilenceUserRequest.cs` |
-| `AdminUsersSilenceJsonRequest` | `Models/AdminUsersSilenceJsonRequest.cs` |
-| `AdminUsersSilenceJsonResponse` | `Models/AdminUsersSilenceJsonResponse.cs` |
+| `SilenceUserRequest` | `src/Discourse/Requests/Users/SilenceUserRequest.cs` |
+| `AdminUsersSilenceJsonRequest` | `src/Discourse/Models/AdminUsersSilenceJsonRequest.cs` |
+| `AdminUsersSilenceJsonResponse` | `src/Discourse/Models/AdminUsersSilenceJsonResponse.cs` |
 
 ### SuspendUser
 
@@ -269,9 +269,9 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `SuspendUserRequest` | `Requests/Users/SuspendUserRequest.cs` |
-| `AdminUsersSuspendJsonRequest` | `Models/AdminUsersSuspendJsonRequest.cs` |
-| `AdminUsersSuspendJsonResponse` | `Models/AdminUsersSuspendJsonResponse.cs` |
+| `SuspendUserRequest` | `src/Discourse/Requests/Users/SuspendUserRequest.cs` |
+| `AdminUsersSuspendJsonRequest` | `src/Discourse/Models/AdminUsersSuspendJsonRequest.cs` |
+| `AdminUsersSuspendJsonResponse` | `src/Discourse/Models/AdminUsersSuspendJsonResponse.cs` |
 
 ### UpdateAvatar
 
@@ -282,9 +282,9 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateAvatarRequest` | `Requests/Users/UpdateAvatarRequest.cs` |
-| `UPreferencesAvatarPickJsonRequest` | `Models/UPreferencesAvatarPickJsonRequest.cs` |
-| `UPreferencesAvatarPickJsonResponse` | `Models/UPreferencesAvatarPickJsonResponse.cs` |
+| `UpdateAvatarRequest` | `src/Discourse/Requests/Users/UpdateAvatarRequest.cs` |
+| `UPreferencesAvatarPickJsonRequest` | `src/Discourse/Models/UPreferencesAvatarPickJsonRequest.cs` |
+| `UPreferencesAvatarPickJsonResponse` | `src/Discourse/Models/UPreferencesAvatarPickJsonResponse.cs` |
 
 ### UpdateEmail
 
@@ -295,8 +295,8 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateEmailRequest` | `Requests/Users/UpdateEmailRequest.cs` |
-| `UPreferencesEmailJsonRequest` | `Models/UPreferencesEmailJsonRequest.cs` |
+| `UpdateEmailRequest` | `src/Discourse/Requests/Users/UpdateEmailRequest.cs` |
+| `UPreferencesEmailJsonRequest` | `src/Discourse/Models/UPreferencesEmailJsonRequest.cs` |
 
 ### UpdateUser
 
@@ -307,9 +307,9 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateUserRequest` | `Requests/Users/UpdateUserRequest.cs` |
-| `UJsonRequest` | `Models/UJsonRequest.cs` |
-| `UJsonResponse1` | `Models/UJsonResponse1.cs` |
+| `UpdateUserRequest` | `src/Discourse/Requests/Users/UpdateUserRequest.cs` |
+| `UJsonRequest` | `src/Discourse/Models/UJsonRequest.cs` |
+| `UJsonResponse1` | `src/Discourse/Models/UJsonResponse1.cs` |
 
 ### UpdateUsername
 
@@ -320,6 +320,6 @@ Accessor: `client.Users` · Source: `Api/Users.cs` · 25 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateUsernameRequest` | `Requests/Users/UpdateUsernameRequest.cs` |
-| `UPreferencesUsernameJsonRequest` | `Models/UPreferencesUsernameJsonRequest.cs` |
+| `UpdateUsernameRequest` | `src/Discourse/Requests/Users/UpdateUsernameRequest.cs` |
+| `UPreferencesUsernameJsonRequest` | `src/Discourse/Models/UPreferencesUsernameJsonRequest.cs` |
 

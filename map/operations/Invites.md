@@ -2,7 +2,7 @@
 
 # Invites — operations
 
-Accessor: `client.Invites` · Source: `Api/Invites.cs` · 4 operations
+Accessor: `client.Invites` · Source: `src/Discourse/Api/Invites.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,9 +15,9 @@ Accessor: `client.Invites` · Source: `Api/Invites.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateInviteRequest` | `Requests/Invites/CreateInviteRequest.cs` |
-| `InvitesJsonRequest` | `Models/InvitesJsonRequest.cs` |
-| `InvitesJsonResponse` | `Models/InvitesJsonResponse.cs` |
+| `CreateInviteRequest` | `src/Discourse/Requests/Invites/CreateInviteRequest.cs` |
+| `InvitesJsonRequest` | `src/Discourse/Models/InvitesJsonRequest.cs` |
+| `InvitesJsonResponse` | `src/Discourse/Models/InvitesJsonResponse.cs` |
 
 ### CreateMultipleInvites
 
@@ -28,9 +28,9 @@ Accessor: `client.Invites` · Source: `Api/Invites.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateMultipleInvitesRequest` | `Requests/Invites/CreateMultipleInvitesRequest.cs` |
-| `InvitesCreateMultipleJsonRequest` | `Models/InvitesCreateMultipleJsonRequest.cs` |
-| `InvitesCreateMultipleJsonResponse` | `Models/InvitesCreateMultipleJsonResponse.cs` |
+| `CreateMultipleInvitesRequest` | `src/Discourse/Requests/Invites/CreateMultipleInvitesRequest.cs` |
+| `InvitesCreateMultipleJsonRequest` | `src/Discourse/Models/InvitesCreateMultipleJsonRequest.cs` |
+| `InvitesCreateMultipleJsonResponse` | `src/Discourse/Models/InvitesCreateMultipleJsonResponse.cs` |
 
 ### InviteGroupToTopic
 
@@ -41,9 +41,9 @@ Accessor: `client.Invites` · Source: `Api/Invites.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `InviteGroupToTopicRequest` | `Requests/Topics/InviteGroupToTopicRequest.cs` |
-| `TInviteGroupJsonRequest` | `Models/TInviteGroupJsonRequest.cs` |
-| `TInviteGroupJsonResponse` | `Models/TInviteGroupJsonResponse.cs` |
+| `InviteGroupToTopicRequest` | `src/Discourse/Requests/Topics/InviteGroupToTopicRequest.cs` |
+| `TInviteGroupJsonRequest` | `src/Discourse/Models/TInviteGroupJsonRequest.cs` |
+| `TInviteGroupJsonResponse` | `src/Discourse/Models/TInviteGroupJsonResponse.cs` |
 
 ### InviteToTopic
 
@@ -54,7 +54,7 @@ Accessor: `client.Invites` · Source: `Api/Invites.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `InviteToTopicRequest` | `Requests/Topics/InviteToTopicRequest.cs` |
-| `TInviteJsonRequest` | `Models/TInviteJsonRequest.cs` |
-| `TInviteJsonResponse` | `Models/TInviteJsonResponse.cs` |
+| `InviteToTopicRequest` | `src/Discourse/Requests/Topics/InviteToTopicRequest.cs` |
+| `TInviteJsonRequest` | `src/Discourse/Models/TInviteJsonRequest.cs` |
+| `TInviteJsonResponse` | `src/Discourse/Models/TInviteJsonResponse.cs` |
 

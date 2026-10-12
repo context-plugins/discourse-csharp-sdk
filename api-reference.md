@@ -2,11 +2,11 @@
 
 Every operation below is shown in its throwing form. On an error status it throws `ApiException<TError>` — the status code, headers, content type and the operation's error type, `RawError` (the raw body) when the spec declares none — and where an operation offers an `…AsResult` sibling, that sibling returns `ApiResult<TResponse, TError>` instead. A request that produces no usable response surfaces as `SdkConnectionException` or `SdkTimeoutException`, a body that does not match the documented response type as `ResponseDeserializationException`, and a credential that cannot be applied as `AuthSchemeException`; all of them derive from `SdkException` and name the failed call. See [README → Error Handling](README.md#error-handling).
 
-> Source: [DiscourseClient](DiscourseClient.cs)
+> Source: [DiscourseClient](src/Discourse/DiscourseClient.cs)
 
 ## Admin
 
-> Source: [Admin](Api/Admin.cs)
+> Source: [Admin](src/Discourse/Api/Admin.cs)
 
 <details>
 <summary><code>Task&lt;AdminUsersActivateJsonResponse&gt; ActivateUser(ActivateUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -39,7 +39,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ActivateUserRequest](Requests/Users/ActivateUserRequest.cs)</code>
+<code>[ActivateUserRequest](src/Discourse/Requests/Users/ActivateUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -49,9 +49,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersActivateJsonResponse](Models/AdminUsersActivateJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersActivateJsonResponse](src/Discourse/Models/AdminUsersActivateJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -92,7 +92,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AdminGetUserRequest](Requests/Users/AdminGetUserRequest.cs)</code>
+<code>[AdminGetUserRequest](src/Discourse/Requests/Users/AdminGetUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -102,9 +102,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersJsonResponse](Models/AdminUsersJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersJsonResponse](src/Discourse/Models/AdminUsersJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -145,7 +145,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AdminListUsersRequest](Requests/Users/AdminListUsersRequest.cs)</code>
+<code>[AdminListUsersRequest](src/Discourse/Requests/Users/AdminListUsersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -155,9 +155,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersJsonResponse2](Models/AdminUsersJsonResponse2.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersJsonResponse2](src/Discourse/Models/AdminUsersJsonResponse2.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -198,7 +198,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AdminListUsersFlagRequest](Requests/Users/AdminListUsersFlagRequest.cs)</code>
+<code>[AdminListUsersFlagRequest](src/Discourse/Requests/Users/AdminListUsersFlagRequest.cs)</code>
 
 </dd>
 </dl>
@@ -208,9 +208,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersListJsonResponse](Models/AdminUsersListJsonResponse.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersListJsonResponse](src/Discourse/Models/AdminUsersListJsonResponse.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -251,7 +251,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AnonymizeUserRequest](Requests/Users/AnonymizeUserRequest.cs)</code>
+<code>[AnonymizeUserRequest](src/Discourse/Requests/Users/AnonymizeUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -261,9 +261,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersAnonymizeJsonResponse](Models/AdminUsersAnonymizeJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersAnonymizeJsonResponse](src/Discourse/Models/AdminUsersAnonymizeJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -304,7 +304,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeactivateUserRequest](Requests/Users/DeactivateUserRequest.cs)</code>
+<code>[DeactivateUserRequest](src/Discourse/Requests/Users/DeactivateUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -314,9 +314,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersDeactivateJsonResponse](Models/AdminUsersDeactivateJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersDeactivateJsonResponse](src/Discourse/Models/AdminUsersDeactivateJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -357,7 +357,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeleteUserRequest](Requests/Users/DeleteUserRequest.cs)</code>
+<code>[DeleteUserRequest](src/Discourse/Requests/Users/DeleteUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -367,9 +367,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersJsonResponse1](Models/AdminUsersJsonResponse1.cs)</code>
+**OnSuccess**: <code>[AdminUsersJsonResponse1](src/Discourse/Models/AdminUsersJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -410,7 +410,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[LogOutUserRequest](Requests/Users/LogOutUserRequest.cs)</code>
+<code>[LogOutUserRequest](src/Discourse/Requests/Users/LogOutUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -420,9 +420,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersLogOutJsonResponse](Models/AdminUsersLogOutJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersLogOutJsonResponse](src/Discourse/Models/AdminUsersLogOutJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -463,7 +463,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RefreshGravatarRequest](Requests/Users/RefreshGravatarRequest.cs)</code>
+<code>[RefreshGravatarRequest](src/Discourse/Requests/Users/RefreshGravatarRequest.cs)</code>
 
 </dd>
 </dl>
@@ -473,9 +473,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UserAvatarRefreshGravatarJsonResponse](Models/UserAvatarRefreshGravatarJsonResponse.cs)</code>
+**OnSuccess**: <code>[UserAvatarRefreshGravatarJsonResponse](src/Discourse/Models/UserAvatarRefreshGravatarJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -516,7 +516,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SilenceUserRequest](Requests/Users/SilenceUserRequest.cs)</code>
+<code>[SilenceUserRequest](src/Discourse/Requests/Users/SilenceUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -526,9 +526,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersSilenceJsonResponse](Models/AdminUsersSilenceJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersSilenceJsonResponse](src/Discourse/Models/AdminUsersSilenceJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -569,7 +569,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SuspendUserRequest](Requests/Users/SuspendUserRequest.cs)</code>
+<code>[SuspendUserRequest](src/Discourse/Requests/Users/SuspendUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -579,9 +579,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersSuspendJsonResponse](Models/AdminUsersSuspendJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersSuspendJsonResponse](src/Discourse/Models/AdminUsersSuspendJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -593,7 +593,7 @@ catch (ApiException<RawError> ex)
 
 ## Backups
 
-> Source: [Backups](Api/Backups.cs)
+> Source: [Backups](src/Discourse/Api/Backups.cs)
 
 <details>
 <summary><code>Task&lt;AdminBackupsJsonResponse1&gt; CreateBackup(CreateBackupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -626,7 +626,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateBackupRequest](Requests/Backups/CreateBackupRequest.cs)</code>
+<code>[CreateBackupRequest](src/Discourse/Requests/Backups/CreateBackupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -636,9 +636,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminBackupsJsonResponse1](Models/AdminBackupsJsonResponse1.cs)</code>
+**OnSuccess**: <code>[AdminBackupsJsonResponse1](src/Discourse/Models/AdminBackupsJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -682,7 +682,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DownloadBackupRequest](Requests/Backups/DownloadBackupRequest.cs)</code>
+<code>[DownloadBackupRequest](src/Discourse/Requests/Backups/DownloadBackupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -694,7 +694,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -735,9 +735,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[AdminBackupsJsonResponse](Models/AdminBackupsJsonResponse.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[AdminBackupsJsonResponse](src/Discourse/Models/AdminBackupsJsonResponse.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -780,7 +780,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SendDownloadBackupEmailRequest](Requests/Backups/SendDownloadBackupEmailRequest.cs)</code>
+<code>[SendDownloadBackupEmailRequest](src/Discourse/Requests/Backups/SendDownloadBackupEmailRequest.cs)</code>
 
 </dd>
 </dl>
@@ -792,7 +792,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -804,7 +804,7 @@ catch (ApiException<RawError> ex)
 
 ## Badges
 
-> Source: [Badges](Api/Badges.cs)
+> Source: [Badges](src/Discourse/Api/Badges.cs)
 
 <details>
 <summary><code>Task&lt;AdminBadgesJsonResponse&gt; AdminListBadges(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -837,9 +837,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminBadgesJsonResponse](Models/AdminBadgesJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminBadgesJsonResponse](src/Discourse/Models/AdminBadgesJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -880,7 +880,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateBadgeRequest](Requests/Badges/CreateBadgeRequest.cs)</code>
+<code>[CreateBadgeRequest](src/Discourse/Requests/Badges/CreateBadgeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -890,9 +890,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminBadgesJsonResponse1](Models/AdminBadgesJsonResponse1.cs)</code>
+**OnSuccess**: <code>[AdminBadgesJsonResponse1](src/Discourse/Models/AdminBadgesJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -932,7 +932,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeleteBadgeRequest](Requests/Badges/DeleteBadgeRequest.cs)</code>
+<code>[DeleteBadgeRequest](src/Discourse/Requests/Badges/DeleteBadgeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -944,7 +944,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -985,7 +985,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListUserBadgesRequest](Requests/Badges/ListUserBadgesRequest.cs)</code>
+<code>[ListUserBadgesRequest](src/Discourse/Requests/Badges/ListUserBadgesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -995,9 +995,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UserBadgesJsonResponse](Models/UserBadgesJsonResponse.cs)</code>
+**OnSuccess**: <code>[UserBadgesJsonResponse](src/Discourse/Models/UserBadgesJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1038,7 +1038,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateBadgeRequest](Requests/Badges/UpdateBadgeRequest.cs)</code>
+<code>[UpdateBadgeRequest](src/Discourse/Requests/Badges/UpdateBadgeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1048,9 +1048,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminBadgesJsonResponse2](Models/AdminBadgesJsonResponse2.cs)</code>
+**OnSuccess**: <code>[AdminBadgesJsonResponse2](src/Discourse/Models/AdminBadgesJsonResponse2.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1062,7 +1062,7 @@ catch (ApiException<RawError> ex)
 
 ## Categories
 
-> Source: [Categories](Api/Categories.cs)
+> Source: [Categories](src/Discourse/Api/Categories.cs)
 
 <details>
 <summary><code>Task&lt;CategoriesJsonResponse&gt; CreateCategory(CreateCategoryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1095,7 +1095,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateCategoryRequest](Requests/Categories/CreateCategoryRequest.cs)</code>
+<code>[CreateCategoryRequest](src/Discourse/Requests/Categories/CreateCategoryRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1105,9 +1105,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CategoriesJsonResponse](Models/CategoriesJsonResponse.cs)</code>
+**OnSuccess**: <code>[CategoriesJsonResponse](src/Discourse/Models/CategoriesJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1148,7 +1148,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetCategoryRequest](Requests/Categories/GetCategoryRequest.cs)</code>
+<code>[GetCategoryRequest](src/Discourse/Requests/Categories/GetCategoryRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1158,9 +1158,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CShowJsonResponse](Models/CShowJsonResponse.cs)</code>
+**OnSuccess**: <code>[CShowJsonResponse](src/Discourse/Models/CShowJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1211,9 +1211,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[SiteJsonResponse](Models/SiteJsonResponse.cs)</code>
+**OnSuccess**: <code>[SiteJsonResponse](src/Discourse/Models/SiteJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1254,7 +1254,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCategoriesRequest](Requests/Categories/ListCategoriesRequest.cs)</code>
+<code>[ListCategoriesRequest](src/Discourse/Requests/Categories/ListCategoriesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1264,9 +1264,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CategoriesJsonResponse1](Models/CategoriesJsonResponse1.cs)</code>
+**OnSuccess**: <code>[CategoriesJsonResponse1](src/Discourse/Models/CategoriesJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1311,7 +1311,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCategoryTopicsRequest](Requests/Categories/ListCategoryTopicsRequest.cs)</code>
+<code>[ListCategoryTopicsRequest](src/Discourse/Requests/Categories/ListCategoryTopicsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1321,9 +1321,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CJsonResponse](Models/CJsonResponse.cs)</code>
+**OnSuccess**: <code>[CJsonResponse](src/Discourse/Models/CJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1364,7 +1364,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateCategoryRequest](Requests/Categories/UpdateCategoryRequest.cs)</code>
+<code>[UpdateCategoryRequest](src/Discourse/Requests/Categories/UpdateCategoryRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1374,9 +1374,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CategoriesJsonResponse2](Models/CategoriesJsonResponse2.cs)</code>
+**OnSuccess**: <code>[CategoriesJsonResponse2](src/Discourse/Models/CategoriesJsonResponse2.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1388,7 +1388,7 @@ catch (ApiException<RawError> ex)
 
 ## DiscourseCalendarEvents
 
-> Source: [DiscourseCalendarEvents](Api/DiscourseCalendarEvents.cs)
+> Source: [DiscourseCalendarEvents](src/Discourse/Api/DiscourseCalendarEvents.cs)
 
 <details>
 <summary><code>Task ExportEventsIcs(ExportEventsIcsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1420,7 +1420,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ExportEventsIcsRequest](Requests/DiscourseCalendarEvents/ExportEventsIcsRequest.cs)</code>
+<code>[ExportEventsIcsRequest](src/Discourse/Requests/DiscourseCalendarEvents/ExportEventsIcsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1432,7 +1432,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1473,7 +1473,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListEventsRequest](Requests/DiscourseCalendarEvents/ListEventsRequest.cs)</code>
+<code>[ListEventsRequest](src/Discourse/Requests/DiscourseCalendarEvents/ListEventsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1483,9 +1483,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DiscoursePostEventEventsJsonResponse](Models/DiscoursePostEventEventsJsonResponse.cs)</code>
+**OnSuccess**: <code>[DiscoursePostEventEventsJsonResponse](src/Discourse/Models/DiscoursePostEventEventsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1497,7 +1497,7 @@ catch (ApiException<RawError> ex)
 
 ## Groups
 
-> Source: [Groups](Api/Groups.cs)
+> Source: [Groups](src/Discourse/Api/Groups.cs)
 
 <details>
 <summary><code>Task&lt;GroupsMembersJsonResponse1&gt; AddGroupMembers(AddGroupMembersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1530,7 +1530,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AddGroupMembersRequest](Requests/Groups/AddGroupMembersRequest.cs)</code>
+<code>[AddGroupMembersRequest](src/Discourse/Requests/Groups/AddGroupMembersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1540,9 +1540,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GroupsMembersJsonResponse1](Models/GroupsMembersJsonResponse1.cs)</code>
+**OnSuccess**: <code>[GroupsMembersJsonResponse1](src/Discourse/Models/GroupsMembersJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1583,7 +1583,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateGroupRequest](Requests/Groups/CreateGroupRequest.cs)</code>
+<code>[CreateGroupRequest](src/Discourse/Requests/Groups/CreateGroupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1593,9 +1593,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminGroupsJsonResponse](Models/AdminGroupsJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminGroupsJsonResponse](src/Discourse/Models/AdminGroupsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1636,7 +1636,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeleteGroupRequest](Requests/Groups/DeleteGroupRequest.cs)</code>
+<code>[DeleteGroupRequest](src/Discourse/Requests/Groups/DeleteGroupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1646,9 +1646,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminGroupsJsonResponse1](Models/AdminGroupsJsonResponse1.cs)</code>
+**OnSuccess**: <code>[AdminGroupsJsonResponse1](src/Discourse/Models/AdminGroupsJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1689,7 +1689,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetGroupRequest](Requests/Groups/GetGroupRequest.cs)</code>
+<code>[GetGroupRequest](src/Discourse/Requests/Groups/GetGroupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1699,9 +1699,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GroupsJsonResponse](Models/GroupsJsonResponse.cs)</code>
+**OnSuccess**: <code>[GroupsJsonResponse](src/Discourse/Models/GroupsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1742,7 +1742,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetGroupByIdRequest](Requests/Groups/GetGroupByIdRequest.cs)</code>
+<code>[GetGroupByIdRequest](src/Discourse/Requests/Groups/GetGroupByIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1752,9 +1752,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GroupsByIdJsonResponse](Models/GroupsByIdJsonResponse.cs)</code>
+**OnSuccess**: <code>[GroupsByIdJsonResponse](src/Discourse/Models/GroupsByIdJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1795,7 +1795,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListGroupMembersRequest](Requests/Groups/ListGroupMembersRequest.cs)</code>
+<code>[ListGroupMembersRequest](src/Discourse/Requests/Groups/ListGroupMembersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1805,9 +1805,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GroupsMembersJsonResponse](Models/GroupsMembersJsonResponse.cs)</code>
+**OnSuccess**: <code>[GroupsMembersJsonResponse](src/Discourse/Models/GroupsMembersJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1848,9 +1848,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GroupsJsonResponse2](Models/GroupsJsonResponse2.cs)</code>
+**OnSuccess**: <code>[GroupsJsonResponse2](src/Discourse/Models/GroupsJsonResponse2.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1891,7 +1891,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RemoveGroupMembersRequest](Requests/Groups/RemoveGroupMembersRequest.cs)</code>
+<code>[RemoveGroupMembersRequest](src/Discourse/Requests/Groups/RemoveGroupMembersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1901,9 +1901,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GroupsMembersJsonResponse2](Models/GroupsMembersJsonResponse2.cs)</code>
+**OnSuccess**: <code>[GroupsMembersJsonResponse2](src/Discourse/Models/GroupsMembersJsonResponse2.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1944,7 +1944,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateGroupRequest](Requests/Groups/UpdateGroupRequest.cs)</code>
+<code>[UpdateGroupRequest](src/Discourse/Requests/Groups/UpdateGroupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1954,9 +1954,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GroupsJsonResponse1](Models/GroupsJsonResponse1.cs)</code>
+**OnSuccess**: <code>[GroupsJsonResponse1](src/Discourse/Models/GroupsJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1968,7 +1968,7 @@ catch (ApiException<RawError> ex)
 
 ## Invites
 
-> Source: [Invites](Api/Invites.cs)
+> Source: [Invites](src/Discourse/Api/Invites.cs)
 
 <details>
 <summary><code>Task&lt;InvitesJsonResponse&gt; CreateInvite(CreateInviteRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2005,7 +2005,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateInviteRequest](Requests/Invites/CreateInviteRequest.cs)</code>
+<code>[CreateInviteRequest](src/Discourse/Requests/Invites/CreateInviteRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2015,9 +2015,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[InvitesJsonResponse](Models/InvitesJsonResponse.cs)</code>
+**OnSuccess**: <code>[InvitesJsonResponse](src/Discourse/Models/InvitesJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2062,7 +2062,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateMultipleInvitesRequest](Requests/Invites/CreateMultipleInvitesRequest.cs)</code>
+<code>[CreateMultipleInvitesRequest](src/Discourse/Requests/Invites/CreateMultipleInvitesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2072,9 +2072,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[InvitesCreateMultipleJsonResponse](Models/InvitesCreateMultipleJsonResponse.cs)</code>
+**OnSuccess**: <code>[InvitesCreateMultipleJsonResponse](src/Discourse/Models/InvitesCreateMultipleJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2120,7 +2120,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[InviteGroupToTopicRequest](Requests/Topics/InviteGroupToTopicRequest.cs)</code>
+<code>[InviteGroupToTopicRequest](src/Discourse/Requests/Topics/InviteGroupToTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2130,9 +2130,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TInviteGroupJsonResponse](Models/TInviteGroupJsonResponse.cs)</code>
+**OnSuccess**: <code>[TInviteGroupJsonResponse](src/Discourse/Models/TInviteGroupJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2178,7 +2178,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[InviteToTopicRequest](Requests/Topics/InviteToTopicRequest.cs)</code>
+<code>[InviteToTopicRequest](src/Discourse/Requests/Topics/InviteToTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2188,9 +2188,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TInviteJsonResponse](Models/TInviteJsonResponse.cs)</code>
+**OnSuccess**: <code>[TInviteJsonResponse](src/Discourse/Models/TInviteJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2202,7 +2202,7 @@ catch (ApiException<RawError> ex)
 
 ## Notifications
 
-> Source: [Notifications](Api/Notifications.cs)
+> Source: [Notifications](src/Discourse/Api/Notifications.cs)
 
 <details>
 <summary><code>Task&lt;NotificationsJsonResponse&gt; GetNotifications(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2235,9 +2235,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[NotificationsJsonResponse](Models/NotificationsJsonResponse.cs)</code>
+**OnSuccess**: <code>[NotificationsJsonResponse](src/Discourse/Models/NotificationsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2278,7 +2278,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[MarkNotificationsAsReadRequest](Requests/Notifications/MarkNotificationsAsReadRequest.cs)</code>
+<code>[MarkNotificationsAsReadRequest](src/Discourse/Requests/Notifications/MarkNotificationsAsReadRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2288,9 +2288,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[NotificationsMarkReadJsonResponse](Models/NotificationsMarkReadJsonResponse.cs)</code>
+**OnSuccess**: <code>[NotificationsMarkReadJsonResponse](src/Discourse/Models/NotificationsMarkReadJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2302,7 +2302,7 @@ catch (ApiException<RawError> ex)
 
 ## Posts
 
-> Source: [Posts](Api/Posts.cs)
+> Source: [Posts](src/Discourse/Api/Posts.cs)
 
 <details>
 <summary><code>Task&lt;PostsJsonResponse1&gt; CreateTopicPostPm(CreateTopicPostPmRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2339,7 +2339,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateTopicPostPmRequest](Requests/Posts/CreateTopicPostPmRequest.cs)</code>
+<code>[CreateTopicPostPmRequest](src/Discourse/Requests/Posts/CreateTopicPostPmRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2349,9 +2349,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostsJsonResponse1](Models/PostsJsonResponse1.cs)</code>
+**OnSuccess**: <code>[PostsJsonResponse1](src/Discourse/Models/PostsJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2396,7 +2396,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeletePostRequest](Requests/Posts/DeletePostRequest.cs)</code>
+<code>[DeletePostRequest](src/Discourse/Requests/Posts/DeletePostRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2408,7 +2408,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2463,7 +2463,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetPostRequest](Requests/Posts/GetPostRequest.cs)</code>
+<code>[GetPostRequest](src/Discourse/Requests/Posts/GetPostRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2473,9 +2473,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostsJsonResponse2](Models/PostsJsonResponse2.cs)</code>
+**OnSuccess**: <code>[PostsJsonResponse2](src/Discourse/Models/PostsJsonResponse2.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2516,7 +2516,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListPostsRequest](Requests/Posts/ListPostsRequest.cs)</code>
+<code>[ListPostsRequest](src/Discourse/Requests/Posts/ListPostsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2526,9 +2526,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostsJsonResponse](Models/PostsJsonResponse.cs)</code>
+**OnSuccess**: <code>[PostsJsonResponse](src/Discourse/Models/PostsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2574,7 +2574,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[LockPostRequest](Requests/Posts/LockPostRequest.cs)</code>
+<code>[LockPostRequest](src/Discourse/Requests/Posts/LockPostRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2584,9 +2584,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostsLockedJsonResponse](Models/PostsLockedJsonResponse.cs)</code>
+**OnSuccess**: <code>[PostsLockedJsonResponse](src/Discourse/Models/PostsLockedJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2631,7 +2631,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PerformPostActionRequest](Requests/Posts/PerformPostActionRequest.cs)</code>
+<code>[PerformPostActionRequest](src/Discourse/Requests/Posts/PerformPostActionRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2641,9 +2641,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostActionsJsonResponse](Models/PostActionsJsonResponse.cs)</code>
+**OnSuccess**: <code>[PostActionsJsonResponse](src/Discourse/Models/PostActionsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2684,7 +2684,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PostRepliesRequest](Requests/Posts/PostRepliesRequest.cs)</code>
+<code>[PostRepliesRequest](src/Discourse/Requests/Posts/PostRepliesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2694,9 +2694,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[PostsRepliesJsonResponse](Models/PostsRepliesJsonResponse.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[PostsRepliesJsonResponse](src/Discourse/Models/PostsRepliesJsonResponse.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2742,7 +2742,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdatePostRequest](Requests/Posts/UpdatePostRequest.cs)</code>
+<code>[UpdatePostRequest](src/Discourse/Requests/Posts/UpdatePostRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2752,9 +2752,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostsJsonResponse3](Models/PostsJsonResponse3.cs)</code>
+**OnSuccess**: <code>[PostsJsonResponse3](src/Discourse/Models/PostsJsonResponse3.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2766,7 +2766,7 @@ catch (ApiException<RawError> ex)
 
 ## PrivateMessages
 
-> Source: [PrivateMessages](Api/PrivateMessages.cs)
+> Source: [PrivateMessages](src/Discourse/Api/PrivateMessages.cs)
 
 <details>
 <summary><code>Task&lt;PostsJsonResponse1&gt; CreateTopicPostPm(CreateTopicPostPmRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2803,7 +2803,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateTopicPostPmRequest](Requests/Posts/CreateTopicPostPmRequest.cs)</code>
+<code>[CreateTopicPostPmRequest](src/Discourse/Requests/Posts/CreateTopicPostPmRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2813,9 +2813,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostsJsonResponse1](Models/PostsJsonResponse1.cs)</code>
+**OnSuccess**: <code>[PostsJsonResponse1](src/Discourse/Models/PostsJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2859,7 +2859,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetUserSentPrivateMessagesRequest](Requests/PrivateMessages/GetUserSentPrivateMessagesRequest.cs)</code>
+<code>[GetUserSentPrivateMessagesRequest](src/Discourse/Requests/PrivateMessages/GetUserSentPrivateMessagesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2869,9 +2869,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TopicsPrivateMessagesSentJsonResponse](Models/TopicsPrivateMessagesSentJsonResponse.cs)</code>
+**OnSuccess**: <code>[TopicsPrivateMessagesSentJsonResponse](src/Discourse/Models/TopicsPrivateMessagesSentJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2915,7 +2915,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListUserPrivateMessagesRequest](Requests/PrivateMessages/ListUserPrivateMessagesRequest.cs)</code>
+<code>[ListUserPrivateMessagesRequest](src/Discourse/Requests/PrivateMessages/ListUserPrivateMessagesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2925,9 +2925,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TopicsPrivateMessagesJsonResponse](Models/TopicsPrivateMessagesJsonResponse.cs)</code>
+**OnSuccess**: <code>[TopicsPrivateMessagesJsonResponse](src/Discourse/Models/TopicsPrivateMessagesJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2939,7 +2939,7 @@ catch (ApiException<RawError> ex)
 
 ## Search
 
-> Source: [Search](Api/Search.cs)
+> Source: [Search](src/Discourse/Api/Search.cs)
 
 <details>
 <summary><code>Task&lt;SearchJsonResponse&gt; SearchInvoke(SearchRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2976,7 +2976,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SearchRequest](Requests/Search/SearchRequest.cs)</code>
+<code>[SearchRequest](src/Discourse/Requests/Search/SearchRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2986,9 +2986,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[SearchJsonResponse](Models/SearchJsonResponse.cs)</code>
+**OnSuccess**: <code>[SearchJsonResponse](src/Discourse/Models/SearchJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3000,7 +3000,7 @@ catch (ApiException<RawError> ex)
 
 ## Site
 
-> Source: [Site](Api/Site.cs)
+> Source: [Site](src/Discourse/Api/Site.cs)
 
 <details>
 <summary><code>Task&lt;SiteJsonResponse&gt; GetSite(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -3043,9 +3043,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[SiteJsonResponse](Models/SiteJsonResponse.cs)</code>
+**OnSuccess**: <code>[SiteJsonResponse](src/Discourse/Models/SiteJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3096,9 +3096,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[SiteBasicInfoJsonResponse](Models/SiteBasicInfoJsonResponse.cs)</code>
+**OnSuccess**: <code>[SiteBasicInfoJsonResponse](src/Discourse/Models/SiteBasicInfoJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3110,7 +3110,7 @@ catch (ApiException<RawError> ex)
 
 ## Tags
 
-> Source: [Tags](Api/Tags.cs)
+> Source: [Tags](src/Discourse/Api/Tags.cs)
 
 <details>
 <summary><code>Task&lt;TagGroupsJsonResponse1&gt; CreateTagGroup(CreateTagGroupRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -3143,7 +3143,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateTagGroupRequest](Requests/Tags/CreateTagGroupRequest.cs)</code>
+<code>[CreateTagGroupRequest](src/Discourse/Requests/Tags/CreateTagGroupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3153,9 +3153,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TagGroupsJsonResponse1](Models/TagGroupsJsonResponse1.cs)</code>
+**OnSuccess**: <code>[TagGroupsJsonResponse1](src/Discourse/Models/TagGroupsJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3196,7 +3196,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetTagRequest](Requests/Tags/GetTagRequest.cs)</code>
+<code>[GetTagRequest](src/Discourse/Requests/Tags/GetTagRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3206,9 +3206,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TagJsonResponse](Models/TagJsonResponse.cs)</code>
+**OnSuccess**: <code>[TagJsonResponse](src/Discourse/Models/TagJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3249,7 +3249,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetTagGroupRequest](Requests/Tags/GetTagGroupRequest.cs)</code>
+<code>[GetTagGroupRequest](src/Discourse/Requests/Tags/GetTagGroupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3259,9 +3259,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TagGroupsJsonResponse2](Models/TagGroupsJsonResponse2.cs)</code>
+**OnSuccess**: <code>[TagGroupsJsonResponse2](src/Discourse/Models/TagGroupsJsonResponse2.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3302,9 +3302,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TagGroupsJsonResponse](Models/TagGroupsJsonResponse.cs)</code>
+**OnSuccess**: <code>[TagGroupsJsonResponse](src/Discourse/Models/TagGroupsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3345,9 +3345,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TagsJsonResponse](Models/TagsJsonResponse.cs)</code>
+**OnSuccess**: <code>[TagsJsonResponse](src/Discourse/Models/TagsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3388,7 +3388,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateTagGroupRequest](Requests/Tags/UpdateTagGroupRequest.cs)</code>
+<code>[UpdateTagGroupRequest](src/Discourse/Requests/Tags/UpdateTagGroupRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3398,9 +3398,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TagGroupsJsonResponse3](Models/TagGroupsJsonResponse3.cs)</code>
+**OnSuccess**: <code>[TagGroupsJsonResponse3](src/Discourse/Models/TagGroupsJsonResponse3.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3412,7 +3412,7 @@ catch (ApiException<RawError> ex)
 
 ## Topics
 
-> Source: [Topics](Api/Topics.cs)
+> Source: [Topics](src/Discourse/Api/Topics.cs)
 
 <details>
 <summary><code>Task BookmarkTopic(BookmarkTopicRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -3449,7 +3449,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[BookmarkTopicRequest](Requests/Topics/BookmarkTopicRequest.cs)</code>
+<code>[BookmarkTopicRequest](src/Discourse/Requests/Topics/BookmarkTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3461,7 +3461,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3506,7 +3506,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateTopicPostPmRequest](Requests/Posts/CreateTopicPostPmRequest.cs)</code>
+<code>[CreateTopicPostPmRequest](src/Discourse/Requests/Posts/CreateTopicPostPmRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3516,9 +3516,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PostsJsonResponse1](Models/PostsJsonResponse1.cs)</code>
+**OnSuccess**: <code>[PostsJsonResponse1](src/Discourse/Models/PostsJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3564,7 +3564,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateTopicTimerRequest](Requests/Topics/CreateTopicTimerRequest.cs)</code>
+<code>[CreateTopicTimerRequest](src/Discourse/Requests/Topics/CreateTopicTimerRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3574,9 +3574,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TTimerJsonResponse](Models/TTimerJsonResponse.cs)</code>
+**OnSuccess**: <code>[TTimerJsonResponse](src/Discourse/Models/TTimerJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3622,7 +3622,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetSpecificPostsFromTopicRequest](Requests/Topics/GetSpecificPostsFromTopicRequest.cs)</code>
+<code>[GetSpecificPostsFromTopicRequest](src/Discourse/Requests/Topics/GetSpecificPostsFromTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3632,9 +3632,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TPostsJsonResponse](Models/TPostsJsonResponse.cs)</code>
+**OnSuccess**: <code>[TPostsJsonResponse](src/Discourse/Models/TPostsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3680,7 +3680,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetTopicRequest](Requests/Topics/GetTopicRequest.cs)</code>
+<code>[GetTopicRequest](src/Discourse/Requests/Topics/GetTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3690,9 +3690,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TJsonResponse](Models/TJsonResponse.cs)</code>
+**OnSuccess**: <code>[TJsonResponse](src/Discourse/Models/TJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3732,7 +3732,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetTopicByExternalIdRequest](Requests/Topics/GetTopicByExternalIdRequest.cs)</code>
+<code>[GetTopicByExternalIdRequest](src/Discourse/Requests/Topics/GetTopicByExternalIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3744,7 +3744,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3790,7 +3790,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[InviteGroupToTopicRequest](Requests/Topics/InviteGroupToTopicRequest.cs)</code>
+<code>[InviteGroupToTopicRequest](src/Discourse/Requests/Topics/InviteGroupToTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3800,9 +3800,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TInviteGroupJsonResponse](Models/TInviteGroupJsonResponse.cs)</code>
+**OnSuccess**: <code>[TInviteGroupJsonResponse](src/Discourse/Models/TInviteGroupJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3848,7 +3848,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[InviteToTopicRequest](Requests/Topics/InviteToTopicRequest.cs)</code>
+<code>[InviteToTopicRequest](src/Discourse/Requests/Topics/InviteToTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3858,9 +3858,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TInviteJsonResponse](Models/TInviteJsonResponse.cs)</code>
+**OnSuccess**: <code>[TInviteJsonResponse](src/Discourse/Models/TInviteJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3905,7 +3905,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListLatestTopicsRequest](Requests/Topics/ListLatestTopicsRequest.cs)</code>
+<code>[ListLatestTopicsRequest](src/Discourse/Requests/Topics/ListLatestTopicsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3915,9 +3915,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[LatestJsonResponse](Models/LatestJsonResponse.cs)</code>
+**OnSuccess**: <code>[LatestJsonResponse](src/Discourse/Models/LatestJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3962,7 +3962,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListTopTopicsRequest](Requests/Topics/ListTopTopicsRequest.cs)</code>
+<code>[ListTopTopicsRequest](src/Discourse/Requests/Topics/ListTopTopicsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3972,9 +3972,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TopJsonResponse](Models/TopJsonResponse.cs)</code>
+**OnSuccess**: <code>[TopJsonResponse](src/Discourse/Models/TopJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4019,7 +4019,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RemoveTopicRequest](Requests/Topics/RemoveTopicRequest.cs)</code>
+<code>[RemoveTopicRequest](src/Discourse/Requests/Topics/RemoveTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4031,7 +4031,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4077,7 +4077,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SetNotificationLevelRequest](Requests/Topics/SetNotificationLevelRequest.cs)</code>
+<code>[SetNotificationLevelRequest](src/Discourse/Requests/Topics/SetNotificationLevelRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4087,9 +4087,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TNotificationsJsonResponse](Models/TNotificationsJsonResponse.cs)</code>
+**OnSuccess**: <code>[TNotificationsJsonResponse](src/Discourse/Models/TNotificationsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4135,7 +4135,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateTopicRequest](Requests/Topics/UpdateTopicRequest.cs)</code>
+<code>[UpdateTopicRequest](src/Discourse/Requests/Topics/UpdateTopicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4145,9 +4145,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TJsonResponse1](Models/TJsonResponse1.cs)</code>
+**OnSuccess**: <code>[TJsonResponse1](src/Discourse/Models/TJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4193,7 +4193,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateTopicStatusRequest](Requests/Topics/UpdateTopicStatusRequest.cs)</code>
+<code>[UpdateTopicStatusRequest](src/Discourse/Requests/Topics/UpdateTopicStatusRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4203,9 +4203,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TStatusJsonResponse](Models/TStatusJsonResponse.cs)</code>
+**OnSuccess**: <code>[TStatusJsonResponse](src/Discourse/Models/TStatusJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4251,7 +4251,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateTopicTimestampRequest](Requests/Topics/UpdateTopicTimestampRequest.cs)</code>
+<code>[UpdateTopicTimestampRequest](src/Discourse/Requests/Topics/UpdateTopicTimestampRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4261,9 +4261,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TChangeTimestampJsonResponse](Models/TChangeTimestampJsonResponse.cs)</code>
+**OnSuccess**: <code>[TChangeTimestampJsonResponse](src/Discourse/Models/TChangeTimestampJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4275,7 +4275,7 @@ catch (ApiException<RawError> ex)
 
 ## Uploads
 
-> Source: [Uploads](Api/Uploads.cs)
+> Source: [Uploads](src/Discourse/Api/Uploads.cs)
 
 <details>
 <summary><code>Task&lt;UploadsAbortMultipartJsonResponse&gt; AbortMultipart(AbortMultipartRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -4328,7 +4328,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AbortMultipartRequest](Requests/Uploads/AbortMultipartRequest.cs)</code>
+<code>[AbortMultipartRequest](src/Discourse/Requests/Uploads/AbortMultipartRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4338,9 +4338,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UploadsAbortMultipartJsonResponse](Models/UploadsAbortMultipartJsonResponse.cs)</code>
+**OnSuccess**: <code>[UploadsAbortMultipartJsonResponse](src/Discourse/Models/UploadsAbortMultipartJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4410,7 +4410,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[BatchPresignMultipartPartsRequest](Requests/Uploads/BatchPresignMultipartPartsRequest.cs)</code>
+<code>[BatchPresignMultipartPartsRequest](src/Discourse/Requests/Uploads/BatchPresignMultipartPartsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4420,9 +4420,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UploadsBatchPresignMultipartPartsJsonResponse](Models/UploadsBatchPresignMultipartPartsJsonResponse.cs)</code>
+**OnSuccess**: <code>[UploadsBatchPresignMultipartPartsJsonResponse](src/Discourse/Models/UploadsBatchPresignMultipartPartsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4488,7 +4488,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CompleteExternalUploadRequest](Requests/Uploads/CompleteExternalUploadRequest.cs)</code>
+<code>[CompleteExternalUploadRequest](src/Discourse/Requests/Uploads/CompleteExternalUploadRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4498,9 +4498,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UploadsCompleteExternalUploadJsonResponse](Models/UploadsCompleteExternalUploadJsonResponse.cs)</code>
+**OnSuccess**: <code>[UploadsCompleteExternalUploadJsonResponse](src/Discourse/Models/UploadsCompleteExternalUploadJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4563,7 +4563,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CompleteMultipartRequest](Requests/Uploads/CompleteMultipartRequest.cs)</code>
+<code>[CompleteMultipartRequest](src/Discourse/Requests/Uploads/CompleteMultipartRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4573,9 +4573,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UploadsCompleteMultipartJsonResponse](Models/UploadsCompleteMultipartJsonResponse.cs)</code>
+**OnSuccess**: <code>[UploadsCompleteMultipartJsonResponse](src/Discourse/Models/UploadsCompleteMultipartJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4635,7 +4635,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateMultipartUploadRequest](Requests/Uploads/CreateMultipartUploadRequest.cs)</code>
+<code>[CreateMultipartUploadRequest](src/Discourse/Requests/Uploads/CreateMultipartUploadRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4645,9 +4645,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UploadsCreateMultipartJsonResponse](Models/UploadsCreateMultipartJsonResponse.cs)</code>
+**OnSuccess**: <code>[UploadsCreateMultipartJsonResponse](src/Discourse/Models/UploadsCreateMultipartJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4688,7 +4688,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateUploadRequest](Requests/Uploads/CreateUploadRequest.cs)</code>
+<code>[CreateUploadRequest](src/Discourse/Requests/Uploads/CreateUploadRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4698,9 +4698,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UploadsJsonResponse](Models/UploadsJsonResponse.cs)</code>
+**OnSuccess**: <code>[UploadsJsonResponse](src/Discourse/Models/UploadsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4769,7 +4769,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GeneratePresignedPutRequest](Requests/Uploads/GeneratePresignedPutRequest.cs)</code>
+<code>[GeneratePresignedPutRequest](src/Discourse/Requests/Uploads/GeneratePresignedPutRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4779,9 +4779,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UploadsGeneratePresignedPutJsonResponse](Models/UploadsGeneratePresignedPutJsonResponse.cs)</code>
+**OnSuccess**: <code>[UploadsGeneratePresignedPutJsonResponse](src/Discourse/Models/UploadsGeneratePresignedPutJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4793,7 +4793,7 @@ catch (ApiException<RawError> ex)
 
 ## Users
 
-> Source: [Users](Api/Users.cs)
+> Source: [Users](src/Discourse/Api/Users.cs)
 
 <details>
 <summary><code>Task&lt;AdminUsersActivateJsonResponse&gt; ActivateUser(ActivateUserRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -4826,7 +4826,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ActivateUserRequest](Requests/Users/ActivateUserRequest.cs)</code>
+<code>[ActivateUserRequest](src/Discourse/Requests/Users/ActivateUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4836,9 +4836,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersActivateJsonResponse](Models/AdminUsersActivateJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersActivateJsonResponse](src/Discourse/Models/AdminUsersActivateJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4879,7 +4879,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AdminGetUserRequest](Requests/Users/AdminGetUserRequest.cs)</code>
+<code>[AdminGetUserRequest](src/Discourse/Requests/Users/AdminGetUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4889,9 +4889,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersJsonResponse](Models/AdminUsersJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersJsonResponse](src/Discourse/Models/AdminUsersJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4932,7 +4932,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AdminListUsersRequest](Requests/Users/AdminListUsersRequest.cs)</code>
+<code>[AdminListUsersRequest](src/Discourse/Requests/Users/AdminListUsersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4942,9 +4942,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersJsonResponse2](Models/AdminUsersJsonResponse2.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersJsonResponse2](src/Discourse/Models/AdminUsersJsonResponse2.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -4985,7 +4985,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AdminListUsersFlagRequest](Requests/Users/AdminListUsersFlagRequest.cs)</code>
+<code>[AdminListUsersFlagRequest](src/Discourse/Requests/Users/AdminListUsersFlagRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4995,9 +4995,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersListJsonResponse](Models/AdminUsersListJsonResponse.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[AdminUsersListJsonResponse](src/Discourse/Models/AdminUsersListJsonResponse.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5038,7 +5038,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AnonymizeUserRequest](Requests/Users/AnonymizeUserRequest.cs)</code>
+<code>[AnonymizeUserRequest](src/Discourse/Requests/Users/AnonymizeUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5048,9 +5048,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersAnonymizeJsonResponse](Models/AdminUsersAnonymizeJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersAnonymizeJsonResponse](src/Discourse/Models/AdminUsersAnonymizeJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5090,7 +5090,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ChangePasswordRequest](Requests/Users/ChangePasswordRequest.cs)</code>
+<code>[ChangePasswordRequest](src/Discourse/Requests/Users/ChangePasswordRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5102,7 +5102,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5147,7 +5147,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CreateUserRequest](Requests/Users/CreateUserRequest.cs)</code>
+<code>[CreateUserRequest](src/Discourse/Requests/Users/CreateUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5157,9 +5157,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UsersJsonResponse](Models/UsersJsonResponse.cs)</code>
+**OnSuccess**: <code>[UsersJsonResponse](src/Discourse/Models/UsersJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5200,7 +5200,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeactivateUserRequest](Requests/Users/DeactivateUserRequest.cs)</code>
+<code>[DeactivateUserRequest](src/Discourse/Requests/Users/DeactivateUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5210,9 +5210,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersDeactivateJsonResponse](Models/AdminUsersDeactivateJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersDeactivateJsonResponse](src/Discourse/Models/AdminUsersDeactivateJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5253,7 +5253,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeleteUserRequest](Requests/Users/DeleteUserRequest.cs)</code>
+<code>[DeleteUserRequest](src/Discourse/Requests/Users/DeleteUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5263,9 +5263,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersJsonResponse1](Models/AdminUsersJsonResponse1.cs)</code>
+**OnSuccess**: <code>[AdminUsersJsonResponse1](src/Discourse/Models/AdminUsersJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5311,7 +5311,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetUserRequest](Requests/Users/GetUserRequest.cs)</code>
+<code>[GetUserRequest](src/Discourse/Requests/Users/GetUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5321,9 +5321,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UJsonResponse](Models/UJsonResponse.cs)</code>
+**OnSuccess**: <code>[UJsonResponse](src/Discourse/Models/UJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5364,7 +5364,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetUserEmailsRequest](Requests/Users/GetUserEmailsRequest.cs)</code>
+<code>[GetUserEmailsRequest](src/Discourse/Requests/Users/GetUserEmailsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5374,9 +5374,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UEmailsJsonResponse](Models/UEmailsJsonResponse.cs)</code>
+**OnSuccess**: <code>[UEmailsJsonResponse](src/Discourse/Models/UEmailsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5422,7 +5422,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetUserExternalIdRequest](Requests/Users/GetUserExternalIdRequest.cs)</code>
+<code>[GetUserExternalIdRequest](src/Discourse/Requests/Users/GetUserExternalIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5432,9 +5432,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UByExternalJsonResponse](Models/UByExternalJsonResponse.cs)</code>
+**OnSuccess**: <code>[UByExternalJsonResponse](src/Discourse/Models/UByExternalJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5481,7 +5481,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[GetUserIdentiyProviderExternalIdRequest](Requests/Users/GetUserIdentiyProviderExternalIdRequest.cs)</code>
+<code>[GetUserIdentiyProviderExternalIdRequest](src/Discourse/Requests/Users/GetUserIdentiyProviderExternalIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5491,9 +5491,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UByExternalJsonResponse](Models/UByExternalJsonResponse.cs)</code>
+**OnSuccess**: <code>[UByExternalJsonResponse](src/Discourse/Models/UByExternalJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5539,7 +5539,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListUserActionsRequest](Requests/Users/ListUserActionsRequest.cs)</code>
+<code>[ListUserActionsRequest](src/Discourse/Requests/Users/ListUserActionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5549,9 +5549,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UserActionsJsonResponse](Models/UserActionsJsonResponse.cs)</code>
+**OnSuccess**: <code>[UserActionsJsonResponse](src/Discourse/Models/UserActionsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5592,7 +5592,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListUserBadgesRequest](Requests/Badges/ListUserBadgesRequest.cs)</code>
+<code>[ListUserBadgesRequest](src/Discourse/Requests/Badges/ListUserBadgesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5602,9 +5602,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UserBadgesJsonResponse](Models/UserBadgesJsonResponse.cs)</code>
+**OnSuccess**: <code>[UserBadgesJsonResponse](src/Discourse/Models/UserBadgesJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5649,7 +5649,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListUsersPublicRequest](Requests/Users/ListUsersPublicRequest.cs)</code>
+<code>[ListUsersPublicRequest](src/Discourse/Requests/Users/ListUsersPublicRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5659,9 +5659,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DirectoryItemsJsonResponse](Models/DirectoryItemsJsonResponse.cs)</code>
+**OnSuccess**: <code>[DirectoryItemsJsonResponse](src/Discourse/Models/DirectoryItemsJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5702,7 +5702,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[LogOutUserRequest](Requests/Users/LogOutUserRequest.cs)</code>
+<code>[LogOutUserRequest](src/Discourse/Requests/Users/LogOutUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5712,9 +5712,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersLogOutJsonResponse](Models/AdminUsersLogOutJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersLogOutJsonResponse](src/Discourse/Models/AdminUsersLogOutJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5755,7 +5755,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RefreshGravatarRequest](Requests/Users/RefreshGravatarRequest.cs)</code>
+<code>[RefreshGravatarRequest](src/Discourse/Requests/Users/RefreshGravatarRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5765,9 +5765,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UserAvatarRefreshGravatarJsonResponse](Models/UserAvatarRefreshGravatarJsonResponse.cs)</code>
+**OnSuccess**: <code>[UserAvatarRefreshGravatarJsonResponse](src/Discourse/Models/UserAvatarRefreshGravatarJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5808,7 +5808,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SendPasswordResetEmailRequest](Requests/Users/SendPasswordResetEmailRequest.cs)</code>
+<code>[SendPasswordResetEmailRequest](src/Discourse/Requests/Users/SendPasswordResetEmailRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5818,9 +5818,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[SessionForgotPasswordJsonResponse](Models/SessionForgotPasswordJsonResponse.cs)</code>
+**OnSuccess**: <code>[SessionForgotPasswordJsonResponse](src/Discourse/Models/SessionForgotPasswordJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5861,7 +5861,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SilenceUserRequest](Requests/Users/SilenceUserRequest.cs)</code>
+<code>[SilenceUserRequest](src/Discourse/Requests/Users/SilenceUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5871,9 +5871,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersSilenceJsonResponse](Models/AdminUsersSilenceJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersSilenceJsonResponse](src/Discourse/Models/AdminUsersSilenceJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5914,7 +5914,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SuspendUserRequest](Requests/Users/SuspendUserRequest.cs)</code>
+<code>[SuspendUserRequest](src/Discourse/Requests/Users/SuspendUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5924,9 +5924,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AdminUsersSuspendJsonResponse](Models/AdminUsersSuspendJsonResponse.cs)</code>
+**OnSuccess**: <code>[AdminUsersSuspendJsonResponse](src/Discourse/Models/AdminUsersSuspendJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -5967,7 +5967,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateAvatarRequest](Requests/Users/UpdateAvatarRequest.cs)</code>
+<code>[UpdateAvatarRequest](src/Discourse/Requests/Users/UpdateAvatarRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5977,9 +5977,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UPreferencesAvatarPickJsonResponse](Models/UPreferencesAvatarPickJsonResponse.cs)</code>
+**OnSuccess**: <code>[UPreferencesAvatarPickJsonResponse](src/Discourse/Models/UPreferencesAvatarPickJsonResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -6019,7 +6019,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateEmailRequest](Requests/Users/UpdateEmailRequest.cs)</code>
+<code>[UpdateEmailRequest](src/Discourse/Requests/Users/UpdateEmailRequest.cs)</code>
 
 </dd>
 </dl>
@@ -6031,7 +6031,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -6077,7 +6077,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateUserRequest](Requests/Users/UpdateUserRequest.cs)</code>
+<code>[UpdateUserRequest](src/Discourse/Requests/Users/UpdateUserRequest.cs)</code>
 
 </dd>
 </dl>
@@ -6087,9 +6087,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UJsonResponse1](Models/UJsonResponse1.cs)</code>
+**OnSuccess**: <code>[UJsonResponse1](src/Discourse/Models/UJsonResponse1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -6129,7 +6129,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[UpdateUsernameRequest](Requests/Users/UpdateUsernameRequest.cs)</code>
+<code>[UpdateUsernameRequest](src/Discourse/Requests/Users/UpdateUsernameRequest.cs)</code>
 
 </dd>
 </dl>
@@ -6141,7 +6141,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Discourse/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Discourse/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>

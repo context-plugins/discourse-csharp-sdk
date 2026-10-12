@@ -2,7 +2,7 @@
 
 # Groups — operations
 
-Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
+Accessor: `client.Groups` · Source: `src/Discourse/Api/Groups.cs` · 9 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,9 +15,9 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `AddGroupMembersRequest` | `Requests/Groups/AddGroupMembersRequest.cs` |
-| `GroupsMembersJsonRequest` | `Models/GroupsMembersJsonRequest.cs` |
-| `GroupsMembersJsonResponse1` | `Models/GroupsMembersJsonResponse1.cs` |
+| `AddGroupMembersRequest` | `src/Discourse/Requests/Groups/AddGroupMembersRequest.cs` |
+| `GroupsMembersJsonRequest` | `src/Discourse/Models/GroupsMembersJsonRequest.cs` |
+| `GroupsMembersJsonResponse1` | `src/Discourse/Models/GroupsMembersJsonResponse1.cs` |
 
 ### CreateGroup
 
@@ -27,9 +27,9 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `CreateGroupRequest` | `Requests/Groups/CreateGroupRequest.cs` |
-| `AdminGroupsJsonRequest` | `Models/AdminGroupsJsonRequest.cs` |
-| `AdminGroupsJsonResponse` | `Models/AdminGroupsJsonResponse.cs` |
+| `CreateGroupRequest` | `src/Discourse/Requests/Groups/CreateGroupRequest.cs` |
+| `AdminGroupsJsonRequest` | `src/Discourse/Models/AdminGroupsJsonRequest.cs` |
+| `AdminGroupsJsonResponse` | `src/Discourse/Models/AdminGroupsJsonResponse.cs` |
 
 ### DeleteGroup
 
@@ -40,8 +40,8 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `DeleteGroupRequest` | `Requests/Groups/DeleteGroupRequest.cs` |
-| `AdminGroupsJsonResponse1` | `Models/AdminGroupsJsonResponse1.cs` |
+| `DeleteGroupRequest` | `src/Discourse/Requests/Groups/DeleteGroupRequest.cs` |
+| `AdminGroupsJsonResponse1` | `src/Discourse/Models/AdminGroupsJsonResponse1.cs` |
 
 ### GetGroup
 
@@ -52,8 +52,8 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `GetGroupRequest` | `Requests/Groups/GetGroupRequest.cs` |
-| `GroupsJsonResponse` | `Models/GroupsJsonResponse.cs` |
+| `GetGroupRequest` | `src/Discourse/Requests/Groups/GetGroupRequest.cs` |
+| `GroupsJsonResponse` | `src/Discourse/Models/GroupsJsonResponse.cs` |
 
 ### GetGroupById
 
@@ -64,8 +64,8 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `GetGroupByIdRequest` | `Requests/Groups/GetGroupByIdRequest.cs` |
-| `GroupsByIdJsonResponse` | `Models/GroupsByIdJsonResponse.cs` |
+| `GetGroupByIdRequest` | `src/Discourse/Requests/Groups/GetGroupByIdRequest.cs` |
+| `GroupsByIdJsonResponse` | `src/Discourse/Models/GroupsByIdJsonResponse.cs` |
 
 ### ListGroupMembers
 
@@ -76,8 +76,8 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `ListGroupMembersRequest` | `Requests/Groups/ListGroupMembersRequest.cs` |
-| `GroupsMembersJsonResponse` | `Models/GroupsMembersJsonResponse.cs` |
+| `ListGroupMembersRequest` | `src/Discourse/Requests/Groups/ListGroupMembersRequest.cs` |
+| `GroupsMembersJsonResponse` | `src/Discourse/Models/GroupsMembersJsonResponse.cs` |
 
 ### ListGroups
 
@@ -87,7 +87,7 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `GroupsJsonResponse2` | `Models/GroupsJsonResponse2.cs` |
+| `GroupsJsonResponse2` | `src/Discourse/Models/GroupsJsonResponse2.cs` |
 
 ### RemoveGroupMembers
 
@@ -98,9 +98,9 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `RemoveGroupMembersRequest` | `Requests/Groups/RemoveGroupMembersRequest.cs` |
-| `GroupsMembersJsonRequest` | `Models/GroupsMembersJsonRequest.cs` |
-| `GroupsMembersJsonResponse2` | `Models/GroupsMembersJsonResponse2.cs` |
+| `RemoveGroupMembersRequest` | `src/Discourse/Requests/Groups/RemoveGroupMembersRequest.cs` |
+| `GroupsMembersJsonRequest` | `src/Discourse/Models/GroupsMembersJsonRequest.cs` |
+| `GroupsMembersJsonResponse2` | `src/Discourse/Models/GroupsMembersJsonResponse2.cs` |
 
 ### UpdateGroup
 
@@ -111,7 +111,7 @@ Accessor: `client.Groups` · Source: `Api/Groups.cs` · 9 operations
 
 | Type | Source |
 | --- | --- |
-| `UpdateGroupRequest` | `Requests/Groups/UpdateGroupRequest.cs` |
-| `GroupsJsonRequest` | `Models/GroupsJsonRequest.cs` |
-| `GroupsJsonResponse1` | `Models/GroupsJsonResponse1.cs` |
+| `UpdateGroupRequest` | `src/Discourse/Requests/Groups/UpdateGroupRequest.cs` |
+| `GroupsJsonRequest` | `src/Discourse/Models/GroupsJsonRequest.cs` |
+| `GroupsJsonResponse1` | `src/Discourse/Models/GroupsJsonResponse1.cs` |
 
